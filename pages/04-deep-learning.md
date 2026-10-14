@@ -3,7 +3,7 @@
 - neural network with more than two hidden layers
 
 
-![ddd](./dnn.png)
+![ddd](./person.jpg)
 
 
 ## 마크다운 작성 팁
