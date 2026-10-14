@@ -3,7 +3,7 @@
 - neural network with more than two hidden layers
 
 
-![dnn](../assets/dnn.png)
+![dnn](../assets/dnn-hiddenlayers.webp)
 
 
 ## 마크다운 작성 팁
