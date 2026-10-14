@@ -1,4 +1,4 @@
-# 04. Deep Learning
+# 4-1. Deep Learning
 
 첫 번째 페이지입니다. 이 파일을 수정하여 내용을 작성하세요.
 
