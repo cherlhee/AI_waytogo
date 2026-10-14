@@ -1,14 +1,14 @@
 
 ## HOW to use perceptron to oil temperature
 
-Perceptron for oil temperature prediction
+Algorithm for oil temperature prediction
+- Confidence Factor of Rule-base
+- Fuzzy of Rule-base
+- Single Perceptron
+- Random Forest
+- Multi-Layer Perceptron (MLP)
+- LSTM
 
-- Load percentage (%)
-- U, V, W phase currents (A)
-- Voltage (V)
-- Active power (kW)
-- Current oil temperature (°C)
-- Temperature change over the previous 5 minutes
 
 
 ### 1. Single-neuron model for compressor oil temperature prediction
@@ -19,14 +19,6 @@ $$
 \hat T=w_1x_1+w_2x_2+\cdots+w_nx_n+b
 $$
  
-For continuous temperature prediction, use a linear output neuron rather than a step activation function.
-
-- Single Perceptron
-- Random Forest
-- Multi-Layer Perceptron (MLP)
-- LSTM
-
-
 For example, you can define a target:
 
 $$
@@ -34,7 +26,14 @@ $$
 $$
 
 
+- Load percentage (%)
+- U, V, W phase currents (A)
+- Voltage (V)
+- Active power (kW)
+- Current oil temperature (°C)
+- Temperature change over the previous 5 minutes
 
+ 
 This predicts oil temperature 20 minutes into the future.
 
 
