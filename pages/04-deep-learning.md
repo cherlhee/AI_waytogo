@@ -12,15 +12,15 @@ z=\sum_i w_i x_i+b
 $$
 
 $$
-\y_d = f(z)
+y_d = f(z)
 $$
 
 - $x_i$: input data
 - $w_i$: weight
 - $b$: bias
-- $\hat y$: predicted output
+- $y_d$: predicted output
 
-- 
+ 
 ## 마크다운 작성 팁
 
 - 제목은 `#`으로 시작합니다.
