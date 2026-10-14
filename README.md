@@ -1,6 +1,6 @@
 # AI: The Way to Go
 
-AI'way to go
+to know where AIis going
 
 ## 사용 방법
 
