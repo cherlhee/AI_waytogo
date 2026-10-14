@@ -12,7 +12,7 @@ z=\sum_i w_i x_i+b
 $$
 
 $$
-\hat y=f(z)
+\y_d = f(z)
 $$
 
 - $x_i$: input data
