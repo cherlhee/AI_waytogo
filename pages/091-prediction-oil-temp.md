@@ -1,8 +1,7 @@
 
-- to use perceptron to oil temperature
+## HOW to use perceptron to oil temperature
 
-## 1. Perceptron for oil temperature prediction
-For your compressor, possible input variables are:
+Perceptron for oil temperature prediction
 
 - Load percentage (%)
 - U, V, W phase currents (A)
@@ -12,7 +11,7 @@ For your compressor, possible input variables are:
 - Temperature change over the previous 5 minutes
 
 
-Single-neuron model for compressor oil temperature prediction
+### 1. Single-neuron model for compressor oil temperature prediction
 A single neuron computes:
 
 
@@ -22,29 +21,12 @@ $$
  
 For continuous temperature prediction, use a linear output neuron rather than a step activation function.
 
-2. Which model should you use?
-Model
+- Single Perceptron
+- Multi-Layer Perceptron (MLP)
+- LSTM
 
-Oil temperature application
-
-Single Perceptron
-
-Classify warning vs. normal
-
-Linear neuron
-
-Predict temperature in °C
-
-Multi-Layer Perceptron (MLP)
-
-Learn nonlinear relationships and predict temperature
-
-LSTM
-
-Learn time-series patterns and predict future temperature
 
 For example, you can define a target:
-
 
 $$
 \hat T(t+20)=f(X(t),X(t-1),\ldots)
@@ -54,12 +36,14 @@ $$
 
 This predicts oil temperature 20 minutes into the future.
 
-3. Python example using a Perceptron
+
+
+### 2. Python example using a Perceptron
 This example uses a single linear neuron implemented with SGDRegressor to predict oil temperature.
 
 
 
-```
+```python
 import numpy as np
 from sklearn.linear_model import SGDRegressor
 from sklearn.preprocessing import StandardScaler
