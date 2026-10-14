@@ -5,7 +5,27 @@
 
 ![dnn](../assets/dnn-hiddenlayers.webp)
 
+Each neuron calculates a weighted sum and applies an activation function:
 
+$$
+\sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+$$
+
+
+$
+z=\sum_i w_i x_i+b
+$
+
+$$
+\hat y=f(z)
+$$
+
+- $x_i$: input data
+- $w_i$: weight
+- $b$: bias
+- $\hat y$: predicted output
+
+- 
 ## 마크다운 작성 팁
 
 - 제목은 `#`으로 시작합니다.
