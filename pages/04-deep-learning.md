@@ -2,7 +2,7 @@
 
 - neural network with more than two hidden layers
 
-![dnn](./assets/dnn.png)
+
 ![](./assets/dnn.png)
 
 
