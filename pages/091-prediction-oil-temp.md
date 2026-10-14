@@ -82,21 +82,8 @@ prediction = model.predict(
 print("Predicted oil temperature:", prediction[0])
 ```
 
+``` >>>>> Predicted oil temperature: 85.80012949784121 ```
 
 
 The values are illustrative, not actual compressor measurements. For reliable results, use historical compressor data with a chronological train/test split. To predict 20 minutes ahead, the target must be shifted to the temperature measured 20 minutes later.
 
-4. My recommendation for your compressor project
-Start by comparing three models:
-
-Single linear neuron — baseline temperature prediction.
-
-MLP with two hidden layers — nonlinear temperature prediction.
-
-LSTM — prediction using historical sensor sequences.
-
-Evaluate each using MAE and RMSE for temperature, and Precision, Recall, and F1 for 80°C, 85°C, and 90°C threshold warnings.
-
-One important question: Do you want the Perceptron to predict the actual oil temperature (e.g., 85°C), or to predict whether oil temperature will exceed 80°C, 85°C, or 90°C within the next 20 minutes? The code and activation function will be different.
-
-/////////////////
