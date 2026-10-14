@@ -8,13 +8,8 @@
 Each neuron calculates a weighted sum and applies an activation function:
 
 $$
-\sum_{i=1}^{n} i = \frac{n(n+1)}{2}
-$$
-
-
-$
 z=\sum_i w_i x_i+b
-$
+$$
 
 $$
 \hat y=f(z)
