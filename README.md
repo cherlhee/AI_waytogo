@@ -1,6 +1,6 @@
 # AI: The Way to Go
 
-이 책은 WikiDocs와 연동된 GitHub 리포지토리입니다.
+AI'way to go
 
 ## 사용 방법
 
