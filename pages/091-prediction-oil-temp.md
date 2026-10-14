@@ -22,6 +22,7 @@ $$
 For continuous temperature prediction, use a linear output neuron rather than a step activation function.
 
 - Single Perceptron
+- Random Forest
 - Multi-Layer Perceptron (MLP)
 - LSTM
 
