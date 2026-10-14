@@ -1,8 +1,7 @@
 
-possible to use perceptron to oil temperature
-Yes. You can use a Perceptron to predict oil temperature in an industrial compressor. However, the appropriate model depends on whether you want to predict the actual temperature or classify a high-temperature warning.
+- to use perceptron to oil temperature
 
-##### 1. Perceptron for oil temperature prediction
+## 1. Perceptron for oil temperature prediction
 For your compressor, possible input variables are:
 
 - Load percentage (%)
