@@ -1,3 +1,3 @@
 # 목차
 
-* [01. 시작하기](pages/01-getting-started.md)
+* [04. Deep Learning](pages/01-deep-learning.md)
