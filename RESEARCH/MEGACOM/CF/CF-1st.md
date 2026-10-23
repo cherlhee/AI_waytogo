@@ -2,6 +2,60 @@
 
 
 
+
+The error means Git cannot create `index.lock` because that file already exists.
+
+This commonly happens when Obsidian Git is running another operation or a previous Git process did not finish properly.
+
+Your error:
+
+```
+fatal: Unable to create
+'D:/__PROJECTed/__KIS/__AI/megacom/AI_waytogo/.git/index.lock':
+File exists.
+```
+
+## 1. Close Obsidian first
+
+Obsidian Git may be performing automatic commits.
+
+1. Close Obsidian completely.
+    
+2. Close VS Code or other programs using Git in this repository.
+    
+3. Make sure no Git command is still running.
+    
+
+## 2. Remove the lock file
+
+Open PowerShell and execute:
+
+```
+cd D:\__PROJECTed\__KIS\__AI\megacom\AI_waytogo
+```
+
+Check whether the lock file exists:
+
+```
+Test-Path .git\index.lock
+```
+
+If the result is `True`, and all Git processes have stopped, remove it:
+
+```
+Remove-Item .git\index.lock
+```
+
+Important: Delete only `index.lock`, not the `.git` directory or the `index` file.
+
+## 3. Try Git commit again
+
+```
+git status
+```
+
+
+
 먼저 a,를 목적으로 코딩하고,,,두번째로 b로 코딩하라
 메가콤 오일온도 예측 — A형·B형 코드 작성
 요청하신 순서대로 **A형(정확히 N분 후 예측)**과 **B형(N분 이내 도달 예측)**을 각각 작성했습니다.
