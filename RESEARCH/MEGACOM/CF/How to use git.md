@@ -1,7 +1,25 @@
 
 
 
-  
+
+- Rename the local branch
+
+In your current `AI_waytogo` directory, run:
+
+```
+git branch -m main master
+```
+
+
+
+- download github; 
+This downloads and merges the latest files from GitHub's `master` branch into your local folder.
+```python
+git pull origin master
+```
+
+
+
 at obsidian can not add all changes to git
 
 If you cannot use **“Add all changes”** in Obsidian Git, the problem is usually related to Git configuration, repository initialization, or the Obsidian Git plugin.

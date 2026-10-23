@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RESEARCH/MEGACOM/CF/CF-1st.md",
+                "file": "RESEARCH/MEGACOM/CF/How to use git.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CF-1st"
+              "title": "How to use git"
             }
           }
         ],
@@ -184,13 +184,23 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
+          },
+          {
+            "id": "7f480c92dfd17576",
+            "type": "leaf",
+            "state": {
+              "type": "custom-frames-chatgpt",
+              "state": {},
+              "icon": "documents",
+              "title": "chatGPT"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 1312.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -201,27 +211,29 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-custom-frames:Open chatGPT": false
     }
   },
-  "active": "7d07fefbb7c1ae76",
+  "active": "e00fff0db1bf8303",
   "lastOpenFiles": [
-    "GUI/lstm_oil_11.py",
-    "README.md",
+    "RESEARCH/MEGACOM/CF/MEGACOM-AI-note-1st.md",
+    "RESEARCH/MEGACOM/CF/How to use git.md",
     "RESEARCH/MEGACOM/CF/CF-1st.md",
-    "GUI/CF_results/CF_all_prediction_errors.csv",
-    "GUI/CF_results/CF_all_prediction_summary.csv",
-    "GUI/CF_results/CF_F1_Score_300min.csv",
+    "GUI/확신도_자동계산_80_85_90도_결과.csv",
+    "GUI/report.txt",
+    "GUI/ref/megacom-20261023.py",
+    "GUI/ref",
+    "GUI/__pycache__/cf.cpython-39.pyc",
+    "GUI/CF_results/CF_rules_60min.xlsx",
+    "GUI/CF_results/CF_rules_30min.xlsx",
     "GUI/CF_results/CF_rules_300min.xlsx",
-    "GUI/CF_results/CF_prediction_300min.csv",
-    "GUI/CF_results/CF_F1_Score_240min.csv",
     "GUI/CF_results/CF_rules_240min.xlsx",
-    "GUI/CF_results/CF_prediction_240min.csv",
-    "GUI/CF_results/CF_F1_Score_180min.csv",
-    "GUI/CF_results/CF_rules_180min.xlsx",
+    "GUI/CF_results/CF_rules_20min.xlsx",
+    "readme-1st.txt.md",
+    "README.md",
     "Untitled 1.md",
     "Untitled.md",
-    "readme-1st.txt.md",
     "TOC.md"
   ]
 }
