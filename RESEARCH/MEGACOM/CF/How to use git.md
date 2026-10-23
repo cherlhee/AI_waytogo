@@ -172,13 +172,13 @@ git add -A
 
 **③ 변경 사항 저장(Commit)**
 
-```
+```python
 git commit -m "Update Obsidian files"
 ```
 
 **④ GitHub에 업로드(Push)**
 
-```
+```python
 git push origin main
 ```
 
