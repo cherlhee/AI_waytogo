@@ -204,8 +204,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e00fff0db1bf8303",
+  "active": "7d07fefbb7c1ae76",
   "lastOpenFiles": [
+    "GUI/lstm_oil_11.py",
     "README.md",
     "RESEARCH/MEGACOM/CF/CF-1st.md",
     "GUI/CF_results/CF_all_prediction_errors.csv",
