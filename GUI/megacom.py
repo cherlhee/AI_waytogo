@@ -6,7 +6,7 @@ from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtCore import Qt, QTimer, QThread, QObject, pyqtSignal
 
 # for yolov5;
-import torch
+# import torch
 # from PIL import Image
 from PyQt5.QtCore import QBuffer
 import io
@@ -295,6 +295,8 @@ class MainWindow(QMainWindow, form_class):
             self.graph_temp.plot(x, df["actual_future_oil_temp"].to_numpy(),
                                  pen=pg.mkPen("r", width=2))
             self.graph_temp.setTitle(f"Oil Temperature ({result['predict_min']} min)")
+
+
         if self.graph_cf is not None:
             self.graph_cf.clear()
             for target, color in [(80, "g"), (85, "y"), (90, "r")]:
@@ -302,6 +304,10 @@ class MainWindow(QMainWindow, form_class):
                 if col in df.columns:
                     self.graph_cf.plot(x, df[col].to_numpy(),
                                        pen=pg.mkPen(color, width=2))
+
+
+
+        
         if self.graph_f1 is not None:
             scores = result.get("performance_df")
             if scores is None:
