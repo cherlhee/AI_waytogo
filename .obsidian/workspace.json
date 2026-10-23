@@ -204,19 +204,23 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7d07fefbb7c1ae76",
+  "active": "e00fff0db1bf8303",
   "lastOpenFiles": [
-    "RESEARCH/TMPE/tt.txt",
-    "RESEARCH/TMPE/새 텍스트 문서.txt",
-    "RESEARCH/MEGACOM/CF",
+    "GUI/CF_results/CF_all_prediction_errors.csv",
+    "GUI/CF_results/CF_all_prediction_summary.csv",
+    "GUI/CF_results/CF_F1_Score_300min.csv",
+    "GUI/CF_results/CF_rules_300min.xlsx",
+    "GUI/CF_results/CF_prediction_300min.csv",
+    "GUI/CF_results/CF_F1_Score_240min.csv",
+    "GUI/CF_results/CF_rules_240min.xlsx",
+    "GUI/CF_results/CF_prediction_240min.csv",
+    "GUI/CF_results/CF_F1_Score_180min.csv",
+    "GUI/CF_results/CF_rules_180min.xlsx",
+    "GUI/CF_results/CF_prediction_180min.csv",
     "Untitled 1.md",
     "RESEARCH/MEGACOM/CF/CF-1st.md",
     "Untitled.md",
     "readme-1st.txt.md",
-    "RESEARCH/TMPE",
-    "RESEARCH/MEGACOM",
-    "RESEARCH/SLAM",
-    "RESEARCH",
     "TOC.md",
     "README.md"
   ]
