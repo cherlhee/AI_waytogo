@@ -1,4 +1,7 @@
 {
-  "cssTheme": "Dracula Official",
-  "theme": "obsidian"
+  "cssTheme": "Wasp",
+  "theme": "obsidian",
+  "textFontFamily": "함초롬바탕,Noto Sans KR",
+  "interfaceFontFamily": "맑은 고딕",
+  "monospaceFontFamily": "D2Coding"
 }
