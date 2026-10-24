@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RESEARCH/SLAM/slamKIT/BATTERY-02.md",
+                "file": "Git manuel.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "BATTERY-02"
+              "title": "Git manuel"
             }
           }
         ]
@@ -202,8 +202,8 @@
   },
   "active": "6e251fdc6ebf100d",
   "lastOpenFiles": [
-    "Git manuel.md",
     "RESEARCH/SLAM/slamKIT/BATTERY-02.md",
+    "Git manuel.md",
     "RESEARCH/SLAM/slamKIT/BATTERY.md",
     "RESEARCH/MEGACOM/CF/readme-1st.txt.md",
     "RESEARCH/SLAM/slamKIT/NOTE-slamKIT-00.md",
