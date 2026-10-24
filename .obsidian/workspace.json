@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RESEARCH/SLAM/slamKIT/BATTERY.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "BATTERY"
+              "title": "README"
             }
           }
         ]
@@ -185,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 1038.5
+    "width": 1011.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,13 +202,17 @@
   },
   "active": "6e251fdc6ebf100d",
   "lastOpenFiles": [
-    "RESEARCH/SLAM/slamKIT/NOTE-slamKIT-00.md",
+    "TOC.md",
+    "README.md",
+    "RESEARCH/MEGACOM/CF/readme-1st.txt.md",
+    "Git manuel.md",
     "RESEARCH/SLAM/slamKIT/BATTERY.md",
+    "RESEARCH/SLAM/slamKIT/Pcb design.md",
+    "RESEARCH/SLAM/slamKIT/NOTE-slamKIT-00.md",
     "RESEARCH/MEGACOM/CF/CF-1st.md",
     "RESEARCH/SLAM/slamKIT",
     "RESEARCH/SLAM",
     "GUI/lstm_oil_11.py",
-    "README.md",
     "GUI/CF_results/CF_all_prediction_errors.csv",
     "GUI/CF_results/CF_all_prediction_summary.csv",
     "GUI/CF_results/CF_F1_Score_300min.csv",
@@ -216,9 +220,6 @@
     "GUI/CF_results/CF_prediction_300min.csv",
     "GUI/CF_results/CF_F1_Score_240min.csv",
     "GUI/CF_results/CF_rules_240min.xlsx",
-    "Untitled 1.md",
-    "Untitled.md",
-    "readme-1st.txt.md",
-    "TOC.md"
+    "Untitled 1.md"
   ]
 }
