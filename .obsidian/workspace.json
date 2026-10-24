@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "RESEARCH/SLAM/slamKIT/BATTERY-slamkit-02.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "BATTERY-slamkit-02"
             }
           }
         ]
@@ -83,7 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 245
   },
   "right": {
     "id": "41d3223c8f4467a1",
@@ -185,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 1011.5
+    "width": 1168
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,13 +202,15 @@
   },
   "active": "6e251fdc6ebf100d",
   "lastOpenFiles": [
-    "TOC.md",
+    "RESEARCH/SLAM/slamKIT/BATTERY.md",
+    "RESEARCH/SLAM/slamKIT/BATTERY-slamkit-02.md",
+    "RESEARCH/SLAM/slamKIT/NOTE-slamKIT-00.md",
+    "RESEARCH/SLAM/slamKIT/Pcb design.md",
+    "dataset/readme.md",
     "README.md",
+    "TOC.md",
     "RESEARCH/MEGACOM/CF/readme-1st.txt.md",
     "Git manuel.md",
-    "RESEARCH/SLAM/slamKIT/BATTERY.md",
-    "RESEARCH/SLAM/slamKIT/Pcb design.md",
-    "RESEARCH/SLAM/slamKIT/NOTE-slamKIT-00.md",
     "RESEARCH/MEGACOM/CF/CF-1st.md",
     "RESEARCH/SLAM/slamKIT",
     "RESEARCH/SLAM",
