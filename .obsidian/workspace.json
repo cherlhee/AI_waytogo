@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RESEARCH/SLAM/slamKIT/KIT DESIGN.md",
+                "file": "RESEARCH/FAB/CASE/함체 가공.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "KIT DESIGN"
+              "title": "함체 가공"
             }
           }
         ]
@@ -185,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 1195.5
+    "width": 602.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,8 +202,11 @@
   },
   "active": "6e251fdc6ebf100d",
   "lastOpenFiles": [
-    "RESEARCH/SLAM/slamKIT/BATTERY-02.md",
     "RESEARCH/SLAM/slamKIT/KIT DESIGN.md",
+    "RESEARCH/FAB/CASE/함체 가공.md",
+    "RESEARCH/FAB/CASE",
+    "RESEARCH/FAB",
+    "RESEARCH/SLAM/slamKIT/BATTERY-02.md",
     "RESEARCH/SLAM/slamKIT/LIDAR.md",
     "Pasted image 20261025101144.png",
     "Pasted image 20261025100156.png",
@@ -226,8 +229,6 @@
     "GUI/CF_results/CF_F1_Score_300min.csv",
     "GUI/CF_results/CF_rules_300min.xlsx",
     "GUI/CF_results/CF_prediction_300min.csv",
-    "GUI/CF_results/CF_F1_Score_240min.csv",
-    "GUI/CF_results/CF_rules_240min.xlsx",
     "Untitled 1.md"
   ]
 }
