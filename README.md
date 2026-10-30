@@ -4,4 +4,4 @@ to know where AI is going
 
 
 
-
+obsidian theme; wasp. dark.

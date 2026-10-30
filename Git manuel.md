@@ -1,5 +1,248 @@
 
 
+
+
+
+  
+
+how to know git orign address
+
+To check your Git origin address (remote URL), run:
+
+```
+git remote -v
+```
+
+Example output:
+
+`origin https://github.com/cherlhee/AI_waytogo.git (fetch) origin https://github.com/cherlhee/AI_waytogo.git (push)`
+
+To display only the origin URL, use:
+
+```
+git remote get-url origin
+```
+
+To see more information about the remote repository:
+
+```
+git remote show origin
+```
+
+Note: Run these commands inside your Git project folder (the folder containing `.git`).
+
+how to know whether origin is master or main
+
+To check whether your GitHub `origin` uses main or master, use:
+
+### 1. Check the default branch of origin
+
+```
+git remote show origin
+```
+
+Example output:
+
+`* remote origin Fetch URL: https://github.com/cherlhee/AI_waytogo.git Push URL: https://github.com/cherlhee/AI_waytogo.git HEAD branch: main`
+
+`HEAD branch: main` means the default branch on GitHub is `main`.
+
+### 2. Check your local branch
+
+```
+git branch
+```
+
+Example:
+
+`* master main`
+
+The `*` indicates your current local branch.
+
+### 3. Check all local and remote branches
+
+```
+git branch -a
+```
+
+Example:
+
+`* master remotes/origin/main`
+
+This means:
+
+- Local branch: `master`
+    
+- Remote branch: `origin/main`
+    
+
+### 4. Check which remote branch your local branch tracks
+
+```
+git branch -vv
+```
+
+Example:
+
+`* main abc1234 [origin/main] Latest commit`
+
+This means your local `main` tracks `origin/main`.
+
+### 5. Change local master to main (if necessary)
+
+```
+git branch -M main
+git branch --set-upstream-to=origin/main main
+```
+
+The second command requires `origin/main` to exist locally as a remote-tracking branch. Run `git fetch origin` first if necessary.
+
+Recommended command:
+
+```
+git remote show origin
+```
+
+Look for `HEAD branch: main` or `HEAD branch: master`.
+
+waytogo> git remote show origin * remote origin Fetch URL: https://github.com/cherlhee/AI_waytogo.git Push URL: https://github.com/cherlhee/AI_waytogo.git HEAD branch: main Remote branches: main tracked master tracked Local branch configured for 'git pull': main merges with remote master Local ref configured for 'git push': main pushes to main (local out of date) (base) PS C:\CHERLHEE\AI_waytogo>
+
+Your Git configuration has a branch mismatch.
+
+`HEAD branch: main Remote branches: main tracked master tracked Local branch configured for 'git pull': main merges with remote master Local ref configured for 'git push': main pushes to main (local out of date)`
+
+### Current configuration
+
+|Item|Current setting|
+|---|---|
+|GitHub default branch|`main`|
+|GitHub remote branches|`main`, `master`|
+|Local branch|`main`|
+|`git pull` target|`origin/master`|
+|`git push` target|`origin/main`|
+
+Problem: `git pull` uses `master`, but `git push` uses `main`.
+
+### 1. Fix Git pull to use origin/main
+
+Run:
+
+```
+git branch --set-upstream-to=origin/main main
+```
+
+### 2. Verify the configuration
+
+```
+git remote show origin
+```
+
+Expected result:
+
+`Local branch configured for 'git pull': main merges with remote main Local ref configured for 'git push': main pushes to main`
+
+### 3. Synchronize with GitHub
+
+First check for uncommitted changes:
+
+```
+git status
+```
+
+Then, if your working tree is clean:
+
+```
+git pull --ff-only origin main
+```
+
+If Git reports that the branches have diverged, inspect the history before choosing merge or rebase.
+
+### 4. Future Git commands
+
+After fixing the upstream branch, you can use:
+
+```
+git pull
+git add .
+git commit -m "Update files"
+git push
+```
+
+Recommendation: Use `main` consistently for both pull and push. You do not need to delete the remote `master` branch to do this.
+
+Your most important command right now is:
+
+```
+git branch --set-upstream-to=origin/main main
+```
+
+waytogo> git pull hint: You have divergent branches and need to specify how to reconcile them. hint: You can do so by running one of the following commands sometime before hint: your next pull: hint: hint: git config pull.rebase false # merge hint: git config pull.rebase true # rebase hint: git config pull.ff only # fast-forward only hint: hint: You can replace "git config" with "git config --global" to set a default hint: preference for all repositories. You can also pass --rebase, --no-rebase, hint: or --ff-only on the command line to override the configured default per hint: invocation. fatal: Need to specify how to reconcile divergent branches. (base) PS C:\CHERLHEE\AI_waytogo>
+
+This error means your local `main` and GitHub `origin/main` have different commits. Git needs you to choose how to combine them.
+
+### 1. Recommended solution: Merge
+
+For your `AI_waytogo` project, use:
+
+```
+git pull --no-rebase origin main
+```
+
+This merges the GitHub changes into your local branch while preserving both histories.
+
+Before running it, check:
+
+```
+git status
+```
+
+If you have uncommitted changes, commit or stash them first.
+
+### 2. Set merge as the default
+
+To prevent the same error in the future:
+
+```
+git config pull.rebase false
+```
+
+Then you can use:
+
+```
+git pull
+```
+
+### 3. Other options
+
+|Command|Meaning|
+|---|---|
+|`git pull --no-rebase origin main`|Merge local and remote histories|
+|`git pull --rebase origin main`|Replay local commits on top of remote commits|
+|`git pull --ff-only origin main`|Pull only when no divergent history exists|
+
+### 4. Check and push
+
+After resolving any merge conflicts:
+
+```
+git status
+git push origin main
+```
+
+Important: Do not use `git push --force` to solve this problem, because it could overwrite commits on GitHub.
+
+Since your repository previously had both `master` and `main`, I recommend verifying the tracking branch as well:
+
+```
+git branch -vv
+```
+
+You should see `[origin/main]` beside your local `main` branch.
+
+If `git pull --no-rebase origin main` produces a conflict, paste the error here and I can show you exactly how to resolve it without losing your files.
+
+//////////////
+
 obsidian. theme; wasp.
 
 
