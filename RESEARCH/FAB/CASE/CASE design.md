@@ -4,6 +4,9 @@
 ![[Pasted image 20261031040029.png]]
 
 
+![tt](Pasted image 20261031040029.png)
+
+
 
 ![[Pasted image 20261031033637.png]]
 
