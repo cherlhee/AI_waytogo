@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RESEARCH/TMPE/Untitled.md",
+                "file": "RESEARCH/FAB/CASE/CASE design.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "CASE design"
             }
           }
         ]
@@ -185,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 1027.5
+    "width": 922.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,9 +202,20 @@
   },
   "active": "6e251fdc6ebf100d",
   "lastOpenFiles": [
-    "RESEARCH/SLAM/slamKIT/NOTE-slamKIT-00.md",
-    "RESEARCH/TMPE/Untitled.md",
+    "Pasted image 20261031040029.png",
+    "Pasted image 20261031033637.png",
+    "RESEARCH/FAB/CASE/함체 가공.md",
+    "RESEARCH/FAB/CASE/CASE design.md",
+    "RESEARCH/FAB/CASE/INVENTOR. manuel.md",
+    "RESEARCH/MEGACOM/Database/Readme.md.md",
+    "RESEARCH/MEGACOM/Database/Untitled.md",
     "Git manuel.md",
+    "RESEARCH/MEGACOM/CF/Untitled.md",
+    "RESEARCH/MEGACOM/CF/CF-1st.md",
+    "RESEARCH/MEGACOM/CF/readme-1st.txt.md",
+    "Pasted image 20261027211026.png",
+    "RESEARCH/TMPE/Untitled.md",
+    "RESEARCH/SLAM/slamKIT/NOTE-slamKIT-00.md",
     "README.md",
     "Pasted image 20261026210530.png",
     "Pasted image 20261026202934.png",
@@ -213,10 +224,8 @@
     "Pasted image 20261025100156.png",
     "Pasted image 20261025100118.png",
     "RESEARCH/SLAM/slamKIT/3d CASE design;.md",
-    "RESEARCH/MEGACOM/CF/readme-1st.txt.md",
     "RESEARCH/SLAM/slamKIT/KIT DESIGN.md",
     "RESEARCH/SLAM/slamKIT/BATTERY-02.md",
-    "RESEARCH/FAB/CASE/함체 가공.md",
     "RESEARCH/FAB/CASE",
     "RESEARCH/FAB",
     "RESEARCH/SLAM/slamKIT/LIDAR.md",
@@ -225,7 +234,6 @@
     "TOC.md",
     "RESEARCH/SLAM/slamKIT/Pcb design.md",
     "dataset/readme.md",
-    "RESEARCH/MEGACOM/CF/CF-1st.md",
     "RESEARCH/SLAM/slamKIT",
     "RESEARCH/SLAM",
     "GUI/lstm_oil_11.py",
