@@ -5,7 +5,7 @@
 
 
 
-![[Pasted image 20261031092132.png]]
+![tt](Pasted%20image%2020261031092132.png)
 
 
 
