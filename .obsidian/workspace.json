@@ -11,12 +11,14 @@
             "id": "6e251fdc6ebf100d",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "image/Pasted image 20261025100156.png"
+                "file": "Git manuel.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20261025100156"
+              "icon": "lucide-file",
+              "title": "Git manuel"
             }
           }
         ]
@@ -183,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 922.5
+    "width": 965.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -198,17 +200,21 @@
       "bases:Create new base": false
     }
   },
-  "active": "7d07fefbb7c1ae76",
+  "active": "6e251fdc6ebf100d",
   "lastOpenFiles": [
+    "image/Pasted image 20261031092132.png",
+    "Git-2nd.md",
+    "Git manuel.md",
     "RESEARCH/FAB/CASE/CASE design.md",
+    "RESEARCH/FAB/CASE/함체 가공.md",
+    "image/Pasted image 20261025100156.png",
+    "image/readme.md",
     "image",
     "image/Pasted image 20261031040029.png",
     "image/Pasted image 20261031033637.png",
-    "RESEARCH/FAB/CASE/함체 가공.md",
     "RESEARCH/FAB/CASE/INVENTOR. manuel.md",
     "RESEARCH/MEGACOM/Database/Readme.md.md",
     "RESEARCH/MEGACOM/Database/Untitled.md",
-    "Git manuel.md",
     "RESEARCH/MEGACOM/CF/Untitled.md",
     "RESEARCH/MEGACOM/CF/CF-1st.md",
     "RESEARCH/MEGACOM/CF/readme-1st.txt.md",
@@ -220,7 +226,6 @@
     "image/Pasted image 20261026202934.png",
     "image/Pasted image 20261026202847.png",
     "image/Pasted image 20261025101144.png",
-    "image/Pasted image 20261025100156.png",
     "image/Pasted image 20261025100118.png",
     "RESEARCH/SLAM/slamKIT/3d CASE design;.md",
     "RESEARCH/SLAM/slamKIT/KIT DESIGN.md",

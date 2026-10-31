@@ -1,5 +1,16 @@
 
+<<<<<<< HEAD
 ![Inventor 전면 커버](/image/Pasted%20image%2020261031040029.png)
+=======
+
+
+
+![[Pasted image 20261031092132.png]]
+
+
+
+![Inventor 전면 커버](../../../Pasted%20image%2020261031040029.png)
+>>>>>>> 14731ca (tt)
 
 ![[Pasted image 20261031040029.png]]
 
