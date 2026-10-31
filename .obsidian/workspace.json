@@ -11,14 +11,12 @@
             "id": "6e251fdc6ebf100d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "RESEARCH/FAB/CASE/CASE design.md",
-                "mode": "source",
-                "source": false
+                "file": "image/Pasted image 20261025100156.png"
               },
-              "icon": "lucide-file",
-              "title": "CASE design"
+              "icon": "lucide-image",
+              "title": "Pasted image 20261025100156"
             }
           }
         ]
@@ -200,12 +198,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "6e251fdc6ebf100d",
+  "active": "7d07fefbb7c1ae76",
   "lastOpenFiles": [
-    "Pasted image 20261031040029.png",
-    "Pasted image 20261031033637.png",
-    "RESEARCH/FAB/CASE/함체 가공.md",
     "RESEARCH/FAB/CASE/CASE design.md",
+    "image",
+    "image/Pasted image 20261031040029.png",
+    "image/Pasted image 20261031033637.png",
+    "RESEARCH/FAB/CASE/함체 가공.md",
     "RESEARCH/FAB/CASE/INVENTOR. manuel.md",
     "RESEARCH/MEGACOM/Database/Readme.md.md",
     "RESEARCH/MEGACOM/Database/Untitled.md",
@@ -213,16 +212,16 @@
     "RESEARCH/MEGACOM/CF/Untitled.md",
     "RESEARCH/MEGACOM/CF/CF-1st.md",
     "RESEARCH/MEGACOM/CF/readme-1st.txt.md",
-    "Pasted image 20261027211026.png",
+    "image/Pasted image 20261027211026.png",
     "RESEARCH/TMPE/Untitled.md",
     "RESEARCH/SLAM/slamKIT/NOTE-slamKIT-00.md",
     "README.md",
-    "Pasted image 20261026210530.png",
-    "Pasted image 20261026202934.png",
-    "Pasted image 20261026202847.png",
-    "Pasted image 20261025101144.png",
-    "Pasted image 20261025100156.png",
-    "Pasted image 20261025100118.png",
+    "image/Pasted image 20261026210530.png",
+    "image/Pasted image 20261026202934.png",
+    "image/Pasted image 20261026202847.png",
+    "image/Pasted image 20261025101144.png",
+    "image/Pasted image 20261025100156.png",
+    "image/Pasted image 20261025100118.png",
     "RESEARCH/SLAM/slamKIT/3d CASE design;.md",
     "RESEARCH/SLAM/slamKIT/KIT DESIGN.md",
     "RESEARCH/SLAM/slamKIT/BATTERY-02.md",
@@ -241,7 +240,6 @@
     "GUI/CF_results/CF_all_prediction_summary.csv",
     "GUI/CF_results/CF_F1_Score_300min.csv",
     "GUI/CF_results/CF_rules_300min.xlsx",
-    "GUI/CF_results/CF_prediction_300min.csv",
     "Untitled 1.md"
   ]
 }
