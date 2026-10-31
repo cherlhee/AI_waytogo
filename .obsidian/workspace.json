@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Git manuel.md",
+                "file": "Git-2nd.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Git manuel"
+              "title": "Git-2nd"
             }
           }
         ]
@@ -200,12 +200,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "7d07fefbb7c1ae76",
+  "active": "6e251fdc6ebf100d",
   "lastOpenFiles": [
+    "RESEARCH/FAB/CASE/CASE design.md",
+    "Git manuel.md",
     "RESEARCH/FAB/CASE/Pasted image 20261031092132.png",
     "Git-2nd.md",
-    "Git manuel.md",
-    "RESEARCH/FAB/CASE/CASE design.md",
     "RESEARCH/FAB/CASE/함체 가공.md",
     "image/Pasted image 20261025100156.png",
     "image/readme.md",
