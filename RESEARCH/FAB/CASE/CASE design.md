@@ -1,5 +1,5 @@
 
-
+![Inventor 전면 커버](Pasted%20image%2020261031040029.png)
 
 ![[Pasted image 20261031040029.png]]
 
