@@ -8,7 +8,9 @@
 
 
 
-![[Pasted image 20261031033637.png]]
+![tt]([Pasted image 20261031033637.png).
+![Inventor 커버 설계](../../../Pasted%20image%2020261031033637.png)
+
 
 D:\__PROJECTed\__KIS\__AI\megacom\AI_waytogo  
 
