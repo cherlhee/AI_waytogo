@@ -8,7 +8,7 @@
 
 
 
-![tt](Pasted%20image%2020261031033637.png)
+![tt](../../../Pasted%20image%2020261031033637.png)
 ![Inventor 커버 설계](../../../Pasted%20image%2020261031033637.png)
 
 
