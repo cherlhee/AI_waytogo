@@ -11,14 +11,13 @@
             "id": "6e251fdc6ebf100d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "RESEARCH/SLAM/slamKIT/KIT DESIGN.md",
-                "mode": "source",
-                "source": false
+                "file": "Untitled.base",
+                "viewName": "View"
               },
-              "icon": "lucide-file",
-              "title": "KIT DESIGN"
+              "icon": "lucide-table",
+              "title": "Untitled"
             }
           }
         ]
@@ -202,15 +201,16 @@
   },
   "active": "6e251fdc6ebf100d",
   "lastOpenFiles": [
-    "RESEARCH/SLAM/slamKIT/BATTERY-02.md",
-    "RESEARCH/SLAM/slamKIT/KIT DESIGN.md",
+    "Git manuel.md",
+    "Untitled.base",
+    "RESEARCH/SLAM/slamKIT/NOTE-slamKIT-00.md",
     "RESEARCH/SLAM/slamKIT/LIDAR.md",
+    "RESEARCH/SLAM/slamKIT/KIT DESIGN.md",
+    "RESEARCH/SLAM/slamKIT/BATTERY-02.md",
     "Pasted image 20261025101144.png",
     "Pasted image 20261025100156.png",
     "Pasted image 20261025100118.png",
-    "Git manuel.md",
     "RESEARCH/SLAM/slamKIT/BATTERY.md",
-    "RESEARCH/SLAM/slamKIT/NOTE-slamKIT-00.md",
     "README.md",
     "RESEARCH/SLAM/slamKIT/BATTERY-slamkit-02.md",
     "TOC.md",
@@ -227,7 +227,6 @@
     "GUI/CF_results/CF_rules_300min.xlsx",
     "GUI/CF_results/CF_prediction_300min.csv",
     "GUI/CF_results/CF_F1_Score_240min.csv",
-    "GUI/CF_results/CF_rules_240min.xlsx",
     "Untitled 1.md"
   ]
 }

@@ -2,7 +2,34 @@
 
 
   
-
+| 구분          | 세부 산출내역                      | 금액             |
+| ----------- | ---------------------------- | -------------- |
+| 재료비         | AL5052 판재 및 구조재              | 650,000        |
+|             | 모터 브래킷 및 고정 부품               | 800,000        |
+|             | LiDAR·카메라 장착 구조물             | 450,000        |
+|             | 상판·측판 및 보강 부품                | 700,000        |
+|             | 볼트, 너트, 체결 부품 등              | 250,000        |
+|             | 가공 소모품 및 부자재                 | 350,000        |
+| **재료비 소계**  |                              | **3,200,000**  |
+| 노무비         | 기구 구조 설계(8인일 × 300,000)      | 2,400,000      |
+|             | 3D CAD 및 제작도면(6인일 × 300,000) | 1,800,000      |
+|             | 판금·절곡 가공 작업(6인일 × 250,000)   | 1,500,000      |
+|             | 기구 조립 및 부품 장착(5인일 × 250,000) | 1,250,000      |
+|             | 시제품 검사 및 수정(3인일 × 350,000)   | 1,050,000      |
+| **노무비 소계**  |                              | **8,000,000**  |
+| 경비          | 레이저 절단 및 CNC 장비 사용료          | 750,000        |
+|             | 절곡·표면처리 외주가공비                | 550,000        |
+|             | 시제품 조립·검사용 장비 사용료            | 350,000        |
+|             | 운송 및 납품비                     | 200,000        |
+|             | 설계 출력 및 기타 경비                | 150,000        |
+| **경비 소계**   |                              | **2,000,000**  |
+| 일반관리비       | 사업관리 및 행정관리 비용               | 1,000,000      |
+| 이윤          | 계약금액 조정분 포함                  | 2,163,636      |
+| **공급가액 합계** |                              | **16,363,636** |
+| 부가가치세       | 10%, 원 단위 반올림                | 1,636,364      |
+| **총 계약금액**  |                              | **18,000,000** |
+|             |                              |                |
+|             |                              |                |
 이전 메시지 불러오는 중…
 
 #include <Arduino.h> #include "FaBoPWM_PCA9685.h" FaBoPWM faboPWM; void setAllPWM(int pwm) { for (int ch = 0; ch < 4; ch++) { faboPWM.set_channel_value(ch, pwm); } } void setup() { Serial.begin(115200); if (!faboPWM.begin()) { Serial.println("PCA9685 not found"); while (1); } Serial.println("PCA9685 found"); faboPWM.init(307); faboPWM.set_hz(50); } void loop() { // setAllPWM(1500); // delay(2000); // setAllPWM(1340); // delay(6000); // setAllPWM(2507); // delay(2000); // setAllPWM(3300); // delay(6000); faboPWM.set_channel_value(0, 800); delay(2000); faboPWM.set_channel_value(0, 0); delay(10000); faboPWM.set_channel_value(2, 800); delay(2000); faboPWM.set_channel_value(2, 0); delay(10000); faboPWM.set_channel_value(3, 800); delay(2000); faboPWM.set_channel_value(3, 0); delay(10000); },,,,it detect channel 0, 1,,,,2axis,,but salmkit has 4 axes...how can i do it
