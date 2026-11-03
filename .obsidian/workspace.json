@@ -11,13 +11,14 @@
             "id": "6e251fdc6ebf100d",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "Untitled.base",
-                "viewName": "View"
+                "file": "Git-2nd-ignore complict;.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-table",
-              "title": "Untitled"
+              "icon": "lucide-file",
+              "title": "Git-2nd-ignore complict;"
             }
           }
         ]
@@ -82,7 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 245
+    "width": 353.5
   },
   "right": {
     "id": "41d3223c8f4467a1",
@@ -184,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 1195.5
+    "width": 1071.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -201,32 +202,50 @@
   },
   "active": "6e251fdc6ebf100d",
   "lastOpenFiles": [
+    "RESEARCH/MEGACOM/Database/Tables;.md",
+    "RESEARCH/MEGACOM/Database/readme-lstm.hwp",
+    "RESEARCH/MEGACOM/Database/readme.BAK",
+    "RESEARCH/MEGACOM/Database/readme.$$$",
+    "RESEARCH/MEGACOM/Database/~$Microsoft Word 문서.docx",
+    "RESEARCH/MEGACOM/Database/새 Microsoft Word 문서.docx",
+    "RESEARCH/MEGACOM/Database/readme.hwp",
+    "RESEARCH/MEGACOM/Database/10주차, 유관속조직관찰1.hwp",
+    "RESEARCH/MEGACOM/Database/mysql....md",
+    "RESEARCH/MEGACOM/Database/db-1.py",
+    "RESEARCH/MEGACOM/Database/db - 복사본.py",
+    "RESEARCH/MEGACOM/Database/db.py",
+    "RESEARCH/MEGACOM/Database/Readme.md.md",
+    "Git-2nd-ignore complict;.md",
+    "Lecture/Electromagnetic/Electromagnetics-1st.md",
+    "Lecture/AI-lecture.md",
+    "RESEARCH/TMPE/rulebase-1st.md",
+    "RESEARCH/FAB/CASE/CASE design.md",
     "Git manuel.md",
-    "Untitled.base",
+    "RESEARCH/FAB/CASE/Pasted image 20261031092132.png",
+    "RESEARCH/FAB/CASE/함체 가공.md",
+    "image/Pasted image 20261025100156.png",
+    "image/readme.md",
+    "image/Pasted image 20261031040029.png",
+    "image/Pasted image 20261031033637.png",
+    "RESEARCH/FAB/CASE/INVENTOR. manuel.md",
+    "RESEARCH/MEGACOM/CF/Untitled.md",
+    "RESEARCH/MEGACOM/CF/CF-1st.md",
+    "RESEARCH/MEGACOM/CF/readme-1st.txt.md",
+    "image/Pasted image 20261027211026.png",
+    "RESEARCH/TMPE/Untitled.md",
     "RESEARCH/SLAM/slamKIT/NOTE-slamKIT-00.md",
-    "RESEARCH/SLAM/slamKIT/LIDAR.md",
+    "README.md",
+    "image/Pasted image 20261026210530.png",
+    "image/Pasted image 20261026202934.png",
+    "image/Pasted image 20261026202847.png",
+    "image/Pasted image 20261025101144.png",
+    "image/Pasted image 20261025100118.png",
+    "RESEARCH/SLAM/slamKIT/3d CASE design;.md",
     "RESEARCH/SLAM/slamKIT/KIT DESIGN.md",
     "RESEARCH/SLAM/slamKIT/BATTERY-02.md",
-    "Pasted image 20261025101144.png",
-    "Pasted image 20261025100156.png",
-    "Pasted image 20261025100118.png",
+    "RESEARCH/SLAM/slamKIT/LIDAR.md",
     "RESEARCH/SLAM/slamKIT/BATTERY.md",
-    "README.md",
     "RESEARCH/SLAM/slamKIT/BATTERY-slamkit-02.md",
-    "TOC.md",
-    "RESEARCH/SLAM/slamKIT/Pcb design.md",
-    "dataset/readme.md",
-    "RESEARCH/MEGACOM/CF/readme-1st.txt.md",
-    "RESEARCH/MEGACOM/CF/CF-1st.md",
-    "RESEARCH/SLAM/slamKIT",
-    "RESEARCH/SLAM",
-    "GUI/lstm_oil_11.py",
-    "GUI/CF_results/CF_all_prediction_errors.csv",
-    "GUI/CF_results/CF_all_prediction_summary.csv",
-    "GUI/CF_results/CF_F1_Score_300min.csv",
-    "GUI/CF_results/CF_rules_300min.xlsx",
-    "GUI/CF_results/CF_prediction_300min.csv",
-    "GUI/CF_results/CF_F1_Score_240min.csv",
-    "Untitled 1.md"
+    "TOC.md"
   ]
 }

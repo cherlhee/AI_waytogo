@@ -1,6 +1,47 @@
 
 
 
+
+
+
+## 3. 앞으로 같은 문제가 발생하지 않도록 설정
+
+Obsidian은 실행 중 `.obsidian/workspace.json`을 자주 수정합니다.
+
+따라서 이 파일을 Git에서 추적하지 않도록 설정하는 것이 좋습니다.
+
+**① `.gitignore`에 추가**
+
+```
+Add-Content .gitignore ".obsidian/workspace.json"
+```
+
+**② Git 추적에서 제거**
+
+```
+git rm --cached .obsidian/workspace.json
+```
+
+이 명령은 로컬 파일을 삭제하지 않고 Git 추적 대상에서만 제거합니다.
+
+**③ 변경 사항 저장**
+
+```
+git add .gitignore
+git commit -m "Ignore Obsidian workspace"
+```
+
+**④ GitHub에 업로드**
+
+```
+git push origin main
+```
+
+다른 컴퓨터에서도 이 파일이 추적되지 않게 되므로 Obsidian 작업 환경 충돌을 줄일 수 있습니다.
+
+
+
+////////////////////////////////////////////
 AI\megacom\AI_waytogo>
 
 현재 오류는 **GitHub의 main 브랜치에 로컬 PC에 없는 새로운 커밋이 있기 때문에 발생**했습니다.
