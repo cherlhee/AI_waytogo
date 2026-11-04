@@ -23,7 +23,7 @@ try:
         cursor = conn.cursor(buffered=True)
 
         # 조회할 테이블 목록
-        tables = ["ai_data", "ai_alarm", "ai_analysis"]
+        tables = ["ai_data", "ai_alarm", "ai_analysis", "ai_oiltemp", "ai_lstm_r"]
 
         for table in tables:
 
