@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Git-2nd-ignore complict;.md",
+                "file": "Lecture/Electromagnetic/Electromagnetics-1st.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Git-2nd-ignore complict;"
+              "title": "Electromagnetics-1st"
             }
           }
         ]
@@ -185,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 1071.5
+    "width": 918.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,7 +202,11 @@
   },
   "active": "6e251fdc6ebf100d",
   "lastOpenFiles": [
+    "RESEARCH/MEGACOM/Database/mysql....md",
+    "RESEARCH/MEGACOM/Database/Readme.md.md",
     "RESEARCH/MEGACOM/Database/Tables;.md",
+    "Git-2nd-ignore complict;.md",
+    "RESEARCH/MEGACOM/Database/테이블 칼럼 구성표-aioiltemp-ailstmr.hwp",
     "RESEARCH/MEGACOM/Database/readme-lstm.hwp",
     "RESEARCH/MEGACOM/Database/readme.BAK",
     "RESEARCH/MEGACOM/Database/readme.$$$",
@@ -210,12 +214,8 @@
     "RESEARCH/MEGACOM/Database/새 Microsoft Word 문서.docx",
     "RESEARCH/MEGACOM/Database/readme.hwp",
     "RESEARCH/MEGACOM/Database/10주차, 유관속조직관찰1.hwp",
-    "RESEARCH/MEGACOM/Database/mysql....md",
     "RESEARCH/MEGACOM/Database/db-1.py",
     "RESEARCH/MEGACOM/Database/db - 복사본.py",
-    "RESEARCH/MEGACOM/Database/db.py",
-    "RESEARCH/MEGACOM/Database/Readme.md.md",
-    "Git-2nd-ignore complict;.md",
     "Lecture/Electromagnetic/Electromagnetics-1st.md",
     "Lecture/AI-lecture.md",
     "RESEARCH/TMPE/rulebase-1st.md",
