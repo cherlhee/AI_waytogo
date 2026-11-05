@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RESEARCH/TMPE/Untitled.md",
+                "file": "RESEARCH/FAB/CASE/함체 가공.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "함체 가공"
             }
           }
         ]
@@ -46,7 +46,7 @@
                 "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
-              "title": "Files"
+              "title": "파일 탐색기"
             }
           },
           {
@@ -185,25 +185,27 @@
       }
     ],
     "direction": "horizontal",
-    "width": 1027.5
+    "width": 616.5
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-custom-frames:Open chatGPT": false,
+      "switcher:빠른 전환기 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "bases:새 베이스 생성하기": false,
       "obsidian-git:Open Git source control": false,
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "obsidian-custom-frames:Open chatGPT": false
     }
   },
   "active": "6e251fdc6ebf100d",
   "lastOpenFiles": [
-    "RESEARCH/SLAM/slamKIT/NOTE-slamKIT-00.md",
+    "RESEARCH/MEGACOM/CF/CF-1st.md",
+    "RESEARCH/MEGACOM/CF/readme-1st.txt.md",
     "RESEARCH/TMPE/Untitled.md",
+    "RESEARCH/SLAM/slamKIT/NOTE-slamKIT-00.md",
     "Git manuel.md",
     "README.md",
     "Pasted image 20261026210530.png",
@@ -213,7 +215,6 @@
     "Pasted image 20261025100156.png",
     "Pasted image 20261025100118.png",
     "RESEARCH/SLAM/slamKIT/3d CASE design;.md",
-    "RESEARCH/MEGACOM/CF/readme-1st.txt.md",
     "RESEARCH/SLAM/slamKIT/KIT DESIGN.md",
     "RESEARCH/SLAM/slamKIT/BATTERY-02.md",
     "RESEARCH/FAB/CASE/함체 가공.md",
@@ -225,7 +226,6 @@
     "TOC.md",
     "RESEARCH/SLAM/slamKIT/Pcb design.md",
     "dataset/readme.md",
-    "RESEARCH/MEGACOM/CF/CF-1st.md",
     "RESEARCH/SLAM/slamKIT",
     "RESEARCH/SLAM",
     "GUI/lstm_oil_11.py",
