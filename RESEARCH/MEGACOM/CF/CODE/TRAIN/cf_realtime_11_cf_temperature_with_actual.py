@@ -26,7 +26,7 @@ from dotenv import load_dotenv
 ENV_PATH = Path(__file__).resolve().parent / 'mysql_config.env'
 load_dotenv(dotenv_path=ENV_PATH, override=False)
 
-DEVICE_ID = 'R00015'
+DEVICE_ID = 'R00012'
 HORIZONS = (10, 30, 60, 120)
 TARGETS = (80, 85, 90)
 SOURCE_COLS = {
