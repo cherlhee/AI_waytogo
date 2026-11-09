@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RESEARCH/SLAM/slamKIT/CASE/CASE.Main.md",
+                "file": "Git-2nd-ignore complict;.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CASE.Main"
+              "title": "Git-2nd-ignore complict;"
             }
           }
         ]
@@ -185,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 976.5
+    "width": 677.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,9 +202,11 @@
   },
   "active": "6e251fdc6ebf100d",
   "lastOpenFiles": [
+    "Git manuel.md",
+    "Git.Main.md",
+    "RESEARCH/SLAM/slamKIT/CASE/CASE.Main.md",
     "Pasted image 20261109043407.png",
     "RESEARCH/SLAM/slamKIT/CASE/Case.1st.md",
-    "RESEARCH/SLAM/slamKIT/CASE/CASE.Main.md",
     "Pasted image 20261109043256.png",
     "Pasted image 20261109043248.png",
     "Pasted image 20261109043124.png",
@@ -214,7 +216,6 @@
     "Pasted image 20261109042955.png",
     "RESEARCH/SLAM/slamKIT/CASE/메카넘 4WD 모터제어보드 기술 인포그래픽.png",
     "Pasted image 20261109041548.png",
-    "RESEARCH/SLAM/slamKIT/CASE/Pasted image 20261031092132.png",
     "RESEARCH/SLAM/slamKIT/CASE/KIT DESIGN.md",
     "RESEARCH/SLAM/slamKIT/CASE/INVENTOR. manuel.md",
     "RESEARCH/SLAM/slamKIT/CASE/3d CASE design;.md",
@@ -246,7 +247,6 @@
     "RESEARCH/MEGACOM/Algorithm/CF-1st.md",
     "RESEARCH/MEGACOM/CF/CODE/LSTM/megacom_lstm/README.md",
     "RESEARCH/MEGACOM/CF/CODE/LSTM/LSTM.3rd.md",
-    "RESEARCH/MEGACOM/CF/CODE/LSTM/LSTM.2nd.md",
-    "RESEARCH/MEGACOM/CF/CODE/LSTM/LSTM-main.md"
+    "RESEARCH/MEGACOM/CF/CODE/LSTM/LSTM.2nd.md"
   ]
 }
