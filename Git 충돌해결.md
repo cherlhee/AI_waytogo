@@ -1,5 +1,114 @@
 
 
+
+
+현재 Git 상태는 **정상이며, 충돌도 없습니다.** 다만 로컬 커밋 1개가 원격 저장소에 반영되지 않았고, `.obsidian/workspace.json` 파일이 다시 수정된 상태입니다.
+
+## 1. 현재 Git 상태 분석
+
+### ① 커밋 성공
+
+```
+git commit -m "tt"
+```
+
+결과:
+
+```
+[main 34219c2] tt
+2 files changed, 31 insertions(+), 12 deletions(-)
+```
+
+정상적으로 커밋되었습니다.
+
+### ② Pull 성공
+
+```
+git pull --no-rebase origin main
+```
+
+결과:
+
+```
+Already up to date.
+```
+
+원격 저장소의 최신 내용이 이미 로컬에 반영되어 있다는 뜻입니다.
+
+### ③ 로컬 커밋이 원격보다 1개 앞서 있음
+
+```
+Your branch is ahead of 'origin/main' by 1 commit.
+```
+
+의미:
+
+- 로컬 저장소에 새로운 커밋 1개가 존재합니다.
+- 원격 저장소에는 아직 반영되지 않았습니다.
+- `git push`를 실행하면 원격 저장소에 반영됩니다.
+
+### ④ workspace.json 파일이 다시 수정됨
+
+```
+Changes not staged for commit:
+    modified: .obsidian/workspace.json
+```
+
+이 파일은 Obsidian의 작업 공간 상태를 저장하는 파일입니다.
+
+Obsidian을 실행하거나 창을 변경하면 자동으로 수정될 수 있습니다.
+
+---
+
+## 2. 해결 방법
+
+### 방법 1. 현재 커밋만 원격 저장소에 반영
+
+가장 간단한 방법입니다.
+
+```
+git push origin main
+```
+
+현재 수정된 `workspace.json`은 커밋되지 않았으므로 원격에 반영되지 않습니다.
+
+**현재 상태에서는 이 명령어만 실행해도 됩니다.**
+
+---
+
+### 방법 2. workspace.json을 Git 관리에서 제외 (권장)
+
+Obsidian을 사용한다면 `.obsidian/workspace.json`은 계속 변경되므로 Git 충돌의 원인이 될 수 있습니다.
+
+먼저 `.gitignore` 파일에 다음 내용을 추가합니다.
+
+```
+.obsidian/workspace.json
+```
+
+이미 Git에서 관리하고 있는 파일이므로 추적을 해제해야 합니다.
+
+```
+git rm --cached .obsidian/workspace.json
+```
+
+이 명령어는 로컬 파일을 삭제하지 않고 Git의 추적만 해제합니다.
+
+이후 실행합니다.
+
+```
+git add .gitignore
+git commit -m "Ignore Obsidian workspace"
+git push origin main
+```
+
+이렇게 하면 앞으로 `workspace.json`의 변경 사항이 Git에 기록되지 않습니다.
+
+**주의:** 원격 저장소에서는 해당 파일이 삭제된 것으로 반영되지만, 현재 로컬 파일은 유지됩니다.
+
+/////////////////
+
+
 `git config pull.rebase false`는 병합 방식을 설정하는 명령이지, 기존 충돌을 해결하는 명령은 아닙니다.
 
 ### 1. 충돌 파일 해결

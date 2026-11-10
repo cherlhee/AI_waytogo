@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lecture/Electromagnetic/Electromagnetics-1st.md",
+                "file": "Git 충돌해결.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Electromagnetics-1st"
+              "title": "Git 충돌해결"
             }
           }
         ]
@@ -185,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 978.5
+    "width": 790.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,6 +202,7 @@
   },
   "active": "6e251fdc6ebf100d",
   "lastOpenFiles": [
+    "Lecture/Electromagnetic/Electromagnetics-1st.md",
     "Git 충돌해결.md",
     "Git.Main.md",
     "RESEARCH/APFC/PT_CT 기반 영점검출 회로도2.png",
@@ -246,7 +247,6 @@
     "RESEARCH/MEGACOM/Algorithm/CODE/CF/CF.main.md",
     "RESEARCH/MEGACOM/Algorithm/readme-1st.txt.md",
     "RESEARCH/MEGACOM/Algorithm/CF-1st.md",
-    "RESEARCH/MEGACOM/CF/CODE/LSTM/megacom_lstm/README.md",
-    "RESEARCH/MEGACOM/CF/CODE/LSTM/LSTM.3rd.md"
+    "RESEARCH/MEGACOM/CF/CODE/LSTM/megacom_lstm/README.md"
   ]
 }
