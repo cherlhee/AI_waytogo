@@ -35,7 +35,7 @@ try:
         WHERE device_id = 'R00012'
           AND prediction_model = 'CF'
         ORDER BY id DESC
-        LIMIT 2000
+        LIMIT 20000
     """
 
     cursor = conn.cursor()
