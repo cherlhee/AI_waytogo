@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Git-2nd-ignore complict;.md",
+                "file": "Lecture/Electromagnetic/Electromagnetics-1st.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Git-2nd-ignore complict;"
+              "title": "Electromagnetics-1st"
             }
           }
         ]
@@ -185,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 677.5
+    "width": 978.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,20 +202,21 @@
   },
   "active": "6e251fdc6ebf100d",
   "lastOpenFiles": [
-    "Git manuel.md",
+    "Git 충돌해결.md",
     "Git.Main.md",
+    "RESEARCH/APFC/PT_CT 기반 영점검출 회로도2.png",
+    "RESEARCH/APFC/PT_CT 기반 영점검출 회로도.png",
+    "RESEARCH/APFC/LM393 기반 PT·CT 영점검출 회로도2.png",
+    "RESEARCH/APFC/LM393 기반 PT·CT 영점검출 회로도.png",
+    "Pasted image 20261109182907.png",
+    "Pasted image 20261109155023.png",
+    "Git manuel.md",
     "RESEARCH/SLAM/slamKIT/CASE/CASE.Main.md",
     "Pasted image 20261109043407.png",
     "RESEARCH/SLAM/slamKIT/CASE/Case.1st.md",
     "Pasted image 20261109043256.png",
     "Pasted image 20261109043248.png",
     "Pasted image 20261109043124.png",
-    "Pasted image 20261109043046.png",
-    "Pasted image 20261109043024.png",
-    "Pasted image 20261109043009.png",
-    "Pasted image 20261109042955.png",
-    "RESEARCH/SLAM/slamKIT/CASE/메카넘 4WD 모터제어보드 기술 인포그래픽.png",
-    "Pasted image 20261109041548.png",
     "RESEARCH/SLAM/slamKIT/CASE/KIT DESIGN.md",
     "RESEARCH/SLAM/slamKIT/CASE/INVENTOR. manuel.md",
     "RESEARCH/SLAM/slamKIT/CASE/3d CASE design;.md",
@@ -246,7 +247,6 @@
     "RESEARCH/MEGACOM/Algorithm/readme-1st.txt.md",
     "RESEARCH/MEGACOM/Algorithm/CF-1st.md",
     "RESEARCH/MEGACOM/CF/CODE/LSTM/megacom_lstm/README.md",
-    "RESEARCH/MEGACOM/CF/CODE/LSTM/LSTM.3rd.md",
-    "RESEARCH/MEGACOM/CF/CODE/LSTM/LSTM.2nd.md"
+    "RESEARCH/MEGACOM/CF/CODE/LSTM/LSTM.3rd.md"
   ]
 }

@@ -1,5 +1,24 @@
 
 
+`git config pull.rebase false`는 병합 방식을 설정하는 명령이지, 기존 충돌을 해결하는 명령은 아닙니다.
+
+### 1. 충돌 파일 해결
+
+앞서 확인된 충돌 파일은 다음과 같습니다.
+
+```
+.obsidian/workspace.json
+```
+
+로컬 파일을 유지하려면 다음 명령을 실행하십시오.
+
+```
+git checkout --ours .obsidian/workspace.json
+git add .obsidian/workspace.json
+```
+
+
+
 
 
 
