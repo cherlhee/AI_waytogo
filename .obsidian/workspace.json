@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Git-2nd-ignore complict;.md",
+                "file": "Git.Main.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Git-2nd-ignore complict;"
+              "title": "Git.Main"
             }
           }
         ]
@@ -202,9 +202,15 @@
   },
   "active": "6e251fdc6ebf100d",
   "lastOpenFiles": [
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/ref/cf_realtime_11_cf_temperature_with_actual.py",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/ref/cf_realtime_11_cf_temperature_actual_fixed.py",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/cf.realtime.roo12.temperature.fixed.py.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/CSV_results/ai_oiltemp_recent2000_20261111_024117.csv",
+    "Git-2nd-ignore complict;.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/CSV_results/ai_oiltemp_recent2000_20261111_023818.csv",
+    "Git 충돌해결.md",
     "Git.Main.md",
     "Lecture/AI-lecture.md",
-    "Git-2nd-ignore complict;.md",
     "Git manuel.md",
     "RESEARCH/SLAM/slamKIT/CASE/CASE.Main.md",
     "Pasted image 20261109043407.png",
@@ -235,18 +241,12 @@
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/predictions_60min.csv",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/predictions_120min.csv",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/predictions_30min.csv",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/predictions_10min.csv",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/metrics.csv",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/lstm_60min.keras",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/README.md",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.2nd.md",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.3rd.md",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM-main.md",
     "RESEARCH/MEGACOM/Algorithm/CODE/CF/누락값 데이터 추가하기.md",
     "RESEARCH/MEGACOM/Algorithm/CODE/CF/Untitled.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/CF.main.md",
-    "RESEARCH/MEGACOM/Algorithm/readme-1st.txt.md",
-    "RESEARCH/MEGACOM/Algorithm/CF-1st.md",
-    "RESEARCH/MEGACOM/CF/CODE/LSTM/megacom_lstm/README.md"
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/CF.main.md"
   ]
 }
