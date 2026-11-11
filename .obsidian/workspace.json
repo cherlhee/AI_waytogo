@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lecture/AI-lecture.md",
+                "file": "Git-2nd-ignore complict;.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AI-lecture"
+              "title": "Git-2nd-ignore complict;"
             }
           }
         ]
@@ -203,6 +203,7 @@
   "active": "6e251fdc6ebf100d",
   "lastOpenFiles": [
     "Git.Main.md",
+    "Lecture/AI-lecture.md",
     "Git-2nd-ignore complict;.md",
     "Git manuel.md",
     "RESEARCH/SLAM/slamKIT/CASE/CASE.Main.md",
@@ -246,7 +247,6 @@
     "RESEARCH/MEGACOM/Algorithm/CODE/CF/CF.main.md",
     "RESEARCH/MEGACOM/Algorithm/readme-1st.txt.md",
     "RESEARCH/MEGACOM/Algorithm/CF-1st.md",
-    "RESEARCH/MEGACOM/CF/CODE/LSTM/megacom_lstm/README.md",
-    "RESEARCH/MEGACOM/CF/CODE/LSTM/LSTM.3rd.md"
+    "RESEARCH/MEGACOM/CF/CODE/LSTM/megacom_lstm/README.md"
   ]
 }
