@@ -1,0 +1,1 @@
+﻿idx,oiltemp_id,comcode,deviceId,input_time,current_datetime,prediction_horizon_min,prediction_target_time,lstm_prediction,lstm_anomaly_score,feature_importance,feature_contributions,model_version,created_at

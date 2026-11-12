@@ -1,0 +1,30 @@
+{
+  "features": [
+    "io003",
+    "temp_rise_5min",
+    "io028",
+    "io010",
+    "io044",
+    "io045",
+    "io046",
+    "io048",
+    "io007",
+    "io008",
+    "io009",
+    "io004",
+    "io005",
+    "current_avg",
+    "voltage_avg",
+    "current_unbalance"
+  ],
+  "horizons": [
+    10,
+    30,
+    60,
+    120
+  ],
+  "input_minutes": 30,
+  "version": "megacom-v1",
+  "training_interval_sec": 60,
+  "timezone": "Asia/Seoul"
+}

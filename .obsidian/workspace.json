@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Git-2nd-ignore complict;.md",
+                "file": "Lecture/Electromagnetic/Electromagnetics-1st.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Git-2nd-ignore complict;"
+              "title": "Electromagnetics-1st"
             }
           },
           {
@@ -98,7 +98,11 @@
       }
     ],
     "direction": "horizontal",
+<<<<<<< HEAD
     "width": 475.5
+=======
+    "width": 378.5
+>>>>>>> bd5eb4829eb468e5e0944df1ea3969e8fe590d85
   },
   "right": {
     "id": "41d3223c8f4467a1",
@@ -200,7 +204,11 @@
       }
     ],
     "direction": "horizontal",
+<<<<<<< HEAD
     "width": 984.5
+=======
+    "width": 990.5
+>>>>>>> bd5eb4829eb468e5e0944df1ea3969e8fe590d85
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -217,6 +225,7 @@
   },
   "active": "eb377cc44b3df343",
   "lastOpenFiles": [
+<<<<<<< HEAD
     "RESEARCH/MEGACOM/Database/db-readtable.py",
     "RESEARCH/MEGACOM/Database/db - 복사본.py",
     "RESEARCH/MEGACOM/Database/Readme.md.md",
@@ -263,5 +272,52 @@
     "RESEARCH/SLAM/slamKIT/LIDAR.md",
     "RESEARCH/SLAM/slamKIT/BATTERY.md",
     "RESEARCH/SLAM/slamKIT/BATTERY-slamkit-02.md"
+=======
+    "Git.Main.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/ref/cf_realtime_11_cf_temperature_with_actual.py",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/ref/cf_realtime_11_cf_temperature_actual_fixed.py",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/cf.realtime.roo12.temperature.fixed.py.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/CSV_results/ai_oiltemp_recent2000_20261111_024117.csv",
+    "Git-2nd-ignore complict;.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/CSV_results/ai_oiltemp_recent2000_20261111_023818.csv",
+    "Git 충돌해결.md",
+    "Lecture/AI-lecture.md",
+    "Git manuel.md",
+    "RESEARCH/SLAM/slamKIT/CASE/CASE.Main.md",
+    "Pasted image 20261109043407.png",
+    "RESEARCH/SLAM/slamKIT/CASE/Case.1st.md",
+    "Pasted image 20261109043256.png",
+    "Pasted image 20261109043248.png",
+    "Pasted image 20261109043124.png",
+    "Pasted image 20261109043046.png",
+    "Pasted image 20261109043024.png",
+    "Pasted image 20261109043009.png",
+    "Pasted image 20261109042955.png",
+    "RESEARCH/SLAM/slamKIT/CASE/메카넘 4WD 모터제어보드 기술 인포그래픽.png",
+    "Pasted image 20261109041548.png",
+    "RESEARCH/SLAM/slamKIT/CASE/KIT DESIGN.md",
+    "RESEARCH/SLAM/slamKIT/CASE/INVENTOR. manuel.md",
+    "RESEARCH/SLAM/slamKIT/CASE/3d CASE design;.md",
+    "RESEARCH/SLAM/slamKIT/Camera..md",
+    "RESEARCH/SLAM/slamKIT/NOTE-slamKIT-00.md",
+    "RESEARCH/SLAM/slamKIT/Slam.Radar.md",
+    "RESEARCH/SLAM/slamKIT/Pcb design.md",
+    "RESEARCH/SLAM/slamKIT/LIDAR.md",
+    "RESEARCH/SLAM/slamKIT/CASE/함체 가공.md",
+    "RESEARCH/MEGACOM/CF/CODE/LSTM-TABLE/megacom_lstm/README.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/scalers_60min.joblib",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/scalers_30min.joblib",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/scalers_120min.joblib",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/scalers_10min.joblib",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/predictions_60min.csv",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/predictions_120min.csv",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/README.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.2nd.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.3rd.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM-main.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/누락값 데이터 추가하기.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/Untitled.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/CF.main.md"
+>>>>>>> bd5eb4829eb468e5e0944df1ea3969e8fe590d85
   ]
 }
