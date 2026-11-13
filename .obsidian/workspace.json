@@ -1,56 +1,41 @@
 {
   "main": {
-    "id": "eb4b250ba1863400",
+    "id": "12ea169f0aa41e5b",
     "type": "split",
     "children": [
       {
-        "id": "33db71c980750e19",
+        "id": "dac1cae6bc8b2dc1",
         "type": "tabs",
         "children": [
           {
-            "id": "6e251fdc6ebf100d",
+            "id": "8147b531ad115449",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lecture/Electromagnetic/Electromagnetics-1st.md",
+                "file": "RESEARCH/MEGACOM/Database/Rule.score.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Electromagnetics-1st"
-            }
-          },
-          {
-            "id": "eb377cc44b3df343",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "RESEARCH/MEGACOM/Database/mysql....md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "mysql..."
+              "title": "Rule.score"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "e19aad988bc3daa1",
+    "id": "be0d51fb5e412d0f",
     "type": "split",
     "children": [
       {
-        "id": "2ec47e7f0c8246e0",
+        "id": "177325c6fbbc7e39",
         "type": "tabs",
         "children": [
           {
-            "id": "7d07fefbb7c1ae76",
+            "id": "ba1ada34e5a3af14",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -61,11 +46,11 @@
                 "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
-              "title": "파일 탐색기"
+              "title": "Files"
             }
           },
           {
-            "id": "3b3f9967d07709fe",
+            "id": "13e1651c9c3f4840",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -82,7 +67,7 @@
             }
           },
           {
-            "id": "0756f144553dd776",
+            "id": "1d42a0de4e6e5b47",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -98,27 +83,23 @@
       }
     ],
     "direction": "horizontal",
-<<<<<<< HEAD
-    "width": 475.5
-=======
-    "width": 378.5
->>>>>>> bd5eb4829eb468e5e0944df1ea3969e8fe590d85
+    "width": 300
   },
   "right": {
-    "id": "41d3223c8f4467a1",
+    "id": "2fcb1c250aae4ee3",
     "type": "split",
     "children": [
       {
-        "id": "ab50268663528c2d",
+        "id": "e9818c12008e74e9",
         "type": "tabs",
         "children": [
           {
-            "id": "0d8ae641b8efc59a",
+            "id": "133dd5ecb27fd681",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "RESEARCH/MEGACOM/CF/CF-1st.md",
+                "file": "RESEARCH/MEGACOM/Database/Rule.score.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,12 +113,12 @@
             }
           },
           {
-            "id": "75c357cf6d1478ca",
+            "id": "ce09bc5d46aa0915",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "RESEARCH/MEGACOM/CF/CF-1st.md",
+                "file": "RESEARCH/MEGACOM/Database/Rule.score.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -146,7 +127,7 @@
             }
           },
           {
-            "id": "0cdd7a9d34996d32",
+            "id": "94809ea65b0b52ca",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -161,7 +142,7 @@
             }
           },
           {
-            "id": "5becf3596f144307",
+            "id": "930749eaa479b945",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -175,12 +156,12 @@
             }
           },
           {
-            "id": "0134254ba56d6ee5",
+            "id": "3a2fd14cb3bc792a",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "RESEARCH/MEGACOM/CF/CF-1st.md",
+                "file": "RESEARCH/MEGACOM/Database/Rule.score.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -190,7 +171,7 @@
             }
           },
           {
-            "id": "d6492d8fead5ca67",
+            "id": "e23092a1eaa3262e",
             "type": "leaf",
             "state": {
               "type": "custom-frames-chatgpt",
@@ -204,120 +185,45 @@
       }
     ],
     "direction": "horizontal",
-<<<<<<< HEAD
-    "width": 984.5
-=======
-    "width": 990.5
->>>>>>> bd5eb4829eb468e5e0944df1ea3969e8fe590d85
+    "width": 1135.5
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:빠른 전환기 열기": false,
-      "graph:그래프 뷰 열기": false,
-      "canvas:새 캔버스 만들기": false,
-      "daily-notes:오늘의 일일 노트 열기": false,
-      "templates:템플릿 삽입": false,
-      "command-palette:명령어 팔레트 열기": false,
-      "bases:새 베이스 생성하기": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
       "obsidian-git:Open Git source control": false,
       "obsidian-custom-frames:Open chatGPT": false
     }
   },
-  "active": "eb377cc44b3df343",
+  "active": "8147b531ad115449",
   "lastOpenFiles": [
-<<<<<<< HEAD
-    "RESEARCH/MEGACOM/Database/db-readtable.py",
-    "RESEARCH/MEGACOM/Database/db - 복사본.py",
-    "RESEARCH/MEGACOM/Database/Readme.md.md",
+    "RESEARCH/MEGACOM/Database/CSV_results/ai_analysis_recent20_20261113_092537.csv",
+    "RESEARCH/MEGACOM/Database/rule.py",
+    "RESEARCH/MEGACOM/Database/rule (1).py",
+    "RESEARCH/MEGACOM/Database/rule-3rd.py",
+    "RESEARCH/MEGACOM/Database/rule - 복사본.py",
+    "RESEARCH/MEGACOM/Database/CSV_results/ai_analysis_recent20_20261113_082127.csv",
+    "RESEARCH/MEGACOM/Database/CSV_results/ai_data_recent20_20261113_082116.csv",
+    "RESEARCH/MEGACOM/Database/rule-2nd.py",
+    "RESEARCH/MEGACOM/Database/CSV_results/ai_data_recent20_20261113_080752.csv",
+    "RESEARCH/MEGACOM/Database/CSV_results/ai_analysis_recent20_20261113_075923.csv",
+    "RESEARCH/MEGACOM/Database/rule-1st.py",
+    "RESEARCH/MEGACOM/Database/dB.sql.md",
+    "RESEARCH/MEGACOM/Database/Rule.score.md",
     "RESEARCH/MEGACOM/Database/mysql....md",
     "RESEARCH/MEGACOM/Database/Tables;.md",
-    "RESEARCH/MEGACOM/CF/Untitled.md",
-    "RESEARCH/MEGACOM/CF/readme-1st.txt.md",
-    "git stash.md",
-    "Git-2nd-ignore complict;.md",
-    "Git manuel.md",
-    "image/Pasted image 20261026210530.png",
-    "image/readme.md",
-    "image/Pasted image 20261031040029.png",
-    "image/Pasted image 20261026202847.png",
-    "image/Pasted image 20261027211026.png",
-    "image/Pasted image 20261031033637.png",
-    "image/Pasted image 20261026202934.png",
-    "image/Pasted image 20261025100156.png",
-    "image/Pasted image 20261025101144.png",
-    "image/Pasted image 20261025100118.png",
-    "image",
-    "Untitled.base",
-    "RESEARCH/TMPE/rulebase-1st.md",
-    "RESEARCH/MEGACOM/Database/테이블 칼럼 구성표-aioiltemp-ailstmr.hwp",
-    "RESEARCH/MEGACOM/Database/readme-lstm.hwp",
-    "RESEARCH/MEGACOM/Database/새 Microsoft Word 문서.docx",
-    "RESEARCH/MEGACOM/Database/db.py",
-    "RESEARCH/MEGACOM/Database/db-1.py",
-    "RESEARCH/MEGACOM/Database",
-    "RESEARCH/FAB/CASE/Pasted image 20261031092132.png",
-    "RESEARCH/FAB/CASE/INVENTOR. manuel.md",
-    "RESEARCH/FAB/CASE/CASE design.md",
-    "Lecture/Electromagnetic/Electromagnetics-1st.md",
-    "Lecture/Electromagnetic",
-    "Lecture/AI-lecture.md",
-    "RESEARCH/FAB/CASE/함체 가공.md",
-    "RESEARCH/MEGACOM/CF/CF-1st.md",
-    "RESEARCH/TMPE/Untitled.md",
-    "RESEARCH/SLAM/slamKIT/NOTE-slamKIT-00.md",
-    "README.md",
-    "RESEARCH/SLAM/slamKIT/3d CASE design;.md",
-    "RESEARCH/SLAM/slamKIT/KIT DESIGN.md",
-    "RESEARCH/SLAM/slamKIT/BATTERY-02.md",
-    "RESEARCH/SLAM/slamKIT/LIDAR.md",
-    "RESEARCH/SLAM/slamKIT/BATTERY.md",
-    "RESEARCH/SLAM/slamKIT/BATTERY-slamkit-02.md"
-=======
-    "Git.Main.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/ref/cf_realtime_11_cf_temperature_with_actual.py",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/ref/cf_realtime_11_cf_temperature_actual_fixed.py",
     "RESEARCH/MEGACOM/Algorithm/CODE/CF/cf.realtime.roo12.temperature.fixed.py.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/CSV_results/ai_oiltemp_recent2000_20261111_024117.csv",
-    "Git-2nd-ignore complict;.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/CSV_results/ai_oiltemp_recent2000_20261111_023818.csv",
-    "Git 충돌해결.md",
-    "Lecture/AI-lecture.md",
-    "Git manuel.md",
-    "RESEARCH/SLAM/slamKIT/CASE/CASE.Main.md",
-    "Pasted image 20261109043407.png",
-    "RESEARCH/SLAM/slamKIT/CASE/Case.1st.md",
-    "Pasted image 20261109043256.png",
-    "Pasted image 20261109043248.png",
-    "Pasted image 20261109043124.png",
-    "Pasted image 20261109043046.png",
-    "Pasted image 20261109043024.png",
-    "Pasted image 20261109043009.png",
-    "Pasted image 20261109042955.png",
+    "RESEARCH/SLAM/slamKIT/CASE/로봇 섀시 내부 프레임 설계 인포그래픽.png",
     "RESEARCH/SLAM/slamKIT/CASE/메카넘 4WD 모터제어보드 기술 인포그래픽.png",
-    "Pasted image 20261109041548.png",
-    "RESEARCH/SLAM/slamKIT/CASE/KIT DESIGN.md",
-    "RESEARCH/SLAM/slamKIT/CASE/INVENTOR. manuel.md",
-    "RESEARCH/SLAM/slamKIT/CASE/3d CASE design;.md",
-    "RESEARCH/SLAM/slamKIT/Camera..md",
-    "RESEARCH/SLAM/slamKIT/NOTE-slamKIT-00.md",
-    "RESEARCH/SLAM/slamKIT/Slam.Radar.md",
-    "RESEARCH/SLAM/slamKIT/Pcb design.md",
-    "RESEARCH/SLAM/slamKIT/LIDAR.md",
+    "RESEARCH/SLAM/slamKIT/CASE/Case.메카넘 휠바퀴.md",
+    "RESEARCH/SLAM/slamKIT/CASE/CASE.Main.md",
     "RESEARCH/SLAM/slamKIT/CASE/함체 가공.md",
-    "RESEARCH/MEGACOM/CF/CODE/LSTM-TABLE/megacom_lstm/README.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/scalers_60min.joblib",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/scalers_30min.joblib",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/scalers_120min.joblib",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/scalers_10min.joblib",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/predictions_60min.csv",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/predictions_120min.csv",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/README.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.2nd.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.3rd.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM-main.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/누락값 데이터 추가하기.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/Untitled.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/CF.main.md"
->>>>>>> bd5eb4829eb468e5e0944df1ea3969e8fe590d85
+    "RESEARCH/SLAM/slamKIT/CASE/3d CASE design;.md",
+    "Lecture/Electromagnetic/Electromagnetics-1st.md"
   ]
 }
