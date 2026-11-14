@@ -8,6 +8,10 @@ import pandas as pd
 from datetime import datetime
 import os
 
+tableName = 'st_comcode_set'
+
+
+
 try:
     # 1. MySQL 연결
     conn = mysql.connector.connect(
@@ -22,11 +26,9 @@ try:
     print("MySQL 접속 성공!")
 
     # 2. 최근 20개 데이터 조회
-    sql = """
+    sql = f"""
         SELECT *
-        FROM ai_data
-        ORDER BY input_time DESC
-        LIMIT 20
+        FROM {tableName}
     """
 
     # 3. 데이터 읽기

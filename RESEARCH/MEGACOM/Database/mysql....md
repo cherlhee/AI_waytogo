@@ -8,6 +8,36 @@ pip install mysql-connector-python
 p
 
 
+
+========== ai_oiltemp ==========
+
+컬럼 구조:
+컬럼명 | 데이터타입 | NULL | KEY | DEFAULT | EXTRA
+------------------------------------------------------------------------------------------
+id | bigint | NO | PRI | None | auto_increment
+comcode | varchar(15) | NO | MUL | None |
+device_id | varchar(20) | NO |  | None |
+input_time | datetime(3) | YES |  | None |
+current_datetime | datetime(3) | YES |  | None |
+oil_temp_current | decimal(10,2) | YES |  | None |
+oil_temp_predicted | decimal(10,2) | YES |  | None |
+oil_temp_actual | decimal(10,2) | YES |  | None |
+prediction_horizon_min | int | YES |  | None |
+prediction_target_time | datetime(3) | YES |  | None |
+prediction_model | varchar(30) | YES |  | None |
+prediction_features | json | YES |  | None |
+prediction_result | varchar(20) | YES |  | None |
+created_at | datetime(3) | YES |  | CURRENT_TIMESTAMP(3) | DEFAULT_GENERATED
+
+총 컬럼 수: 14
+
+========== ai_lstm_r ==========
+MySQL 오류: 1146 (42S02): Table 'airpredict.ai_lstm_r' doesn't exist
+
+MySQL 연결 종료
+
+
+
 이전 메시지 불러오는 중…
 
 ROJECTed\KIS\MEGACOM>python dbmysql.py megaComp!#%
