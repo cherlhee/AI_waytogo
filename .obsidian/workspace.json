@@ -1,32 +1,24 @@
 {
   "main": {
-    "id": "12ea169f0aa41e5b",
+    "id": "18069594cca20fc0",
     "type": "split",
     "children": [
       {
-        "id": "dac1cae6bc8b2dc1",
+        "id": "91a9f0c053d10306",
         "type": "tabs",
         "children": [
           {
-            "id": "8147b531ad115449",
+            "id": "f1d99038f5a545e2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-<<<<<<< HEAD
-                "file": "RESEARCH/PCB/PCB.fab.md",
-=======
-                "file": "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/Create.Table.COLUMN.md",
->>>>>>> 499f5812e61524bc704d786813abe2f93fae86e3
+                "file": "RESEARCH/APFC/CODE/Untitled.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-<<<<<<< HEAD
-              "title": "PCB.fab"
-=======
-              "title": "Create.Table.COLUMN"
->>>>>>> 499f5812e61524bc704d786813abe2f93fae86e3
+              "title": "Untitled"
             }
           }
         ]
@@ -35,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "be0d51fb5e412d0f",
+    "id": "78e9c43e1ddd8e8d",
     "type": "split",
     "children": [
       {
-        "id": "177325c6fbbc7e39",
+        "id": "52b3a8c5cb7a045a",
         "type": "tabs",
         "children": [
           {
-            "id": "ba1ada34e5a3af14",
+            "id": "114ca2829abbfdf3",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -58,7 +50,7 @@
             }
           },
           {
-            "id": "13e1651c9c3f4840",
+            "id": "84fdaf2b3afaab07",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -75,7 +67,7 @@
             }
           },
           {
-            "id": "1d42a0de4e6e5b47",
+            "id": "70d459733b7f3d8b",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -94,20 +86,20 @@
     "width": 300
   },
   "right": {
-    "id": "2fcb1c250aae4ee3",
+    "id": "924c9b0ecef3ecda",
     "type": "split",
     "children": [
       {
-        "id": "e9818c12008e74e9",
+        "id": "59b42e7447290048",
         "type": "tabs",
         "children": [
           {
-            "id": "133dd5ecb27fd681",
+            "id": "6af2ade9700f6a54",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "RESEARCH/MEGACOM/Database/Rule.score.md",
+                "file": "RESEARCH/APFC/CODE/Untitled.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,12 +113,12 @@
             }
           },
           {
-            "id": "ce09bc5d46aa0915",
+            "id": "842d0332c2ed25fb",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "RESEARCH/MEGACOM/Database/Rule.score.md",
+                "file": "RESEARCH/APFC/CODE/Untitled.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -135,7 +127,7 @@
             }
           },
           {
-            "id": "94809ea65b0b52ca",
+            "id": "e9447dcbbd81525b",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -150,7 +142,7 @@
             }
           },
           {
-            "id": "930749eaa479b945",
+            "id": "e4f3b170d457b8ee",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -164,12 +156,12 @@
             }
           },
           {
-            "id": "3a2fd14cb3bc792a",
+            "id": "f1e0d2743dbc86b2",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "RESEARCH/MEGACOM/Database/Rule.score.md",
+                "file": "RESEARCH/APFC/CODE/Untitled.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -179,7 +171,7 @@
             }
           },
           {
-            "id": "e23092a1eaa3262e",
+            "id": "2c5d03345b581bf2",
             "type": "leaf",
             "state": {
               "type": "custom-frames-chatgpt",
@@ -193,11 +185,7 @@
       }
     ],
     "direction": "horizontal",
-<<<<<<< HEAD
-    "width": 1175.5
-=======
-    "width": 847.5
->>>>>>> 499f5812e61524bc704d786813abe2f93fae86e3
+    "width": 1158.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -212,87 +200,17 @@
       "obsidian-custom-frames:Open chatGPT": false
     }
   },
-  "active": "8147b531ad115449",
+  "active": "f1d99038f5a545e2",
   "lastOpenFiles": [
-<<<<<<< HEAD
-    "RESEARCH/SLAM/slamKIT/Pcb design.md",
-    "RESEARCH/PCB/PCB.fab.md",
-    "RESEARCH/PCB",
-    "RESEARCH/SLAM/slamKIT/Component/BR-1000C.pdf",
-    "RESEARCH/SLAM/slamKIT/Component/BR-1000C.pdf.crdownload",
-    "RESEARCH/SLAM/slamKIT/Component",
-    "RESEARCH/SLAM/slamKIT/새 폴더",
-    "Git.Main.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/ref/cf_realtime_11_cf_temperature_with_actual.py",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/ref/cf_realtime_11_cf_temperature_actual_fixed.py",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/cf.realtime.roo12.temperature.fixed.py.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/CSV_results/ai_oiltemp_recent2000_20261111_024117.csv",
-    "Git-2nd-ignore complict;.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/CSV_results/ai_oiltemp_recent2000_20261111_023818.csv",
-    "Git 충돌해결.md",
+    "RESEARCH/APFC/CODE/APFC_analogread/APFC_analogread.ino",
+    "RESEARCH/APFC/CODE/APFC_analogread",
+    "RESEARCH/APFC/CODE/APFC_digitalread/APFC_digitalread.ino",
+    "RESEARCH/APFC/CODE/APFC_digitalread",
     "Lecture/AI-lecture.md",
-    "Git manuel.md",
-    "RESEARCH/SLAM/slamKIT/CASE/CASE.Main.md",
-    "Pasted image 20261109043407.png",
-    "RESEARCH/SLAM/slamKIT/CASE/Case.1st.md",
-    "Pasted image 20261109043256.png",
-    "Pasted image 20261109043248.png",
-    "Pasted image 20261109043124.png",
-    "Pasted image 20261109043046.png",
-    "Pasted image 20261109043024.png",
-    "Pasted image 20261109043009.png",
-    "Pasted image 20261109042955.png",
-    "RESEARCH/SLAM/slamKIT/CASE/메카넘 4WD 모터제어보드 기술 인포그래픽.png",
-    "Pasted image 20261109041548.png",
-    "RESEARCH/SLAM/slamKIT/CASE/KIT DESIGN.md",
-    "RESEARCH/SLAM/slamKIT/CASE/INVENTOR. manuel.md",
-    "RESEARCH/SLAM/slamKIT/CASE/3d CASE design;.md",
-    "RESEARCH/SLAM/slamKIT/Camera..md",
-    "RESEARCH/SLAM/slamKIT/NOTE-slamKIT-00.md",
-    "RESEARCH/SLAM/slamKIT/Slam.Radar.md",
-    "RESEARCH/SLAM/slamKIT/LIDAR.md",
-    "RESEARCH/SLAM/slamKIT/CASE/함체 가공.md",
-    "RESEARCH/MEGACOM/CF/CODE/LSTM-TABLE/megacom_lstm/README.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/ref/megacom_models/scalers_60min.joblib",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/README.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.2nd.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.3rd.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM-main.md",
-=======
-    "메가콤 Database 정보.hwp",
-    "메가콤 Database 정보.hwp.crdownload",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/MAE, RMSE.md",
+    "RESEARCH/APFC/CODE/Untitled.md",
+    "RESEARCH/APFC/CODE/APFC/APFC.ino",
+    "RESEARCH/APFC/CODE/APFC",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/Create.Table.COLUMN.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/cf.realtime.roo12.temperature.fixed.py.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/CF.main.md",
->>>>>>> 499f5812e61524bc704d786813abe2f93fae86e3
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/누락값 데이터 추가하기.md",
-    "RESEARCH/MEGACOM/Database/Tables;.md",
-    "RESEARCH/MEGACOM/Database/mysql....md",
-    "RESEARCH/MEGACOM/Database/Rule.score.md",
-    "RESEARCH/MEGACOM/Algorithm/readme-1st.txt.md",
-    "RESEARCH/MEGACOM/Algorithm/CF-1st.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.3rd.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.2nd.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM-main.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/lstm.TRAIN.md",
-    "RESEARCH/MEGACOM/Database/Readme.md",
-    "RESEARCH/MEGACOM/Database/dB.sql.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_recent20_20261114_003616.csv",
-    "RESEARCH/MEGACOM/Database/CSV_results/ai_analysis_recent20_20261113_092537.csv",
-    "RESEARCH/MEGACOM/Database/rule.py",
-    "RESEARCH/MEGACOM/Database/rule (1).py",
-    "RESEARCH/MEGACOM/Database/rule-3rd.py",
-    "RESEARCH/MEGACOM/Database/rule - 복사본.py",
-    "RESEARCH/MEGACOM/Database/CSV_results/ai_analysis_recent20_20261113_082127.csv",
-    "RESEARCH/MEGACOM/Database/CSV_results/ai_data_recent20_20261113_082116.csv",
-    "RESEARCH/MEGACOM/Database/rule-2nd.py",
-    "RESEARCH/SLAM/slamKIT/CASE/로봇 섀시 내부 프레임 설계 인포그래픽.png",
-    "RESEARCH/SLAM/slamKIT/CASE/메카넘 4WD 모터제어보드 기술 인포그래픽.png",
-    "RESEARCH/SLAM/slamKIT/CASE/Case.메카넘 휠바퀴.md",
-    "RESEARCH/SLAM/slamKIT/CASE/CASE.Main.md",
-    "RESEARCH/SLAM/slamKIT/CASE/함체 가공.md",
-    "RESEARCH/SLAM/slamKIT/CASE/3d CASE design;.md",
-    "Lecture/Electromagnetic/Electromagnetics-1st.md"
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM-main.md"
   ]
 }
