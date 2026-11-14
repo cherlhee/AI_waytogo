@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RESEARCH/MEGACOM/Database/Rule.score.md",
+                "file": "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/Create.Table.COLUMN.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Rule.score"
+              "title": "Create.Table.COLUMN"
             }
           }
         ]
@@ -185,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 1135.5
+    "width": 847.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,6 +202,25 @@
   },
   "active": "8147b531ad115449",
   "lastOpenFiles": [
+    "메가콤 Database 정보.hwp",
+    "메가콤 Database 정보.hwp.crdownload",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/MAE, RMSE.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/Create.Table.COLUMN.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/cf.realtime.roo12.temperature.fixed.py.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/CF.main.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/누락값 데이터 추가하기.md",
+    "RESEARCH/MEGACOM/Database/Tables;.md",
+    "RESEARCH/MEGACOM/Database/mysql....md",
+    "RESEARCH/MEGACOM/Database/Rule.score.md",
+    "RESEARCH/MEGACOM/Algorithm/readme-1st.txt.md",
+    "RESEARCH/MEGACOM/Algorithm/CF-1st.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.3rd.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.2nd.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM-main.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/lstm.TRAIN.md",
+    "RESEARCH/MEGACOM/Database/Readme.md",
+    "RESEARCH/MEGACOM/Database/dB.sql.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_recent20_20261114_003616.csv",
     "RESEARCH/MEGACOM/Database/CSV_results/ai_analysis_recent20_20261113_092537.csv",
     "RESEARCH/MEGACOM/Database/rule.py",
     "RESEARCH/MEGACOM/Database/rule (1).py",
@@ -210,14 +229,6 @@
     "RESEARCH/MEGACOM/Database/CSV_results/ai_analysis_recent20_20261113_082127.csv",
     "RESEARCH/MEGACOM/Database/CSV_results/ai_data_recent20_20261113_082116.csv",
     "RESEARCH/MEGACOM/Database/rule-2nd.py",
-    "RESEARCH/MEGACOM/Database/CSV_results/ai_data_recent20_20261113_080752.csv",
-    "RESEARCH/MEGACOM/Database/CSV_results/ai_analysis_recent20_20261113_075923.csv",
-    "RESEARCH/MEGACOM/Database/rule-1st.py",
-    "RESEARCH/MEGACOM/Database/dB.sql.md",
-    "RESEARCH/MEGACOM/Database/Rule.score.md",
-    "RESEARCH/MEGACOM/Database/mysql....md",
-    "RESEARCH/MEGACOM/Database/Tables;.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/cf.realtime.roo12.temperature.fixed.py.md",
     "RESEARCH/SLAM/slamKIT/CASE/로봇 섀시 내부 프레임 설계 인포그래픽.png",
     "RESEARCH/SLAM/slamKIT/CASE/메카넘 4WD 모터제어보드 기술 인포그래픽.png",
     "RESEARCH/SLAM/slamKIT/CASE/Case.메카넘 휠바퀴.md",
