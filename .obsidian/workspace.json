@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.1ST.md",
+                "file": "RESEARCH/SLAM/slamKIT/CASE/아크릴,주문제작.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "LSTM.1ST"
+              "title": "아크릴,주문제작"
             }
           }
         ]
@@ -185,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 1249.5
+    "width": 800.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,23 +202,31 @@
   },
   "active": "f1d99038f5a545e2",
   "lastOpenFiles": [
+    "RESEARCH/SLAM/slamKIT/CASE/CASE.Main.md",
+    "RESEARCH/SLAM/slamKIT/CASE/아크릴,주문제작.md",
+    "RESEARCH/SLAM/slamKIT/CASE/Case.메카넘 휠바퀴.md",
+    "RESEARCH/SLAM/slamKIT/CASE/Case.1st.md",
+    "RESEARCH/SLAM/slamKIT/CASE/함체 가공.md",
+    "RESEARCH/SLAM/slamKIT/CASE/판금.md",
+    "RESEARCH/SLAM/slamKIT/CASE/메카넘 4WD 모터제어보드 기술 인포그래픽.png",
+    "RESEARCH/SLAM/slamKIT/CASE/3d CASE design;.md",
+    "RESEARCH/SLAM/slamKIT/CASE/로봇 섀시 내부 프레임 설계 인포그래픽.png",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/cf.py",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/ref/cf_realtime_R00012_temperature_fixed-ref.py",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/cf_realtime_R00012_temperature_fixed-ref.py",
+    "RESEARCH/MEGACOM/Algorithm/CODE/CF/cf_realtime_R00012_temperature_fixed - 복사본.py",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_recent20_20261115_233336.csv",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.1ST.md",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_recent20_20261115_120802.csv",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_recent20_20261115_111807.csv",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/lstm_predict (1).py",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_recent20_20261115_110946.csv",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_recent20_20261115_110559.csv",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/__pycache__/lstm_features.cpython-310.pyc",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/__pycache__/config.cpython-310.pyc",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.2nd.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.1ST.md",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/lstm.TRAIN.md",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/MAE, RMSE.md",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM-main.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/lstm_predict-20261115.py",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/lstm_predict - 복사본.py",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/Create.TABLE.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_r_recent200_20261115_103528.csv",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_r_recent200_20261115_103458.csv",
     "Lecture/AI-lecture.md",
     "RESEARCH/APFC/APFC.1st.md",
     "RESEARCH/APFC/APFC.main.md",
