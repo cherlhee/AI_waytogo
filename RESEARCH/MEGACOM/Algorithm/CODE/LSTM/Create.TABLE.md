@@ -1,6 +1,69 @@
 
 
 
+==🔴LTER TABLE ai_lstm_r ADD COLUMN oil_temp_current DECIMAL(10,2) NULL AFTER prediction_target_time;,,,how can i insert a column before a selected column==
+
+In MySQL, there is **no BEFORE keyword** in ALTER TABLE.
+
+To insert a column **before a selected column**, use AFTER with the name of the preceding column.
+
+### 1. Example: Insert before prediction_target_time
+
+Suppose the current column order is:
+
+`prediction_horizon_min prediction_target_time lstm_prediction`
+
+To insert oil_temp_current **before prediction_target_time**, use:
+
+```
+ALTER TABLE ai_lstm_r
+ADD COLUMN oil_temp_current DECIMAL(10,2) NULL
+AFTER prediction_horizon_min;
+```
+
+**Result:**
+
+`prediction_horizon_min oil_temp_current prediction_target_time lstm_prediction`
+
+### 2. Insert at the beginning of the table
+
+Use FIRST:
+
+```
+ALTER TABLE ai_lstm_r
+ADD COLUMN oil_temp_current DECIMAL(10,2) NULL
+FIRST;
+```
+
+### 3. Move an existing column before another column
+
+If oil_temp_current already exists:
+
+```
+ALTER TABLE ai_lstm_r
+MODIFY COLUMN oil_temp_current DECIMAL(10,2) NULL
+AFTER prediction_horizon_min;
+```
+
+### 4. Check column order
+
+```
+SHOW COLUMNS FROM ai_lstm_r;
+```
+
+**Summary:**
+
+|Desired position|MySQL syntax|
+|---|---|
+|After a column|AFTER column_name|
+|Before a column|AFTER preceding_column_name|
+|First column|FIRST|
+|Last column|Omit AFTER and FIRST|
+
+**Note:** MySQL does not support BEFORE column_name for adding or repositioning columns.
+
+
+
 
 ==🔴when inserting columns,,can i insert beween selected columns==
 ==🔴Yes. In MySQL, you can insert a new column **between existing columns** using ALTER TABLE with the AFTER keyword.==

@@ -1,5 +1,59 @@
 
 
+## Recommended real-time workflow
+
+```
+10:00:00
+   |
+   |-- Read ai_data.io003 = 75°C
+   |
+   |-- Predict temperatures
+   |      10 min → 78°C
+   |      30 min → 82°C
+   |      60 min → 85°C
+   |     120 min → 89°C
+   |
+   |-- INSERT 4 rows into ai_lstm_r
+   |      oil_temp_current = 75°C
+   |      oil_temp_actual = NULL
+   |      prediction_error = NULL
+   |
+   v
+10:10:00
+   |
+   |-- Read ai_data.io003 = 79°C
+   |-- UPDATE 10-min prediction
+   |-- prediction_error = -1°C
+   |
+   v
+10:30:00
+   |
+   |-- Read ai_data.io003 = 80°C
+   |-- UPDATE 30-min prediction
+   |-- prediction_error = +2°C
+   |
+   v
+11:00:00
+   |
+   |-- Update 60-min prediction
+   |
+   v
+12:00:00
+   |
+   |-- Update 120-min prediction
+   |
+   v
+Calculate MAE / RMSE
+```
+
+### One important distinction
+
+- **`oil_temp_current`** = Temperature when the prediction was made.
+- **`oil_temp_actual`** = Temperature when the prediction target time arrives.
+- **`lstm_prediction`** = Temperature predicted for that target time.
+- **`prediction_error`** = Difference between predicted and actual temperatures.
+
+This is the correct structure for evaluating the accuracy of your 10-, 30-, 60-, and 120-minute LSTM predictions.
 
 제공하신 `lstm_predict.py` 코드는 **`ai_oiltemp`의 최신 ID를 확인하고, 새로운 ID가 발견되면 LSTM 예측을 수행하여 `ai_lstm_r`에 저장하는 구조**입니다.
 

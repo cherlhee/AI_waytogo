@@ -1,4 +1,4 @@
-"""MEGACOM: ai_oiltemp 최신 ID 기준으로 ai_data 이력 조회 후 LSTM 예측 저장.
+"""MEGACOM: ai_data 최신 시각 기준 LSTM 예측, 목표시각 실제온도 보정 및 MAE/RMSE 조회.
 
 사용: python lstm_predict.py --once
       python lstm_predict.py --interval 5
@@ -34,7 +34,8 @@ def get_latest(conn, comcode, device_id):
         SELECT
             comcode,
             deviceId,
-            input_time
+            input_time,
+            io003
         FROM ai_data
         WHERE comcode = %s
           AND deviceId = %s
@@ -50,6 +51,7 @@ def get_latest(conn, comcode, device_id):
 
         if latest:
             latest["device_id"] = latest["deviceId"]
+            latest["oil_temp_current"] = float(latest["io003"]) if latest["io003"] not in (None, "") else None
             latest["input_time"] = pd.Timestamp(
                 latest["input_time"]
             ).to_pydatetime()
@@ -133,129 +135,140 @@ def importance_as_sorted_json(importance):
     return json.dumps(ranked, ensure_ascii=False, allow_nan=False)
 
 
-def write_results(conn, latest, outputs, importances, contributions, version):
-    """ai_lstm_r 실제 컬럼명(device_id 또는 deviceId)을 확인한 후 저장."""
+def check_schema(conn):
     cur = conn.cursor()
     try:
         cur.execute("SHOW COLUMNS FROM ai_lstm_r")
-        available = {row[0] for row in cur.fetchall()}
-        device_col = next((c for c in ("device_id", "deviceId") if c in available), None)
-        if device_col is None:
-            raise ValueError(
-                "ai_lstm_r에 device_id/deviceId 컬럼이 없습니다. "
-                f"실제 컬럼: {sorted(available)}"
-            )
-        required = {
-            "oiltemp_id", "comcode", "input_time", "current_datetime",
-            "prediction_horizon_min", "prediction_target_time", "lstm_prediction",
-            "lstm_anomaly_score", "feature_importance", "feature_contributions",
-            "model_version", "created_at",
-        }
-        missing = required - available
-        if missing:
-            raise ValueError(f"ai_lstm_r 필수 컬럼 누락: {sorted(missing)}")
+        cols = {row[0] for row in cur.fetchall()}
+    finally:
+        cur.close()
+    device_col = next((c for c in ("device_id", "deviceId") if c in cols), None)
+    required = {"idx", "comcode", "input_time", "current_datetime",
+                "prediction_horizon_min", "prediction_target_time",
+                "oil_temp_current", "oil_temp_actual", "prediction_error",
+                "lstm_prediction", "lstm_anomaly_score", "feature_importance",
+                "feature_contributions", "model_version", "created_at"}
+    missing = required - cols
+    if not device_col or missing:
+        raise ValueError(f"ai_lstm_r 스키마 확인 필요: device={device_col}, 누락={sorted(missing)}")
+    return device_col
 
 
-
-
-        # sql = f"""INSERT INTO ai_lstm_r
-        #    (oiltemp_id, comcode, `{device_col}`, input_time, current_datetime,
-        #     prediction_horizon_min, prediction_target_time, lstm_prediction,
-        #     lstm_anomaly_score, feature_importance, feature_contributions,
-        #     model_version, created_at)
-        #    VALUES (%s,%s,%s,%s,NOW(3),%s,%s,%s,NULL,%s,%s,%s,NOW(3))
-        #    ON DUPLICATE KEY UPDATE
-        #      lstm_prediction=VALUES(lstm_prediction),
-        #      feature_importance=VALUES(feature_importance),
-        #      feature_contributions=COALESCE(VALUES(feature_contributions),feature_contributions),
-        #      current_datetime=NOW(3)"""
-        # for horizon, prediction in outputs.items():
-        #     imp = importance_as_sorted_json(importances[horizon])
-
-        #     contribution = (
-        #         json.dumps({"method": "integrated_gradients", "unit": "C",
-        #                     "values": contributions[horizon]}, ensure_ascii=False)
-        #         if contributions.get(horizon) is not None else None
-        #     )
-        #     cur.execute(sql, (
-        #         latest["comcode"], 
-        #         latest["device_id"],
-        #         latest["input_time"], 
-        #         horizon,
-        #         latest["input_time"] + timedelta(minutes=horizon),
-        #         round(float(prediction), 2), 
-        #         imp, 
-        #         contribution, 
-        #         version
-        #     ))
-        # conn.commit()
-
-
-
-        sql = f"""
+def write_results(conn, latest, outputs, importances, contributions, version, device_col):
+    """4개 예측 저장. 실제온도/오차는 미래 시각에 별도 보정."""
+    if latest["oil_temp_current"] is None or not np.isfinite(latest["oil_temp_current"]):
+        raise ValueError("현재 io003 온도가 유효하지 않습니다")
+    sql = f"""
         INSERT INTO ai_lstm_r
-        (
-            comcode, `{device_col}`, input_time, current_datetime,
-            prediction_horizon_min, prediction_target_time,
-            lstm_prediction, lstm_anomaly_score,
-            feature_importance, feature_contributions,
-            model_version, created_at
-        )
-        VALUES (
-            %s, %s, %s, NOW(3),
-            %s, %s, %s, NULL,
-            %s, %s, %s, NOW(3)
-        )
+        (comcode, `{device_col}`, input_time, current_datetime,
+         prediction_horizon_min, prediction_target_time,
+         oil_temp_current, lstm_prediction, lstm_anomaly_score,
+         feature_importance, feature_contributions, model_version, created_at)
+        VALUES (%s,%s,%s,NOW(3),%s,%s,%s,%s,NULL,%s,%s,%s,NOW(3))
         ON DUPLICATE KEY UPDATE
-            lstm_prediction = VALUES(lstm_prediction),
-            feature_importance = VALUES(feature_importance),
-            feature_contributions = COALESCE(
-                VALUES(feature_contributions),
-                feature_contributions
-            ),
-            current_datetime = NOW(3)
-        """
-
+            oil_temp_current=VALUES(oil_temp_current),
+            lstm_prediction=VALUES(lstm_prediction),
+            feature_importance=VALUES(feature_importance),
+            feature_contributions=COALESCE(VALUES(feature_contributions), feature_contributions),
+            current_datetime=NOW(3)
+    """
+    cur = conn.cursor()
+    try:
         for horizon, prediction in outputs.items():
-
-            imp = importance_as_sorted_json(importances[horizon])
-
-            contribution = (
-                json.dumps(
-                    {
-                        "method": "integrated_gradients",
-                        "unit": "C",
-                        "values": contributions[horizon]
-                    },
-                    ensure_ascii=False
-                )
-                if contributions.get(horizon) is not None
-                else None
-            )
-
-            params = (
-                latest["comcode"],
-                latest["device_id"],
-                latest["input_time"],
-                horizon,
-                latest["input_time"] + timedelta(minutes=horizon),
-                round(float(prediction), 2),
-                imp,
-                contribution,
-                version
-            )
-
-            print("SQL 파라미터:", sql.count("%s"))
-            print("전달 데이터:", len(params))
-
-            cur.execute(sql, params)
-
+            contribution = (json.dumps({"method": "integrated_gradients", "unit": "C",
+                                        "values": contributions[horizon]}, ensure_ascii=False)
+                            if contributions.get(horizon) is not None else None)
+            cur.execute(sql, (latest["comcode"], latest["device_id"],
+                              latest["input_time"], horizon,
+                              latest["input_time"] + timedelta(minutes=horizon),
+                              round(latest["oil_temp_current"], 2),
+                              round(float(prediction), 2),
+                              importance_as_sorted_json(importances[horizon]),
+                              contribution, version))
         conn.commit()
-
-
     except Exception:
         conn.rollback()
         raise
+    finally:
+        cur.close()
+
+
+def update_actuals(conn, comcode, device_id, device_col, latest_time, tolerance_seconds=5, batch=500):
+    """센서 기준시각이 목표시각+허용오차에 도달한 건만 보정.
+
+    ai_data.input_time: YYYY-MM-DD HH:MM:SS 문자열. 같은 설비의 가장 가까운
+    관측값을 ±tolerance_seconds 내에서 선택. 없으면 NULL 유지.
+    """
+    cur = conn.cursor(dictionary=True)
+    updated = 0
+    try:
+        # 미래 관측값까지 고려한 뒤에 확정; 누락된 센서값은 NULL로 남김.
+        cutoff = latest_time - timedelta(seconds=tolerance_seconds)
+        cur.execute(f"""
+            SELECT idx, prediction_target_time, lstm_prediction
+            FROM ai_lstm_r
+            WHERE comcode=%s AND `{device_col}`=%s
+              AND oil_temp_actual IS NULL
+              AND prediction_target_time <= %s
+            ORDER BY prediction_target_time ASC LIMIT %s
+        """, (comcode, device_id, cutoff, batch))
+        pending = cur.fetchall()
+        for row in pending:
+            target = pd.Timestamp(row["prediction_target_time"]).to_pydatetime()
+            lo = (target - timedelta(seconds=tolerance_seconds)).strftime("%Y-%m-%d %H:%M:%S")
+            hi = (target + timedelta(seconds=tolerance_seconds)).strftime("%Y-%m-%d %H:%M:%S")
+            cur.execute("""
+                SELECT input_time, io003 FROM ai_data
+                WHERE comcode=%s AND deviceId=%s
+                  AND input_time >= %s AND input_time <= %s
+                  AND io003 IS NOT NULL AND TRIM(io003) <> ''
+                ORDER BY input_time ASC
+            """, (comcode, device_id, lo, hi))
+            candidates = []
+            for r in cur.fetchall():
+                try:
+                    value = float(r["io003"])
+                    ts = pd.Timestamp(r["input_time"]).to_pydatetime()
+                    if np.isfinite(value):
+                        candidates.append((abs((ts-target).total_seconds()), ts, value))
+                except (ValueError, TypeError):
+                    continue
+            if not candidates:
+                continue
+            _, actual_time, actual = min(candidates, key=lambda x: (x[0], x[1]))
+            prediction = float(row["lstm_prediction"])
+            cur.execute("""
+                UPDATE ai_lstm_r
+                SET oil_temp_actual=%s, prediction_error=%s
+                WHERE idx=%s AND oil_temp_actual IS NULL
+            """, (round(actual, 2), round(prediction-actual, 2), row["idx"]))
+            updated += cur.rowcount
+        conn.commit()
+        if updated:
+            LOG.info("실제온도/오차 보정 %d건 (조회 %d건)", updated, len(pending))
+    except Exception:
+        conn.rollback()
+        raise
+    finally:
+        cur.close()
+    return updated
+
+
+def log_metrics(conn, comcode, device_id, device_col):
+    """예측기간별 누적 MAE/RMSE (실제온도 확보 건만)."""
+    cur = conn.cursor()
+    try:
+        cur.execute(f"""
+            SELECT prediction_horizon_min, COUNT(*),
+                   ROUND(AVG(ABS(prediction_error)),3),
+                   ROUND(SQRT(AVG(POW(prediction_error,2))),3)
+            FROM ai_lstm_r
+            WHERE comcode=%s AND `{device_col}`=%s
+              AND prediction_error IS NOT NULL
+            GROUP BY prediction_horizon_min ORDER BY prediction_horizon_min
+        """, (comcode, device_id))
+        for horizon, n, mae, rmse in cur.fetchall():
+            LOG.info("%s분 성능: N=%d MAE=%s°C RMSE=%s°C", horizon, n, mae, rmse)
     finally:
         cur.close()
 
@@ -291,12 +304,30 @@ def main():
     }
 
     last_success = None
+    schema_device_col = None
     count = 0
     while True:
         conn = None
         try:
             conn = mysql.connector.connect(**DB_CONFIG)
+            if schema_device_col is None:
+                schema_device_col = check_schema(conn)
             latest = get_latest(conn, args.comcode, args.device_id)
+            # 실제온도 보정은 새로운 LSTM 예측보다 먼저 실행합니다.
+            # io044 등 입력 특징의 결측으로 예측이 실패하더라도 과거 예측의
+            # oil_temp_actual / prediction_error 갱신은 계속 수행됩니다.
+            if latest is not None:
+                try:
+                    updated = update_actuals(
+                        conn, args.comcode, args.device_id,
+                        schema_device_col, latest["input_time"]
+                    )
+                    if updated or args.once:
+                        log_metrics(conn, args.comcode, args.device_id, schema_device_col)
+                except Exception:
+                    LOG.exception("과거 예측 실제온도 보정 실패 (새 예측은 계속 시도)")
+                    conn.rollback()
+
             if latest is None:
                 LOG.warning("ai_data에 해당 업체/설비의 데이터가 없습니다")
             elif latest["input_time"] != last_success:
@@ -359,9 +390,9 @@ def main():
 
                 print("\n========== 결측값 검사 ==========")
 
-                for col, count in missing.items():
-                    if count > 0:
-                        print(f"결측 컬럼: {col}, 결측 개수: {count}")
+                for col, missing_count in missing.items():
+                    if missing_count > 0:
+                        print(f"결측 컬럼: {col}, 결측 개수: {missing_count}")
 
                 # 결측값이 발생한 행 확인
                 invalid = tail[tail[list(FEATURES)].isna().any(axis=1)]
@@ -437,11 +468,11 @@ def main():
                     h: integrated_gradients(models[h], x, scaler_y) if explain else None
                     for h in HORIZONS
                 }
-                write_results(conn, latest, outputs, importances, contributions, meta["version"])
+                write_results(conn, latest, outputs, importances, contributions, meta["version"], schema_device_col)
                 last_success = latest["input_time"]
                 count += 1
-                LOG.info("저장 완료 input_time=%s, 예측=%s, IG=%s",
-                         last_success, outputs, explain)
+                LOG.info("저장 완료 input_time=%s, oil_temp_current=%.2f°C, 예측=%s, IG=%s",
+                         last_success, latest["oil_temp_current"], outputs, explain)
             if args.once:
                 break
         except Exception:
