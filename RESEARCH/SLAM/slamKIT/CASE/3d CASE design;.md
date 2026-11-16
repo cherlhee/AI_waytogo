@@ -1,7 +1,7 @@
 
 
 
-  
+  ![[Pasted image 20261112170348.png]]
 
 ![사용자 첨부 파일](blob:https://chatgpt.com/13dbd589-ec6c-499c-b29b-f3209773cfec)
 
