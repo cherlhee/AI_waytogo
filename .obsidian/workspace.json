@@ -1,44 +1,24 @@
 {
   "main": {
-<<<<<<< HEAD
-    "id": "2cf59abbd7dce6c0",
+    "id": "360250888d6bc9eb",
     "type": "split",
     "children": [
       {
-        "id": "fe65ac2c08b69880",
+        "id": "8a21e6d562b72d0a",
         "type": "tabs",
         "children": [
           {
-            "id": "0852479e80f36208",
-=======
-    "id": "18069594cca20fc0",
-    "type": "split",
-    "children": [
-      {
-        "id": "91a9f0c053d10306",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "f1d99038f5a545e2",
->>>>>>> 9d35f05348381d147a2fccec3638ad45f72bae24
+            "id": "2604ff1196a13ba7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-<<<<<<< HEAD
-                "file": "RESEARCH/SLAM/slamKIT/CASE/함체 가공.md",
-=======
-                "file": "RESEARCH/SLAM/slamKIT/CASE/아크릴,주문제작.md",
->>>>>>> 9d35f05348381d147a2fccec3638ad45f72bae24
+                "file": "RESEARCH/MEGACOM/Database/AAS/aas 파일변환.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-<<<<<<< HEAD
-              "title": "함체 가공"
-=======
-              "title": "아크릴,주문제작"
->>>>>>> 9d35f05348381d147a2fccec3638ad45f72bae24
+              "title": "aas 파일변환"
             }
           }
         ]
@@ -47,27 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-<<<<<<< HEAD
-    "id": "c0fc63107e72cd0b",
+    "id": "ad01df531c392002",
     "type": "split",
     "children": [
       {
-        "id": "27582db364bfc468",
+        "id": "46874ab1eefe6af2",
         "type": "tabs",
         "children": [
           {
-            "id": "b1034ac5017794fa",
-=======
-    "id": "78e9c43e1ddd8e8d",
-    "type": "split",
-    "children": [
-      {
-        "id": "52b3a8c5cb7a045a",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "114ca2829abbfdf3",
->>>>>>> 9d35f05348381d147a2fccec3638ad45f72bae24
+            "id": "7134fb003e3eadb8",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -78,15 +46,11 @@
                 "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
-              "title": "Files"
+              "title": "파일 탐색기"
             }
           },
           {
-<<<<<<< HEAD
-            "id": "e7ef1c32b380aaa2",
-=======
-            "id": "84fdaf2b3afaab07",
->>>>>>> 9d35f05348381d147a2fccec3638ad45f72bae24
+            "id": "eb787f016387ed68",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -103,11 +67,7 @@
             }
           },
           {
-<<<<<<< HEAD
-            "id": "41c60ccbc33f44fc",
-=======
-            "id": "70d459733b7f3d8b",
->>>>>>> 9d35f05348381d147a2fccec3638ad45f72bae24
+            "id": "5801d4726ba6a07e",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -126,36 +86,20 @@
     "width": 300
   },
   "right": {
-<<<<<<< HEAD
-    "id": "c176b9cfe93eed8f",
+    "id": "cd8cf2ec2bdd6bd0",
     "type": "split",
     "children": [
       {
-        "id": "d09c8de2cdc0bb25",
+        "id": "7c3c677d5da27d3e",
         "type": "tabs",
         "children": [
           {
-            "id": "a6ac73b500948dba",
-=======
-    "id": "924c9b0ecef3ecda",
-    "type": "split",
-    "children": [
-      {
-        "id": "59b42e7447290048",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "6af2ade9700f6a54",
->>>>>>> 9d35f05348381d147a2fccec3638ad45f72bae24
+            "id": "cdbc0c744d8136dd",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-<<<<<<< HEAD
-                "file": "RESEARCH/SLAM/slamKIT/CASE/함체 가공.md",
-=======
-                "file": "RESEARCH/APFC/CODE/Untitled.md",
->>>>>>> 9d35f05348381d147a2fccec3638ad45f72bae24
+                "file": "RESEARCH/MEGACOM/Database/AAS/aas 파일변환.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -169,20 +113,12 @@
             }
           },
           {
-<<<<<<< HEAD
-            "id": "40feac5e8da407ec",
-=======
-            "id": "842d0332c2ed25fb",
->>>>>>> 9d35f05348381d147a2fccec3638ad45f72bae24
+            "id": "30958073fae3bf22",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-<<<<<<< HEAD
-                "file": "RESEARCH/SLAM/slamKIT/CASE/함체 가공.md",
-=======
-                "file": "RESEARCH/APFC/CODE/Untitled.md",
->>>>>>> 9d35f05348381d147a2fccec3638ad45f72bae24
+                "file": "RESEARCH/MEGACOM/Database/AAS/aas 파일변환.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -191,11 +127,7 @@
             }
           },
           {
-<<<<<<< HEAD
-            "id": "dde1d1fed4da525b",
-=======
-            "id": "e9447dcbbd81525b",
->>>>>>> 9d35f05348381d147a2fccec3638ad45f72bae24
+            "id": "4e32a1adf3c81f19",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -210,11 +142,7 @@
             }
           },
           {
-<<<<<<< HEAD
-            "id": "0caa1bcf49fd0a5a",
-=======
-            "id": "e4f3b170d457b8ee",
->>>>>>> 9d35f05348381d147a2fccec3638ad45f72bae24
+            "id": "9cbf98a9af41671d",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -228,20 +156,12 @@
             }
           },
           {
-<<<<<<< HEAD
-            "id": "e21450e2d0aace17",
-=======
-            "id": "f1e0d2743dbc86b2",
->>>>>>> 9d35f05348381d147a2fccec3638ad45f72bae24
+            "id": "7183ca43e9487926",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-<<<<<<< HEAD
-                "file": "RESEARCH/SLAM/slamKIT/CASE/함체 가공.md",
-=======
-                "file": "RESEARCH/APFC/CODE/Untitled.md",
->>>>>>> 9d35f05348381d147a2fccec3638ad45f72bae24
+                "file": "RESEARCH/MEGACOM/Database/AAS/aas 파일변환.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -251,11 +171,7 @@
             }
           },
           {
-<<<<<<< HEAD
-            "id": "af574bf86b89253c",
-=======
-            "id": "2c5d03345b581bf2",
->>>>>>> 9d35f05348381d147a2fccec3638ad45f72bae24
+            "id": "58fd294297457e20",
             "type": "leaf",
             "state": {
               "type": "custom-frames-chatgpt",
@@ -269,71 +185,26 @@
       }
     ],
     "direction": "horizontal",
-<<<<<<< HEAD
-    "width": 777.5
-=======
-    "width": 800.5
->>>>>>> 9d35f05348381d147a2fccec3638ad45f72bae24
+    "width": 820.5
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "bases:Create new base": false,
+      "switcher:빠른 전환기 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "bases:새 베이스 생성하기": false,
       "obsidian-git:Open Git source control": false,
       "obsidian-custom-frames:Open chatGPT": false
     }
   },
-<<<<<<< HEAD
-  "active": "0852479e80f36208",
+  "active": "2604ff1196a13ba7",
   "lastOpenFiles": [
-    "RESEARCH/SLAM/slamKIT/CASE/메카넘 4WD 모터제어보드 기술 인포그래픽.png",
-    "RESEARCH/SLAM/slamKIT/CASE/로봇 섀시 내부 프레임 설계 인포그래픽.png",
-    "RESEARCH/SLAM/slamKIT/CASE/3d CASE design;.md",
-    "Pasted image 20261112170348.png",
-    "Lecture/AI-lecture.md"
-=======
-  "active": "f1d99038f5a545e2",
-  "lastOpenFiles": [
-    "RESEARCH/SLAM/slamKIT/CASE/CASE.Main.md",
-    "RESEARCH/SLAM/slamKIT/CASE/아크릴,주문제작.md",
-    "RESEARCH/SLAM/slamKIT/CASE/Case.메카넘 휠바퀴.md",
-    "RESEARCH/SLAM/slamKIT/CASE/Case.1st.md",
-    "RESEARCH/SLAM/slamKIT/CASE/함체 가공.md",
-    "RESEARCH/SLAM/slamKIT/CASE/판금.md",
-    "RESEARCH/SLAM/slamKIT/CASE/메카넘 4WD 모터제어보드 기술 인포그래픽.png",
-    "RESEARCH/SLAM/slamKIT/CASE/3d CASE design;.md",
-    "RESEARCH/SLAM/slamKIT/CASE/로봇 섀시 내부 프레임 설계 인포그래픽.png",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/cf.py",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/ref/cf_realtime_R00012_temperature_fixed-ref.py",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/cf_realtime_R00012_temperature_fixed-ref.py",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/cf_realtime_R00012_temperature_fixed - 복사본.py",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_recent20_20261115_233336.csv",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.1ST.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_recent20_20261115_120802.csv",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_recent20_20261115_111807.csv",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/lstm_predict (1).py",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_recent20_20261115_110946.csv",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_recent20_20261115_110559.csv",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.2nd.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/lstm.TRAIN.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/MAE, RMSE.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM-main.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/Create.TABLE.md",
-    "Lecture/AI-lecture.md",
-    "RESEARCH/APFC/APFC.1st.md",
-    "RESEARCH/APFC/APFC.main.md",
-    "RESEARCH/APFC/PT_CT 기반 영점검출 회로도2.png",
-    "RESEARCH/APFC/LM393 기반 PT·CT 영점검출 회로도2.png",
-    "RESEARCH/APFC/PT_CT 기반 영점검출 회로도.png",
-    "RESEARCH/APFC/LM393 기반 PT·CT 영점검출 회로도.png",
-    "RESEARCH/APFC/APFC,component.md",
-    "Lecture/Electromagnetic/Electromagnetics-1st.md",
-    "RESEARCH/APFC/CODE/Untitled.md"
->>>>>>> 9d35f05348381d147a2fccec3638ad45f72bae24
+    "RESEARCH/MEGACOM/Database/AAS/AAS.md",
+    "RESEARCH/MEGACOM/Database/AAS/aas 파일변환.md",
+    "RESEARCH/MEGACOM/Database/무제.md",
+    "RESEARCH/MEGACOM/Database/AAS"
   ]
 }
