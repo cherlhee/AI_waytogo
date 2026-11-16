@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RESEARCH/SLAM/slamKIT/CASE/아크릴,주문제작.md",
+                "file": "RESEARCH/APFC/CODE/arduino.code.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "아크릴,주문제작"
+              "title": "arduino.code"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "RESEARCH/APFC/CODE/Untitled.md",
+                "file": "RESEARCH/APFC/CODE/arduino.code.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "RESEARCH/APFC/CODE/Untitled.md",
+                "file": "RESEARCH/APFC/CODE/arduino.code.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "RESEARCH/APFC/CODE/Untitled.md",
+                "file": "RESEARCH/APFC/CODE/arduino.code.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -185,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 800.5
+    "width": 1158.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,40 +202,25 @@
   },
   "active": "f1d99038f5a545e2",
   "lastOpenFiles": [
-    "RESEARCH/SLAM/slamKIT/CASE/CASE.Main.md",
-    "RESEARCH/SLAM/slamKIT/CASE/아크릴,주문제작.md",
-    "RESEARCH/SLAM/slamKIT/CASE/Case.메카넘 휠바퀴.md",
-    "RESEARCH/SLAM/slamKIT/CASE/Case.1st.md",
-    "RESEARCH/SLAM/slamKIT/CASE/함체 가공.md",
+    "RESEARCH/APFC/CODE/apfc_1st/apfc_1st.ino",
+    "RESEARCH/APFC/CODE/apfc_1st",
+    "RESEARCH/APFC/CODE/APFC/APFC.ino3270292506543600487.tmp",
+    "Lecture/Electromagnetic/Electromagnetics-1st.md",
+    "RESEARCH/APFC/CODE/arduino.code.md",
     "RESEARCH/SLAM/slamKIT/CASE/판금.md",
-    "RESEARCH/SLAM/slamKIT/CASE/메카넘 4WD 모터제어보드 기술 인포그래픽.png",
-    "RESEARCH/SLAM/slamKIT/CASE/3d CASE design;.md",
-    "RESEARCH/SLAM/slamKIT/CASE/로봇 섀시 내부 프레임 설계 인포그래픽.png",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/cf.py",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/ref/cf_realtime_R00012_temperature_fixed-ref.py",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/cf_realtime_R00012_temperature_fixed-ref.py",
-    "RESEARCH/MEGACOM/Algorithm/CODE/CF/cf_realtime_R00012_temperature_fixed - 복사본.py",
+    "RESEARCH/SLAM/slamKIT/CASE/아크릴,주문제작.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/lstm_predict-20261115.py",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/create_column_lstm.py",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/__pycache__/lstm_features.cpython-310.pyc",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/__pycache__/config.cpython-310.pyc",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_recent20_20261115_233336.csv",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.1ST.md",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_recent20_20261115_120802.csv",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_recent20_20261115_111807.csv",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/lstm_predict (1).py",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_recent20_20261115_110946.csv",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/CSV_results/ai_lstm_recent20_20261115_110559.csv",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.2nd.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/lstm.TRAIN.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/MAE, RMSE.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM-main.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.1ST.md",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/Create.TABLE.md",
     "Lecture/AI-lecture.md",
-    "RESEARCH/APFC/APFC.1st.md",
-    "RESEARCH/APFC/APFC.main.md",
-    "RESEARCH/APFC/PT_CT 기반 영점검출 회로도2.png",
-    "RESEARCH/APFC/LM393 기반 PT·CT 영점검출 회로도2.png",
-    "RESEARCH/APFC/PT_CT 기반 영점검출 회로도.png",
-    "RESEARCH/APFC/LM393 기반 PT·CT 영점검출 회로도.png",
-    "RESEARCH/APFC/APFC,component.md",
-    "Lecture/Electromagnetic/Electromagnetics-1st.md",
-    "RESEARCH/APFC/CODE/Untitled.md"
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/Create.Table.COLUMN.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM-main.md"
   ]
 }

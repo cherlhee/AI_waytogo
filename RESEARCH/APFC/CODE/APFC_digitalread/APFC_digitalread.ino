@@ -7,7 +7,7 @@
 // A3 = Current Zero Crossing
 
 const byte VOLT_PIN = A3;
-const byte CURR_PIN = A0;
+const byte CURR_PIN = A1;
 
 unsigned long voltageTime = 0;
 unsigned long currentTime = 0;
