@@ -1,4 +1,87 @@
 
+
+## Recommended real-time workflow
+
+```
+10:00:00
+   |
+   |-- Read ai_data.io003 = 75°C
+   |
+   |-- Predict temperatures
+   |      10 min → 78°C
+   |      30 min → 82°C
+   |      60 min → 85°C
+   |     120 min → 89°C
+   |
+   |-- INSERT 4 rows into ai_lstm_r
+   |      oil_temp_current = 75°C
+   |      oil_temp_actual = NULL
+   |      prediction_error = NULL
+   |
+   v
+10:10:00
+   |
+   |-- Read ai_data.io003 = 79°C
+   |-- UPDATE 10-min prediction
+   |-- prediction_error = -1°C
+   |
+   v
+10:30:00
+   |
+   |-- Read ai_data.io003 = 80°C
+   |-- UPDATE 30-min prediction
+   |-- prediction_error = +2°C
+   |
+   v
+11:00:00
+   |
+   |-- Update 60-min prediction
+   |
+   v
+12:00:00
+   |
+   |-- Update 120-min prediction
+   |
+   v
+Calculate MAE / RMSE
+```
+
+### One important distinction
+
+- **`oil_temp_current`** = Temperature when the prediction was made.
+- **`oil_temp_actual`** = Temperature when the prediction target time arrives.
+- **`lstm_prediction`** = Temperature predicted for that target time.
+- **`prediction_error`** = Difference between predicted and actual temperatures.
+
+This is the correct structure for evaluating the accuracy of your 10-, 30-, 60-, and 120-minute LSTM predictions.
+
+제공하신 `lstm_predict.py` 코드는 **`ai_oiltemp`의 최신 ID를 확인하고, 새로운 ID가 발견되면 LSTM 예측을 수행하여 `ai_lstm_r`에 저장하는 구조**입니다.
+
+현재 코드의 동작은 다음과 같습니다.
+
+1. **5초마다** `ai_oiltemp` 테이블의 최신 ID 조회
+2. 이전에 처리한 ID와 다르면 새로운 데이터로 판단
+3. 해당 시각을 기준으로 `ai_data`에서 과거 38분 데이터 조회
+4. 1분 단위 특징값 생성 후 최근 30분 데이터 추출
+5. LSTM 모델로 **10분, 30분, 60분, 120분 후 온도 예측**
+6. 예측 결과 4개를 `ai_lstm_r`에 저장
+7. 설정된 주기에 따라 Integrated Gradients로 영향인자 기여도 계산
+
+
+`lstm_predict_sorted_importance(1).py` 파일을 확인했습니다.
+
+현재 코드에는 다음 기능이 구현되어 있습니다.
+
+- **5초마다** `ai_oiltemp` 최신 ID 확인
+- 신규 ID 발견 시 `ai_data`의 과거 38분 데이터 조회
+- LSTM으로 10·30·60·120분 후 오일온도 예측
+- `feature_importance`를 **중요도 내림차순 JSON 배열**로 저장
+- `ai_lstm_r`의 `device_id` 또는 `deviceId` 컬럼 자동 확인
+- Integrated Gradients를 이용한 영향인자 기여도 계산 lstm_predict_sorted_importance(…
+
+다만 현재는 최신 ID 하나만 처리하므로 여러 ID가 연속으로 생성되면 일부 데이터가 누락될 수 있습니다.
+
+
 ```
 python lstm_predict.py --once
 ```

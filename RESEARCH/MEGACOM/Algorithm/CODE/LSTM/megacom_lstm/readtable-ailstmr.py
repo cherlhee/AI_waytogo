@@ -48,7 +48,7 @@ try:
 
     # 6. 파일명 생성
     now = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f"ai_data_recent20_{now}.csv"
+    filename = f"ai_lstm_recent20_{now}.csv"
 
     filepath = os.path.join(save_dir, filename)
 

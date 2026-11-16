@@ -1,6 +1,12 @@
 
 
 
+| power | battery    | 12 volt |                                                    |
+| ----- | ---------- | ------- | -------------------------------------------------- |
+|       | jetson     | 19 volt | dc-dc converter, Daygreen, 190W, 12volt to 19 volt |
+|       | uno        | 5 volt  |                                                    |
+|       | ultrasound | 5 volt  |                                                    |
+
   
 
 SLAM-KIT,,,PCB
