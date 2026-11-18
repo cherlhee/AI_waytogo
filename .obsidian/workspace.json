@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RESEARCH/APFC/CODE/arduino.code.md",
+                "file": "RESEARCH/APFC/APFC.1st.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "arduino.code"
+              "title": "APFC.1st"
             }
           }
         ]
@@ -185,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 1158.5
+    "width": 841.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -200,30 +200,31 @@
       "obsidian-custom-frames:Open chatGPT": false
     }
   },
-  "active": "114ca2829abbfdf3",
+  "active": "f1d99038f5a545e2",
   "lastOpenFiles": [
-    "RESEARCH/APFC/산학융합 RampD 최종 결과 보고서_261130-수정1.hwp",
-    "RESEARCH/APFC/산학융합 RampD 최종 결과 보고서_261130.$$$",
-    "RESEARCH/APFC/산학융합 RampD 최종 결과 보고서_261130.hwp",
-    "RESEARCH/APFC/APFC,component.md",
+    "RESEARCH/APFC/산학융합 RampD 최종 결과 보고서_261130-수정1.BAK",
+    "RESEARCH/APFC/산학융합 RampD 최종 결과 보고서_261130-수정1.$$$",
+    "RESEARCH/APFC/~$개발의_필요성_편집가능.docx",
+    "RESEARCH/APFC/기술개발의_필요성_편집가능.docx",
+    "RESEARCH/APFC/결과 보고서-수정4-참고.hwpx",
+    "RESEARCH/APFC/결과 보고서-수정4-참고.hwpx.crdownload",
+    "RESEARCH/APFC/~$융합R&D과제계획서_워드변환.docx",
+    "RESEARCH/APFC/산학융합R&D과제계획서_워드변환.docx",
     "RESEARCH/APFC/CODE/arduino.code.md",
+    "RESEARCH/APFC/산학융합R&D과제계획서_스캔본.pdf",
+    "RESEARCH/APFC/산학융합R&D과제계획서_스캔본.pdf.crdownload",
     "RESEARCH/APFC/APFC.1st.md",
+    "RESEARCH/APFC/LM393 기반 PT·CT 영점검출 회로도.png",
+    "RESEARCH/APFC/산학융합 RampD 최종 결과 보고서_261130-수정1.hwp",
+    "RESEARCH/APFC/APFC,component.md",
     "Lecture/AI-lecture.md",
     "RESEARCH/MEGACOM/Database/무제.md",
     "RESEARCH/MEGACOM/Database/AAS/AAS.md",
     "RESEARCH/MEGACOM/Database/AAS/aas 파일변환.md",
-    "RESEARCH/MEGACOM/Database/AAS",
     "Pasted image 20261112170348.png",
-    "RESEARCH/APFC/CODE/apfc_1st/apfc_1st.ino",
-    "RESEARCH/APFC/CODE/apfc_1st",
-    "RESEARCH/APFC/CODE/APFC/APFC.ino3270292506543600487.tmp",
     "Lecture/Electromagnetic/Electromagnetics-1st.md",
     "RESEARCH/SLAM/slamKIT/CASE/판금.md",
     "RESEARCH/SLAM/slamKIT/CASE/아크릴,주문제작.md",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/lstm_predict-20261115.py",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/create_column_lstm.py",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/__pycache__/lstm_features.cpython-310.pyc",
-    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/megacom_lstm/__pycache__/config.cpython-310.pyc",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.1ST.md",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/Create.TABLE.md",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/Create.Table.COLUMN.md",
