@@ -5,6 +5,7 @@ import os
 import time
 import math
 import argparse
+import re
 from datetime import datetime
 
 import mysql.connector
@@ -28,7 +29,8 @@ DEFAULT_INTERVAL = 5.0
 #
 # columns : ai_data에서 조회할 컬럼
 # code    : ai_analysis에 저장할 컬럼 번호
-# standard: 기준값 (현재 임시값)
+# standard_table / standard_column / standard_where: 외부 기준값 조회 설정
+# standard: 미설정 센서의 기존 고정 기준값 (외부 테이블 정보 입력 후 제거 가능)
 # ==========================================================
 
 SENSORS = {
@@ -36,48 +38,80 @@ SENSORS = {
     "유량계온도": {
         "columns": ["io045"],
         "code": "045",
+        "standard_save_column": "gradestd_045",
+        "standard_table": "",
+        "standard_column": "",
+        "standard_where": {},
         "standard": 30
     },
 
     "전압평균": {
         "columns": ["io004", "io005"],
         "code": "004",
-        "standard": 380
+        "standard_save_column": "gradestd_044",
+        "standard_table": "st_comcode_set",
+        "standard_column": "std_high",
+        "standard_where": {"std_item": "io004"}
     },
 
     "전류평균": {
         "columns": ["io007", "io008", "io009"],
         "code": "007",
+        "standard_save_column": "gradestd_007",
+        "standard_table": "",
+        "standard_column": "",
+        "standard_where": {},
         "standard": 15
     },
 
     "토출압력": {
         "columns": ["io001"],
         "code": "001",
-        "standard": 3
+        "standard_save_column": "gradestd_001",
+        "standard_table": "st_comcode_set",
+        "standard_column": "std_high",
+        "standard_where": {"std_item": "io001"},
+        "standard": 8
     },
 
     "오일온도": {
         "columns": ["io003"],
         "code": "003",
+        "standard_save_column": "gradestd_003",
+        "standard_table": "",
+        "standard_column": "",
+        "standard_where": {},
         "standard": 80
     },
 
     "소모품교체주기": {
         "columns": ["io030"],
         "code": "030",
-        "standard": 2000
+        "standard_save_column": "gradestd_030",
+        "standard_table": "st_sysoption",
+        "standard_column": "charval",
+        "standard_comcode_column": None,  # 이 테이블에는 업체코드 컬럼이 없는 경우
+        "standard_where": {"sysitem": "SOMO_HOUR"},
+        "standard": 1220
     },
 
     "선간전압불균형": {
         "columns": ["io004", "io005"],
         "code": "900",
+        "standard_save_column": "gradestd_900",
+        "standard_table": "",
+        "standard_column": "",
+        "standard_where": {},
         "standard": 10
     },
 
     "전류불균형": {
         "columns": ["io007", "io008", "io009"],
         "code": "901",
+        "standard_save_column": "gradestd_901",
+        "standard_table": "",
+        "standard_column": "",
+        "standard_where": {},
         "standard": 10
     }
 }
@@ -293,34 +327,44 @@ def calculate_value(name, values):
         if any(v <= 0 for v in values):
             return None
 
-    # 전압 불균형
+
+    # 선간전압불균형
     if name == "선간전압불균형":
 
         if any(v <= 0 for v in values):
             return None
 
-        average = sum(values) / len(values)
+        voltage_max = max(values)
+        voltage_min = min(values)
 
-        if average <= 0:
-            return None
+        voltage_diff = voltage_max - voltage_min
 
-        return (
-            max(abs(v - average) for v in values)
-            / average * 100
-        )
+        unbalance = (
+            voltage_diff / voltage_max
+        ) * 100
+
+        return unbalance
+
+
 
     # 전류 불균형
     if name == "전류불균형":
 
-        average = sum(values) / len(values)
-
-        if average <= 0:
+        if any(v <= 0 for v in values):
             return None
 
-        return (
-            max(abs(v - average) for v in values)
-            / average * 100
-        )
+        current_max = max(values)
+        current_min = min(values)
+
+        current_diff = current_max - current_min
+
+        unbalance = (
+            current_diff / current_max
+        ) * 100
+
+        return unbalance
+    
+    
 
     # 나머지 센서: 평균 또는 단일 측정값
     return sum(values) / len(values)
@@ -389,10 +433,59 @@ def get_sensor_data(cursor):
 
 
 # ==========================================================
+# 9-1. 공통 기준값 조회 (센서별 하나의 외부 테이블)
+# ==========================================================
+
+def get_standard(cursor, sensor):
+    table = sensor.get("standard_table")
+    column = sensor.get("standard_column")
+    if not table and not column:
+        return to_float(sensor.get("standard"))
+    if not table or not column:
+        raise ValueError(f"기준값 설정 오류: table={table!r}, column={column!r}")
+
+    extra_where = sensor.get("standard_where", {})
+
+    # SQL 식별자는 바인딩할 수 없으므로 설정값의 형식을 검증하고 백틱 처리
+    def quote_identifier(identifier):
+        if not isinstance(identifier, str) or not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_-]*", identifier):
+            raise ValueError(f"잘못된 DB 식별자: {identifier!r}")
+        return f"`{identifier}`"
+
+    table_sql = quote_identifier(table)
+    column_sql = quote_identifier(column)
+    comcode_column = sensor.get("standard_comcode_column", "comcode")
+    conditions = []
+    params = []
+    if comcode_column:
+        conditions.append(f"{quote_identifier(comcode_column)} = %s")
+        params.append(COM_CODE)
+
+    for field, expected in extra_where.items():
+        conditions.append(f"{quote_identifier(field)} = %s")
+        params.append(expected)
+
+    where_sql = f" WHERE {' AND '.join(conditions)}" if conditions else ""
+    sql = f"SELECT {column_sql} FROM {table_sql}{where_sql} LIMIT 2"
+    try:
+        cursor.execute(sql, tuple(params))
+    except mysql.connector.Error:
+        print(f"[기준값 조회 실패] SQL={sql}, PARAMS={params}")
+        raise
+    rows = cursor.fetchall()
+    if not rows:
+        print(f"[기준값 없음] table={table}, 조건={extra_where}, comcode={COM_CODE}")
+        return None
+    if len(rows) > 1:
+        raise ValueError(f"기준값 조회 결과가 2건 이상입니다: {table}, {extra_where}")
+    return to_float(rows[0][0])
+
+
+# ==========================================================
 # 10. 룰베이스 분석
 # ==========================================================
 
-def analyze(current, previous):
+def analyze(cursor, current, previous):
 
     results = {}
 
@@ -405,7 +498,16 @@ def analyze(current, previous):
 
         value = calculate_value(name, values)
 
-        standard = sensor["standard"]
+        standard = get_standard(cursor, sensor)
+
+        # 불균형 항목은 측정값 중 최댓값을 저장 기준값으로 사용
+        if name in ("선간전압불균형", "전류불균형"):
+            standard_to_save = max(values) if value is not None else None
+        else:
+            standard_to_save = standard
+
+
+
 
         score = None
 
@@ -454,6 +556,7 @@ def analyze(current, previous):
         results[name] = {
             "value": value,
             "standard": standard,
+            "standard_to_save": standard_to_save,
             "score": score,
             "alarm": set_alarm(score)
         }
@@ -514,7 +617,7 @@ def save_analysis(cursor, conn, current, results):
         input_time
     ]
 
-    # 8개 항목의 현재값, 점수, 알람 추가
+    # 8개 항목의 현재값, 점수, 알람 및 지정된 기준값만 저장
     for name, sensor in SENSORS.items():
 
         code = sensor["code"]
@@ -532,6 +635,16 @@ def save_analysis(cursor, conn, current, results):
             result["score"],
             result["alarm"]
         ])
+
+        # 외부 테이블 조회값 또는 고정 기준값을 지정 컬럼에 저장
+        standard_save_column = sensor.get("standard_save_column")
+        if standard_save_column:
+            if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", standard_save_column):
+                raise ValueError(f"잘못된 기준값 저장 컬럼: {standard_save_column!r}")
+            if standard_save_column in columns:
+                raise ValueError(f"중복 저장 컬럼: {standard_save_column}")
+            columns.append(standard_save_column)
+            values.append(result["standard_to_save"])
 
     column_sql = ", ".join(
         f"`{column}`" for column in columns
@@ -584,7 +697,7 @@ def run(cursor, conn, last_input_time=None):
         return last_input_time
 
     # 8개 항목 분석
-    results = analyze(current, previous)
+    results = analyze(cursor, current, previous)
 
     print("\n" + "=" * 65)
 
@@ -678,6 +791,7 @@ def main():
             ),
             
             password="megaComp!#%",
+
 
             database=os.getenv(
                 "DB_NAME",

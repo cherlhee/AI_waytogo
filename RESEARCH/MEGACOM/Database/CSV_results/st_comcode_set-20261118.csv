@@ -1,0 +1,5 @@
+﻿comcode,deviceId,std_item,std_high,std_low,std_unit,remark
+C00088,R00012,IO001,8,,BAR,압력
+C00088,R00012,IO003,110,105,도,오일온도
+C00088,R00012,IO004,440,,V,전압
+C00088,R00012,IO007,200,,A,전류

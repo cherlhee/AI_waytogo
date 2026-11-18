@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RESEARCH/APFC/APFC.1st.md",
+                "file": "RESEARCH/MEGACOM/Database/RULE.MAIN.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "APFC.1st"
+              "title": "RULE.MAIN"
             }
           }
         ]
@@ -185,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 841.5
+    "width": 1715.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,23 +202,27 @@
   },
   "active": "f1d99038f5a545e2",
   "lastOpenFiles": [
-    "RESEARCH/APFC/산학융합 RampD 최종 결과 보고서_261130-수정1.BAK",
-    "RESEARCH/APFC/산학융합 RampD 최종 결과 보고서_261130-수정1.$$$",
-    "RESEARCH/APFC/~$개발의_필요성_편집가능.docx",
-    "RESEARCH/APFC/기술개발의_필요성_편집가능.docx",
-    "RESEARCH/APFC/결과 보고서-수정4-참고.hwpx",
-    "RESEARCH/APFC/결과 보고서-수정4-참고.hwpx.crdownload",
-    "RESEARCH/APFC/~$융합R&D과제계획서_워드변환.docx",
-    "RESEARCH/APFC/산학융합R&D과제계획서_워드변환.docx",
-    "RESEARCH/APFC/CODE/arduino.code.md",
-    "RESEARCH/APFC/산학융합R&D과제계획서_스캔본.pdf",
-    "RESEARCH/APFC/산학융합R&D과제계획서_스캔본.pdf.crdownload",
+    "RESEARCH/MEGACOM/Database/CSV_results/ai_analysis-20261118-211324.csv",
+    "RESEARCH/MEGACOM/Database/CSV_results/ai_analysis-20261118-210222.csv",
+    "RESEARCH/MEGACOM/Database/rule (1).py",
+    "RESEARCH/MEGACOM/Database/CSV_results/ai_analysis-20261118.csv",
+    "RESEARCH/MEGACOM/Database/CSV_results/st_sysoption-20261118.csv",
+    "RESEARCH/MEGACOM/Database/mysql....md",
+    "RESEARCH/MEGACOM/Database/RULE.MAIN.md",
+    "RESEARCH/MEGACOM/Database/rule테이블 수정.md",
+    "RESEARCH/MEGACOM/Database/ref/db-readtable.py",
+    "RESEARCH/MEGACOM/Database/ref/db-1.py",
+    "RESEARCH/MEGACOM/Database/ref/dB.sql.md",
+    "RESEARCH/MEGACOM/Database/ref/db.py",
+    "RESEARCH/MEGACOM/Database/ref/rule-20261118.py",
+    "RESEARCH/MEGACOM/Database/rule-20261118.py",
+    "RESEARCH/MEGACOM/Database/rule - 복사본.py",
+    "RESEARCH/MEGACOM/Database/dB.sql.md",
     "RESEARCH/APFC/APFC.1st.md",
+    "RESEARCH/APFC/CODE/arduino.code.md",
     "RESEARCH/APFC/LM393 기반 PT·CT 영점검출 회로도.png",
-    "RESEARCH/APFC/산학융합 RampD 최종 결과 보고서_261130-수정1.hwp",
     "RESEARCH/APFC/APFC,component.md",
     "Lecture/AI-lecture.md",
-    "RESEARCH/MEGACOM/Database/무제.md",
     "RESEARCH/MEGACOM/Database/AAS/AAS.md",
     "RESEARCH/MEGACOM/Database/AAS/aas 파일변환.md",
     "Pasted image 20261112170348.png",
