@@ -1,0 +1,8 @@
+﻿sysitem,rem,charval,option_yn,use_sdt,use_edt,open_yn,option_desc
+ALARM_COOLDOWN_MIN,동일 설비 알람 재발송 제한(분),15,Y,,,Y,알람 폭주 방지
+ALERT_MIN_SCORE,알림 발송 최소 위험도,70,Y,,,Y,요구사항상 위험도 70점 이상 담당자 알림
+ANALYSIS_INTERVAL_SEC,분석주기,5,Y,,,Y,실증기간 TSDB 수신주기
+ANALYSIS_RETENTION_DAYS,분석로그 보관일수,395,Y,,,N,대량 로그 보관 정책
+CRITICAL_SCORE,즉시조치 위험도,80,Y,,,Y,위험 구간 시작값
+RAW_RETENTION_DAYS,원천데이터 보관일수,730,Y,,,N,원천데이터 보관 정책
+SOMO_HOUR,소모품교체주기시간,1220,Y,,,Y,
