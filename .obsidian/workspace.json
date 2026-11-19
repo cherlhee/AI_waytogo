@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RESEARCH/APFC/APFC.1st.md",
+                "file": "Lecture/AI-lecture.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "APFC.1st"
+              "title": "AI-lecture"
             }
           }
         ]
@@ -185,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 841.5
+    "width": 1137.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,6 +202,7 @@
   },
   "active": "f1d99038f5a545e2",
   "lastOpenFiles": [
+    "RESEARCH/APFC/APFC.1st.md",
     "RESEARCH/MEGACOM/Database/rule테이블 수정.md",
     "RESEARCH/MEGACOM/Database/ref/rule_score.py",
     "RESEARCH/MEGACOM/Database/ref/rule-ref.py",
@@ -216,7 +217,6 @@
     "RESEARCH/MEGACOM/Database/RULE.MAIN.md",
     "RESEARCH/MEGACOM/Database/CSV_results/st_sysoption-20261118.csv",
     "RESEARCH/APFC/CODE/arduino.code.md",
-    "RESEARCH/APFC/APFC.1st.md",
     "RESEARCH/APFC/LM393 기반 PT·CT 영점검출 회로도.png",
     "RESEARCH/APFC/APFC,component.md",
     "Lecture/AI-lecture.md",
