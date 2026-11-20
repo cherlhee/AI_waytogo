@@ -1,0 +1,76 @@
+{
+    "assetAdministrationShells": [
+        {
+            "modelType": "AssetAdministrationShell",
+            "id": "urn:megacom:aas:R00012",
+            "idShort": "MEGACOM_Compressor",
+            "assetInformation": {
+                "assetKind": "Instance",
+                "globalAssetId": "urn:megacom:asset:R00012"
+            },
+            "submodels": [
+                {
+                    "type": "ModelReference",
+                    "keys": [
+                        {
+                            "type": "Submodel",
+                            "value": "urn:megacom:submodel:R00012:operation"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "submodels": [
+        {
+            "modelType": "Submodel",
+            "id": "urn:megacom:submodel:R00012:operation",
+            "idShort": "OperationData",
+            "submodelElements": [
+                {
+                    "modelType": "Property",
+                    "idShort": "InputTime",
+                    "valueType": "xs:string",
+                    "value": "2026-11-20 08:13:08"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "OilTemperature",
+                    "valueType": "xs:double",
+                    "value": "77"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "ActivePower",
+                    "valueType": "xs:double",
+                    "value": "94"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "LoadRate",
+                    "valueType": "xs:double",
+                    "value": "54"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "Pressure",
+                    "valueType": "xs:double",
+                    "value": "681.33"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "FlowmeterTemperature",
+                    "valueType": "xs:double",
+                    "value": "4.75"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "FlowRate",
+                    "valueType": "xs:double",
+                    "value": "1432.01"
+                }
+            ]
+        }
+    ],
+    "conceptDescriptions": []
+}

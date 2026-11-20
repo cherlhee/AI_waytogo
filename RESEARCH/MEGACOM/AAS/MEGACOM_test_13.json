@@ -1,0 +1,112 @@
+{
+    "assetAdministrationShells": [
+        {
+            "modelType": "AssetAdministrationShell",
+            "id": "urn:megacom:aas:R00012",
+            "idShort": "MEGACOM_Compressor",
+            "assetInformation": {
+                "assetKind": "Instance",
+                "globalAssetId": "urn:megacom:asset:R00012"
+            },
+            "submodels": [
+                {
+                    "type": "ModelReference",
+                    "keys": [
+                        {
+                            "type": "Submodel",
+                            "value": "urn:megacom:submodel:R00012:operation"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "submodels": [
+        {
+            "modelType": "Submodel",
+            "id": "urn:megacom:submodel:R00012:operation",
+            "idShort": "OperationData",
+            "submodelElements": [
+                {
+                    "modelType": "Property",
+                    "idShort": "ComCode",
+                    "valueType": "xs:string",
+                    "value": "C00088"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "DeviceId",
+                    "valueType": "xs:string",
+                    "value": "R00012"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "InputTime",
+                    "valueType": "xs:dateTime",
+                    "value": "2026-11-20 08:54:43"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "OilTemperature",
+                    "valueType": "xs:double",
+                    "value": "79"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "ActivePower",
+                    "valueType": "xs:double",
+                    "value": "119"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "LoadRate",
+                    "valueType": "xs:double",
+                    "value": "64"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "Pressure",
+                    "valueType": "xs:double",
+                    "value": "667.45"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "FlowmeterTemperature",
+                    "valueType": "xs:double",
+                    "value": "6.16"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "FlowRate",
+                    "valueType": "xs:double",
+                    "value": "1725.46"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "Humidity",
+                    "valueType": "xs:double",
+                    "value": "39.85"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "CurrentU",
+                    "valueType": "xs:double",
+                    "value": "191"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "CurrentV",
+                    "valueType": "xs:double",
+                    "value": "204"
+                },
+                {
+                    "modelType": "Property",
+                    "idShort": "CurrentW",
+                    "valueType": "xs:double",
+                    "value": "197"
+                }
+            ]
+        }
+    ],
+    "conceptDescriptions": []
+}
