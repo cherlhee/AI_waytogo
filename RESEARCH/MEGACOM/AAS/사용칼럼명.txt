@@ -1,0 +1,20 @@
+
+
+SENSORS = {
+    "io003": "OilTemperature",; 오일온도
+    "io010": "ActivePower",; 유효전력
+    "io028": "LoadRate",; 부하율
+    "io044": "Pressure",; 유량계 압력
+    "io045": "FlowmeterTemperature"; 유량계 온도,
+    "io046": "FlowRate", ; 유량계 유량
+    "io048": "Humidity",; 유량계 습도
+    "io007": "CurrentU",; U 전류
+    "io008": "CurrentV",; V전류
+    "io009": "CurrentW";W전류
+}
+
+
+
+io004; uv 전압
+io005; vw 전압
+io029; 주파수

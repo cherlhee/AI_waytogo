@@ -58,10 +58,7 @@ SENSORS = {
         "columns": ["io007", "io008", "io009"],
         "code": "007",
         "standard_save_column": "gradestd_007",
-        "standard_table": "",
-        "standard_column": "",
-        "standard_where": {},
-        "standard": 15
+        "standard_type": "current_sp"
     },
 
     "토출압력": {
@@ -78,10 +75,7 @@ SENSORS = {
         "columns": ["io003"],
         "code": "003",
         "standard_save_column": "gradestd_003",
-        "standard_table": "",
-        "standard_column": "",
-        "standard_where": {},
-        "standard": 80
+        "standard_type": "oiltemp_sp"
     },
 
     "소모품교체주기": {
@@ -385,22 +379,42 @@ def parse_time(value):
     )
 
 
+
+
+
+
+
+
 # ==========================================================
 # 9. 최신 데이터 조회
 # ==========================================================
 
 def get_sensor_data(cursor):
 
+    # SENSORS에 등록된 컬럼
     columns = list(dict.fromkeys(
         col
         for sensor in SENSORS.values()
         for col in sensor["columns"]
     ))
 
+    # SP 기준값 조회에 필요한 컬럼 추가
+    required_columns = [
+        "io029",   # 주파수
+        "io001",   # 토출압력
+        "io045"    # 외부온도 (유량계 온도)
+    ]
+
+    for col in required_columns:
+        if col not in columns:
+            columns.append(col)
+
+    # SQL 컬럼 문자열 생성
     column_sql = ", ".join(
         f"`{column}`" for column in columns
     )
 
+    # 최신 데이터 2건 조회
     sql = f"""
         SELECT input_time, {column_sql}
         FROM `{SOURCE_TABLE}`
@@ -420,16 +434,22 @@ def get_sensor_data(cursor):
     if not rows:
         return None, None
 
+    # 컬럼명 구성
     keys = ["input_time"] + columns
 
+    # 최신 데이터
     current = dict(zip(keys, rows[0]))
 
+    # 이전 데이터
     previous = None
 
     if len(rows) > 1:
         previous = dict(zip(keys, rows[1]))
 
     return current, previous
+
+
+
 
 
 # ==========================================================
@@ -481,6 +501,98 @@ def get_standard(cursor, sensor):
     return to_float(rows[0][0])
 
 
+
+
+
+# ==========================================================
+# 9-2. 기준전류 조회 (Stored Procedure)
+# ==========================================================
+
+def get_current_standard(cursor, current):
+
+    frequency = to_float(current.get("io029"))
+    pressure = to_float(current.get("io001"))
+
+    if frequency is None or pressure is None:
+        return None
+
+    cursor.execute(
+        """
+        CALL sp_get_current_std(
+            %s, %s, %s, %s
+        )
+        """,
+        (
+            COM_CODE,
+            DEVICE_ID,
+            frequency,
+            pressure
+        )
+    )
+
+    row = cursor.fetchone()
+
+    print("[기준전류 SP 반환값]", row)
+
+    standard = to_float(row[5]) if row else None
+
+    while cursor.nextset():
+        pass
+
+    return standard
+
+
+
+
+
+
+# ==========================================================
+# 9-3. 기준오일온도 조회 (Stored Procedure)
+# ==========================================================
+
+def get_oiltemp_standard(cursor, current):
+
+    frequency = to_float(current.get("io029"))
+    pressure = to_float(current.get("io001"))
+    outside_temp = to_float(current.get("io045"))
+
+    if any(v is None for v in (
+        frequency,
+        pressure,
+        outside_temp
+    )):
+        return None
+
+    cursor.execute(
+        """
+        CALL sp_get_oiltemp_std(
+            %s, %s, %s, %s, %s
+        )
+        """,
+        (
+            COM_CODE,
+            DEVICE_ID,
+            frequency,
+            pressure,
+            outside_temp
+        )
+    )
+
+    row = cursor.fetchone()
+
+    print("[기준오일온도 SP 반환값]", row)
+
+    standard = to_float(row[4]) if row else None
+
+    while cursor.nextset():
+        pass
+
+    return standard
+
+
+
+
+
 # ==========================================================
 # 10. 룰베이스 분석
 # ==========================================================
@@ -498,7 +610,20 @@ def analyze(cursor, current, previous):
 
         value = calculate_value(name, values)
 
-        standard = get_standard(cursor, sensor)
+
+
+        # standard = get_standard(cursor, sensor)
+        standard_type = sensor.get("standard_type")
+
+        if standard_type == "current_sp":
+            standard = get_current_standard(cursor, current)
+
+        elif standard_type == "oiltemp_sp":
+            standard = get_oiltemp_standard(cursor, current)
+
+        else:
+            standard = get_standard(cursor, sensor)
+
 
         # 불균형 항목은 측정값 중 최댓값을 저장 기준값으로 사용
         if name in ("선간전압불균형", "전류불균형"):
@@ -608,13 +733,15 @@ def save_analysis(cursor, conn, current, results):
     columns = [
         "comcode",
         "deviceId",
-        "input_time"
+        "input_time",
+        "io029"
     ]
 
     values = [
         COM_CODE,
         DEVICE_ID,
-        input_time
+        input_time,
+        to_float(current.get("io029"))
     ]
 
     # 8개 항목의 현재값, 점수, 알람 및 지정된 기준값만 저장

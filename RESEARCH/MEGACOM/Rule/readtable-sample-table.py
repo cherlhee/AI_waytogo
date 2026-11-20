@@ -10,12 +10,14 @@ import os
 
 
 
-name_table = "ai_data"
-name_table = "ai_current_std"
+
+
 
 name_table = "st_comcode_set"
 name_table = "st_sysoption"
 name_table = "ai_analysis"
+name_table = "ai_data"
+name_table = "ai_current_std"
 
 
 try:
@@ -32,16 +34,46 @@ try:
     print("MySQL 접속 성공!")
 
 
-    # 2. 최근 20개 데이터 조회
-    sql = f"""
-        SELECT *
-        FROM {name_table}  
-        ORDER BY input_time DESC
-        LIMIT 2000      
-    """
+    cursor = conn.cursor()
+
+    
+
+    # ==========================================
+    # 1. 테이블 컬럼 목록 조회
+    # ==========================================
+    cursor.execute(f"SHOW COLUMNS FROM `{name_table}`")
+    columns = [row[0] for row in cursor.fetchall()]
+
+    print("테이블 컬럼:", columns)
+
+    
+
+
+    # ==========================================
+    # 2. 정렬 기준 컬럼 선택
+    # ==========================================
+
+
+    # 최근 2000개 데이터 조회
+    if "input_time" in columns:
+        sql = f"""
+            SELECT *
+            FROM `{name_table}`
+            ORDER BY input_time DESC
+            LIMIT 2000
+        """
+    else:
+        sql = f"""
+            SELECT *
+            FROM `{name_table}`
+            LIMIT 2000
+        """
+
+
+
 
     # 3. 데이터 읽기
-    cursor = conn.cursor()
+
     cursor.execute(sql)
 
     rows = cursor.fetchall()
