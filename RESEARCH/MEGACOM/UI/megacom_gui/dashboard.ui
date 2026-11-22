@@ -29,7 +29,7 @@
      </font>
     </property>
     <property name="text">
-     <string>MEGACOM  |  AI Monitoring Console</string>
+     <string>메가콤 AI 예지보전 | Monitoring Console</string>
     </property>
    </widget>
    <widget class="QLabel" name="subtitle">
@@ -289,7 +289,7 @@
      </font>
     </property>
     <property name="text">
-     <string>RULE ENGINE</string>
+     <string>ALARM ENGINE</string>
     </property>
    </widget>
    <widget class="QLabel" name="ruleDesc">
@@ -307,7 +307,7 @@
      </font>
     </property>
     <property name="text">
-     <string>룰베이스 · ai_analysis</string>
+     <string>알람 |·ai_analysis</string>
     </property>
    </widget>
    <widget class="QLabel" name="ruleStatus">

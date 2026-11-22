@@ -789,9 +789,91 @@ def save_analysis(cursor, conn, current, results):
 
     cursor.execute(sql, values)
 
-    conn.commit()
+    # ai_alarm과 같은 트랜잭션에서 함께 확정
 
     return True
+
+
+# ==========================================================
+# 12-1. ai_alarm 경고 저장
+# ==========================================================
+
+ALARM_TABLE = "ai_alarm"
+
+ALARM_ITEM_NAMES = {
+    "유량계온도": "외부온도",
+    "전압평균": "U-V전압",
+    "전류평균": "전류평균",
+    "토출압력": "토출압력",
+    "오일온도": "오일온도",
+    "소모품교체주기": "소모품교체",
+    "선간전압불균형": "전압불균형",
+    "전류불균형": "전류불균형"
+}
+
+
+def save_alarm(cursor, current, results):
+    """경고(9) 신규 발생 또는 직전 경고 전송완료(Y) 이후 재발 시 저장.
+
+    comcode/deviceId/std_item별로 별도 상태 관리.
+    N인 미전송 경고가 존재하는 동안 5초마다 중복 저장하지 않음.
+    """
+    alarm_dt = str(current["input_time"])[:19]
+    alarm_count = 0
+
+    for name, result in results.items():
+        if result["alarm"] != 9:
+            continue
+
+        code = SENSORS[name]["code"]
+        std_item = ALARM_ITEM_NAMES.get(name, name)
+
+        # 직전 ai_analysis 판정 (현재 분석 행보다 과거)
+        cursor.execute(
+            f"""SELECT `alarm_{code}` FROM `ai_analysis`
+                WHERE comcode=%s AND deviceId=%s AND input_time < %s
+                ORDER BY input_time DESC LIMIT 1""",
+            (COM_CODE, DEVICE_ID, alarm_dt),
+        )
+        row = cursor.fetchone()
+        previous_alarm = int(row[0]) if row and row[0] is not None else None
+
+        # 같은 장비/항목의 가장 최근 발송 상태
+        cursor.execute(
+            """SELECT alarm_send_yn FROM ai_alarm
+               WHERE comcode=%s AND deviceId=%s AND std_item=%s
+               ORDER BY alarm_dt DESC LIMIT 1""",
+            (COM_CODE, DEVICE_ID, std_item),
+        )
+        alarm_row = cursor.fetchone()
+        last_send = str(alarm_row[0]).strip().upper() if alarm_row and alarm_row[0] is not None else None
+
+        # 직전 판정도 경고이며 미전송(N)이면 같은 경고로 간주
+        # 전송완료(Y)가 되면 다음 경고 판정에서 다시 1회 저장
+        if previous_alarm == 9 and last_send == "N":
+            continue
+        # 직전 판정이 경고인 상태에서 알람 기록이 없으면 기존 방식대로 중복 방지
+        if previous_alarm == 9 and last_send is None:
+            continue
+
+        value = result["value"]
+        standard = result["standard"]
+        grade = result["score"]
+        alarm_cont = f"{std_item} 경고: 현재값={value}, 기준값={standard}"
+
+        cursor.execute(
+            """INSERT INTO ai_alarm
+               (alarm_dt, comcode, deviceId, std_item, grade,
+                alarm_cont, remark, alarm_send_yn)
+               VALUES (%s,%s,%s,%s,%s,%s,%s,%s)""",
+            (alarm_dt, COM_CODE, DEVICE_ID, std_item, grade,
+             alarm_cont[:100], "룰베이스 분석 경고", "N"),
+        )
+        alarm_count += 1
+        print(f"[경고 발생] deviceId={DEVICE_ID} {std_item} "
+              f"이전판정={previous_alarm} 직전전송={last_send} 현재=9")
+
+    return alarm_count
 
 
 # ==========================================================
@@ -842,20 +924,19 @@ def run(cursor, conn, last_input_time=None):
             f"알람={result['alarm']}"
         )
 
-    # DB 저장
-    saved = save_analysis(
-        cursor,
-        conn,
-        current,
-        results
-    )
-
-    if saved:
-
-        print(
-            f"\n[{datetime.now()}] "
-            "ai_analysis INSERT 완료"
-        )
+    # ai_analysis + ai_alarm 원자적 저장
+    try:
+        saved = save_analysis(cursor, conn, current, results)
+        if saved:
+            alarm_count = save_alarm(cursor, current, results)
+            conn.commit()
+            print(f"\n[{datetime.now()}] ai_analysis INSERT 완료 "
+                  f"(deviceId={DEVICE_ID})")
+            print(f"[{datetime.now()}] ai_alarm INSERT 완료: {alarm_count}건 "
+                  f"(deviceId={DEVICE_ID})")
+    except Exception:
+        conn.rollback()
+        raise
 
     return input_time
 
@@ -885,7 +966,10 @@ def main():
         help="반복 실행 간격(초), 기본값 5초"
     )
 
+    parser.add_argument("--device-id", default="R00012")
     args = parser.parse_args()
+    global DEVICE_ID
+    DEVICE_ID = args.device_id
 
     if args.interval <= 0:
         parser.error("--interval은 0보다 커야 합니다.")

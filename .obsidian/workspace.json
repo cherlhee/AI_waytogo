@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lecture/AI-lecture.md",
+                "file": "RESEARCH/MEGACOM/Rule/mysql...sql.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AI-lecture"
+              "title": "mysql...sql"
             }
           }
         ]
@@ -185,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 1137.5
+    "width": 899.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,17 +202,21 @@
   },
   "active": "f1d99038f5a545e2",
   "lastOpenFiles": [
-    "RESEARCH/MEGACOM/AAS/MEGACOM_History50000.aasx",
-    "RESEARCH/MEGACOM/AAS/MEGACOM_History50000.aasx.crdownload",
-    "RESEARCH/MEGACOM/AAS/MEGACOM_History100 (1).aasx",
-    "RESEARCH/MEGACOM/AAS/MEGACOM_History100 (1).aasx.crdownload",
-    "RESEARCH/MEGACOM/AAS/MEGACOM_History100.aasx",
-    "RESEARCH/MEGACOM/AAS/MEGACOM_History100.aasx.crdownload",
-    "RESEARCH/MEGACOM/AAS/MEGACOM_10000.json",
-    "RESEARCH/MEGACOM/AAS/aas_10000.py",
-    "RESEARCH/MEGACOM/AAS/MEGACOM_50000.json",
-    "RESEARCH/MEGACOM/AAS/aas_50000.py",
-    "RESEARCH/MEGACOM/AAS/aas_100 - 복사본.py",
+    "RESEARCH/MEGACOM/UI/megacom_gui/rule (1).py",
+    "RESEARCH/MEGACOM/UI/megacom_gui/backup/rule-without-alarm.py",
+    "RESEARCH/MEGACOM/UI/megacom_gui/rule-without-alarm.py",
+    "RESEARCH/MEGACOM/UI/megacom_gui/rule - 복사본.py",
+    "RESEARCH/MEGACOM/UI/megacom_gui/backup/only_R00012/rule_onlyR00012.py",
+    "RESEARCH/MEGACOM/Rule/세가지 장비,,동시수행.md",
+    "RESEARCH/MEGACOM/UI/megacom_gui/backup/megacom_multi_device/megacom_multi_device.zip",
+    "RESEARCH/MEGACOM/UI/megacom_gui/backup/megacom_multi_device.zip",
+    "RESEARCH/MEGACOM/UI/megacom_gui/backup/megacom_multi_device/lstm_predict.py",
+    "RESEARCH/MEGACOM/UI/megacom_gui/backup/megacom_multi_device/rule.py",
+    "RESEARCH/MEGACOM/UI/megacom_gui/backup/megacom_multi_device/main.py",
+    "RESEARCH/MEGACOM/UI/megacom_gui/backup/megacom_multi_device/cf.py",
+    "RESEARCH/MEGACOM/Rule/mysql...sql.md",
+    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/README.md",
+    "Lecture/AI-lecture.md",
     "RESEARCH/MEGACOM/AAS/samples/제조데이터셋_진양오일씰_컴퓨터메이트/제조데이터셋_진양오일씰_컴퓨터메이트/20251104_000800883_0000000005_T0000_01_CAM_OK.jpg",
     "RESEARCH/MEGACOM/AAS/samples/제조데이터셋_진양오일씰_컴퓨터메이트/제조데이터셋_진양오일씰_컴퓨터메이트/20251104_000800853_0000000004_T0000_01_CAM_OK.jpg",
     "RESEARCH/MEGACOM/AAS/samples/제조데이터셋_진양오일씰_컴퓨터메이트/제조데이터셋_진양오일씰_컴퓨터메이트/20251104_000752620_0000000003_T0000_01_CAM_OK.jpg",
@@ -229,7 +233,6 @@
     "RESEARCH/MEGACOM/Database/RULE.MAIN.md",
     "RESEARCH/APFC/CODE/arduino.code.md",
     "RESEARCH/APFC/APFC,component.md",
-    "Lecture/AI-lecture.md",
     "RESEARCH/MEGACOM/Database/무제.md",
     "RESEARCH/MEGACOM/Database/AAS/AAS.md",
     "RESEARCH/MEGACOM/Database/AAS/aas 파일변환.md",

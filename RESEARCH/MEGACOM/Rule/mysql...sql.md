@@ -1,6 +1,82 @@
 
 
-  
+
+
+  SELECT *
+FROM ai_data
+ORDER BY input_time DESC
+LIMIT 10;
+
+
+
+  SELECT *
+FROM ai_alarm
+ORDER BY id DESC
+LIMIT 10;
+
+
+```
+SELECT *
+FROM ai_alarm
+WHERE comcode = 'C00088'
+  AND deviceId IN ('R00012', 'R00047', 'R00048')
+ORDER BY alarm_dt DESC
+LIMIT 100;
+```
+
+
+```  SELECT *
+FROM ai_analysis
+WHERE comcode = 'C00088'
+ORDER BY input_time DESC
+LIMIT 100;
+
+
+
+SELECT *
+FROM ai_data
+WHERE deviceId = 'R00048'
+ORDER BY input_time DESC
+LIMIT 1000;
+```
+
+
+```
+SELECT DISTINCT deviceId
+FROM ai_data
+ORDER BY deviceId;
+```
+
+
+```
+SELECT *
+FROM ai_lstm_r
+WHERE comcode = 'C00088'
+ORDER BY input_time DESC
+LIMIT 100;
+```
+
+
+
+SELECT *
+FROM ai_oiltemp
+WHERE comcode = 'C00088'
+  AND device_id = 'R00012'
+ORDER BY input_time DESC, id DESC
+LIMIT 100;
+
+
+
+
+  SELECT *
+FROM ai_analysis
+WHERE comcode = 'C00088'
+  AND deviceId = 'R00012'
+ORDER BY input_time DESC
+LIMIT 100;
+
+
+
 ```python
 pip install mysql-connector-python
 ```

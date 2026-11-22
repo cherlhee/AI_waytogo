@@ -380,6 +380,7 @@ def main():
     ap.add_argument('--interval', type=float, default=5)
     ap.add_argument('--limit', type=int, default=1500,
                     help='한 번 조회할 최신 데이터 행 수. 5분 전 이력 확보를 위해 충분히 크게 설정')
+    ap.add_argument('--device-id', default='R00012')
     ap.add_argument('--once', action='store_true', help='한 번 실행 후 종료')
     ap.add_argument('--actual-batch-size', type=int, default=300,
                     help='한 실행에서 실제온도를 채울 최대 예측 행 수 (기본 300)')
@@ -392,6 +393,8 @@ def main():
     ap.add_argument('--backfill-on-first-run', action='store_true',
                     help='최초 실행시 조회된 모든 과거 행 처리(기본은 최신 1건만)')
     args = ap.parse_args()
+    global DEVICE_ID
+    DEVICE_ID = args.device_id
     if args.actual_batch_size <= 0 or args.actual_tolerance_seconds < 0 or args.actual_max_batches <= 0:
         ap.error('--actual-batch-size > 0, --actual-tolerance-seconds >= 0 필요')
     if args.interval <= 0 or args.limit < 100:
@@ -401,7 +404,7 @@ def main():
     temperature_artifact = load_temperature_model(args.temperature_model)
     comcode = os.getenv('MYSQL_COMCODE', '').strip() or None
     utc = os.getenv('SOURCE_TIME_UTC', 'false').lower() in ('1','true','yes')
-    LOG.info('11호기 전용 deviceId=%s, comcode=%s, model=%s', DEVICE_ID, comcode or '(전체)', args.model)
+    LOG.info('공통 모델 적용 deviceId=%s, comcode=%s, model=%s', DEVICE_ID, comcode or '(전체)', args.model)
     while True:
         conn = None
         try:
