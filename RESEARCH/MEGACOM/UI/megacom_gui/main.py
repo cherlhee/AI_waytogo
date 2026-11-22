@@ -67,7 +67,10 @@ class Dashboard(QtWidgets.QMainWindow):
                 if not file.is_file():
                     self.log(f'CF 모델 파일 없음: {file}')
                     return
-        for device_id in DEVICE_IDS:
+        # RULE은 단일 프로세스에서 세 설비를 모두 처리합니다.
+        # CF/LSTM은 기존대로 설비별 프로세스 3개를 실행합니다.
+        targets = ('ALL',) if key == 'rule' else DEVICE_IDS
+        for device_id in targets:
             proc_key = (key, device_id)
             existing = self.processes.get(proc_key)
             if existing and existing.state() != QtCore.QProcess.NotRunning:
@@ -88,8 +91,9 @@ class Dashboard(QtWidgets.QMainWindow):
             proc.finished.connect(
                 lambda code, status, k=proc_key, p=proc:
                 self.finished(k, p, code, status))
-            args = [str(script), '--interval', str(self.intervalSpin.value()),
-                    '--device-id', device_id]
+            args = [str(script), '--interval', str(self.intervalSpin.value())]
+            if key != 'rule':
+                args += ['--device-id', device_id]
             if key == 'cf':
                 args += ['--model', str(model_file),
                          '--temperature-model', str(temp_model_file)]
@@ -111,7 +115,8 @@ class Dashboard(QtWidgets.QMainWindow):
                 self.log(f'[{proc_key[0].upper()} {proc_key[1]}] {line[:900]}')
 
     def stop(self, key):
-        for device_id in DEVICE_IDS:
+        targets = ('ALL',) if key == 'rule' else DEVICE_IDS
+        for device_id in targets:
             proc = self.processes.get((key, device_id))
             if proc and proc.state() != QtCore.QProcess.NotRunning:
                 proc.terminate()
@@ -129,11 +134,14 @@ class Dashboard(QtWidgets.QMainWindow):
         self.update_engine_status(proc_key[0])
 
     def update_engine_status(self, key):
-        count = sum(1 for device_id in DEVICE_IDS
+        targets = ('ALL',) if key == 'rule' else DEVICE_IDS
+        count = sum(1 for device_id in targets
                     if (p := self.processes.get((key, device_id))) is not None
                     and p.state() != QtCore.QProcess.NotRunning)
-        getattr(self, key+'Status').setText(f'● 실행 중 ({count}/3)' if count else '● 중지')
-        getattr(self, key+'Start').setEnabled(count < len(DEVICE_IDS))
+        status_text = ('● 실행 중 (3개 설비 통합)' if key == 'rule'
+                       else f'● 실행 중 ({count}/3)')
+        getattr(self, key+'Status').setText(status_text if count else '● 중지')
+        getattr(self, key+'Start').setEnabled(count < len(targets))
         getattr(self, key+'Stop').setEnabled(count > 0)
         any_running = any(p.state() != QtCore.QProcess.NotRunning
                           for p in self.processes.values())

@@ -11,21 +11,14 @@
             "id": "f1d99038f5a545e2",
             "type": "leaf",
             "state": {
-<<<<<<< HEAD
               "type": "markdown",
               "state": {
-                "file": "RESEARCH/MEGACOM/Rule/mysql...sql.md",
+                "file": "RESEARCH/SLAM/slamKIT/CASE/CASE.Main.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "mysql...sql"
-=======
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
->>>>>>> 79fabf579758ef144780041c011cd55d20c7d7e1
+              "title": "CASE.Main"
             }
           }
         ]
@@ -192,11 +185,7 @@
       }
     ],
     "direction": "horizontal",
-<<<<<<< HEAD
-    "width": 899.5
-=======
-    "width": 1715.5
->>>>>>> 79fabf579758ef144780041c011cd55d20c7d7e1
+    "width": 1000.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -213,8 +202,17 @@
   },
   "active": "f1d99038f5a545e2",
   "lastOpenFiles": [
-<<<<<<< HEAD
+    "RESEARCH/SLAM/slamKIT/CASE/Case.메카넘 휠바퀴.md",
+    "RESEARCH/SLAM/slamKIT/CASE/Case.1st.md",
+    "RESEARCH/SLAM/slamKIT/CASE/함체 가공.md",
+    "RESEARCH/SLAM/slamKIT/CASE/판금.md",
+    "RESEARCH/SLAM/slamKIT/CASE/아크릴,주문제작.md",
+    "RESEARCH/SLAM/slamKIT/CASE/메카넘 4WD 모터제어보드 기술 인포그래픽.png",
+    "RESEARCH/SLAM/slamKIT/CASE/로봇 섀시 내부 프레임 설계 인포그래픽.png",
+    "RESEARCH/SLAM/slamKIT/CASE/3d CASE design;.md",
+    "RESEARCH/MEGACOM/Rule/mysql...sql.md",
     "RESEARCH/MEGACOM/UI/megacom_gui/rule (1).py",
+    "RESEARCH/MEGACOM/UI/megacom_gui/main (1).py",
     "RESEARCH/MEGACOM/UI/megacom_gui/backup/rule-without-alarm.py",
     "RESEARCH/MEGACOM/UI/megacom_gui/rule-without-alarm.py",
     "RESEARCH/MEGACOM/UI/megacom_gui/rule - 복사본.py",
@@ -224,9 +222,6 @@
     "RESEARCH/MEGACOM/UI/megacom_gui/backup/megacom_multi_device.zip",
     "RESEARCH/MEGACOM/UI/megacom_gui/backup/megacom_multi_device/lstm_predict.py",
     "RESEARCH/MEGACOM/UI/megacom_gui/backup/megacom_multi_device/rule.py",
-    "RESEARCH/MEGACOM/UI/megacom_gui/backup/megacom_multi_device/main.py",
-    "RESEARCH/MEGACOM/UI/megacom_gui/backup/megacom_multi_device/cf.py",
-    "RESEARCH/MEGACOM/Rule/mysql...sql.md",
     "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/README.md",
     "Lecture/AI-lecture.md",
     "RESEARCH/MEGACOM/AAS/samples/제조데이터셋_진양오일씰_컴퓨터메이트/제조데이터셋_진양오일씰_컴퓨터메이트/20251104_000800883_0000000005_T0000_01_CAM_OK.jpg",
@@ -237,52 +232,19 @@
     "RESEARCH/MEGACOM/AAS/samples/제조데이터셋_진양오일씰_컴퓨터메이트/제조데이터셋_진양오일씰_컴퓨터메이트/20251104_000752680_0000000005_T0000_01_CAM_OK.jpg",
     "RESEARCH/MEGACOM/AAS/samples/제조데이터셋_진양오일씰_컴퓨터메이트/제조데이터셋_진양오일씰_컴퓨터메이트/20251104_000753160_0000000021_T0000_01_CAM_OK.jpg",
     "RESEARCH/MEGACOM/AAS/samples/제조데이터셋_진양오일씰_컴퓨터메이트/제조데이터셋_진양오일씰_컴퓨터메이트/20251104_000753340_0000000027_T0000_01_CAM_OK.jpg",
-    "RESEARCH/MEGACOM/AAS/samples/제조데이터셋_진양오일씰_컴퓨터메이트/제조데이터셋_진양오일씰_컴퓨터메이트/20251104_000756662_0000000001_T0000_01_CAM_OK.jpg",
-    "RESEARCH/MEGACOM/AAS/samples/제조데이터셋_진양오일씰_컴퓨터메이트/제조데이터셋_진양오일씰_컴퓨터메이트/20251104_000752770_0000000008_T0000_01_CAM_OK.jpg",
     "RESEARCH/APFC/APFC.1st.md",
-=======
-    "RESEARCH/MEGACOM/readme-megacom.txt",
-    "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/cf_11_output/cf_11_temperature_model.json",
-    "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/cf_11_output/cf_11_test_metrics.csv",
-    "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/cf_11_output/cf_11_temperature_metrics.csv",
-    "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/cf_11_output/cf_11_model.json",
-    "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/rule.py",
-    "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/requirements.txt",
-    "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/README.md",
-    "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/mysql_config.env",
-    "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/main.py",
-    "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/lstm_predict.py",
-    "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/dashboard.ui",
-    "RESEARCH/MEGACOM/UI/megacom_gui/README.md",
-    "RESEARCH/MEGACOM/UI/UI...md",
-    "RESEARCH/MEGACOM/Rule/ref/dB.sql.md",
-    "RESEARCH/MEGACOM/Rule/기준 전류, 기준 오일온도 결정;.md",
-    "RESEARCH/MEGACOM/Rule/Tables;.md",
-    "RESEARCH/MEGACOM/Rule/rule테이블 수정.md",
-    "RESEARCH/MEGACOM/Rule/Rule.score.md",
-    "RESEARCH/MEGACOM/Rule/RULE.MAIN.md",
-    "RESEARCH/MEGACOM/Rule/Readme.md",
-    "RESEARCH/MEGACOM/Rule/mysql....md",
-    "RESEARCH/MEGACOM/Database/RULE.MAIN.md",
-    "RESEARCH/MEGACOM/AAS/aas 파일변환.md",
-    "RESEARCH/MEGACOM/AAS/AAS.md",
-    "RESEARCH/MEGACOM/Database/mysql....md",
->>>>>>> 79fabf579758ef144780041c011cd55d20c7d7e1
     "RESEARCH/MEGACOM/Database/rule테이블 수정.md",
     "RESEARCH/MEGACOM/Database/ref/dB.sql.md",
-    "RESEARCH/MEGACOM/Database/dB.sql.md",
-    "RESEARCH/APFC/APFC.1st.md",
+    "RESEARCH/MEGACOM/Database/RULE.MAIN.md",
     "RESEARCH/APFC/CODE/arduino.code.md",
-    "RESEARCH/APFC/LM393 기반 PT·CT 영점검출 회로도.png",
     "RESEARCH/APFC/APFC,component.md",
-<<<<<<< HEAD
     "RESEARCH/MEGACOM/Database/무제.md",
-=======
-    "Lecture/AI-lecture.md",
->>>>>>> 79fabf579758ef144780041c011cd55d20c7d7e1
     "RESEARCH/MEGACOM/Database/AAS/AAS.md",
     "RESEARCH/MEGACOM/Database/AAS/aas 파일변환.md",
-    "Pasted image 20261112170348.png",
-    "Lecture/Electromagnetic/Electromagnetics-1st.md"
+    "Lecture/Electromagnetic/Electromagnetics-1st.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM.1ST.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/Create.TABLE.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/Create.Table.COLUMN.md",
+    "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM-main.md"
   ]
 }
