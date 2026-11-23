@@ -11,10 +11,12 @@
             "id": "f1d99038f5a545e2",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "type": "image",
+              "state": {
+                "file": "RESEARCH/SLAM/slamKIT/CASE/로봇 섀시 내부 프레임 설계 인포그래픽.png"
+              },
+              "icon": "lucide-image",
+              "title": "로봇 섀시 내부 프레임 설계 인포그래픽"
             }
           }
         ]
@@ -79,7 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 229.5
   },
   "right": {
     "id": "924c9b0ecef3ecda",
@@ -181,7 +183,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 1715.5
+    "width": 670.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -196,8 +198,46 @@
       "obsidian-custom-frames:Open chatGPT": false
     }
   },
-  "active": "f1d99038f5a545e2",
+  "floating": {
+    "id": "62939e378956109c",
+    "type": "floating",
+    "children": [
+      {
+        "id": "d1832ce644554bcb",
+        "type": "window",
+        "children": [
+          {
+            "id": "64e279853e012388",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "289c83155fceb8a2",
+                "type": "leaf",
+                "state": {
+                  "type": "image",
+                  "state": {
+                    "file": "RESEARCH/SLAM/slamKIT/CASE/로봇 섀시 내부 프레임 설계 인포그래픽.png"
+                  },
+                  "icon": "lucide-image",
+                  "title": "로봇 섀시 내부 프레임 설계 인포그래픽"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 768,
+        "y": 120,
+        "width": 1024,
+        "height": 800,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "289c83155fceb8a2",
   "lastOpenFiles": [
+    "RESEARCH/SLAM/slamKIT/CASE/3d CASE design;.md",
     "RESEARCH/MEGACOM/readme-megacom.txt",
     "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/cf_11_output/cf_11_temperature_model.json",
     "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/cf_11_output/cf_11_test_metrics.csv",
@@ -209,7 +249,6 @@
     "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/mysql_config.env",
     "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/main.py",
     "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/lstm_predict.py",
-    "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/dashboard.ui",
     "RESEARCH/MEGACOM/UI/megacom_gui/README.md",
     "RESEARCH/MEGACOM/UI/UI...md",
     "RESEARCH/MEGACOM/Rule/ref/dB.sql.md",
