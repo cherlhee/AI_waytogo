@@ -16,7 +16,7 @@ import mysql.connector
 # ==========================================================
 
 COM_CODE = "C00088"
-DEVICE_ID = "R00012"
+DEVICE_IDS = ("R00012", "R00047", "R00048")
 
 SOURCE_TABLE = "ai_data"
 TARGET_TABLE = "ai_analysis"
@@ -389,7 +389,7 @@ def parse_time(value):
 # 9. 최신 데이터 조회
 # ==========================================================
 
-def get_sensor_data(cursor):
+def get_sensor_data(cursor, device_id, after_time=None, limit=100):
 
     # SENSORS에 등록된 컬럼
     columns = list(dict.fromkeys(
@@ -414,39 +414,39 @@ def get_sensor_data(cursor):
         f"`{column}`" for column in columns
     )
 
-    # 최신 데이터 2건 조회
+    # 각 장비별로 미처리 시각을 순서대로 조회한다.
+    # 기존 ai_analysis에 존재하는 시각은 재분석하지 않는다.
     sql = f"""
-        SELECT input_time, {column_sql}
-        FROM `{SOURCE_TABLE}`
-        WHERE comcode = %s
-          AND deviceId = %s
-        ORDER BY input_time DESC
-        LIMIT 2
+        SELECT d.input_time, {', '.join('d.`' + c + '`' for c in columns)}
+        FROM `{SOURCE_TABLE}` AS d
+        WHERE d.comcode = %s AND d.deviceId = %s
+          AND d.input_time >= %s
+          AND (%s IS NULL OR d.input_time > %s)
+          AND NOT EXISTS (
+              SELECT 1 FROM `{TARGET_TABLE}` AS a
+              WHERE a.comcode=d.comcode AND a.deviceId=d.deviceId
+                AND a.input_time=d.input_time
+          )
+        ORDER BY d.input_time ASC
+        LIMIT %s
     """
-
-    cursor.execute(
-        sql,
-        (COM_CODE, DEVICE_ID)
-    )
-
-    rows = cursor.fetchall()
-
-    if not rows:
-        return None, None
-
-    # 컬럼명 구성
+    cursor.execute(sql, (COM_CODE, device_id, BACKFILL_FROM,
+                         after_time, after_time, limit))
     keys = ["input_time"] + columns
+    return [dict(zip(keys, row)) for row in cursor.fetchall()]
 
-    # 최신 데이터
-    current = dict(zip(keys, rows[0]))
 
-    # 이전 데이터
-    previous = None
-
-    if len(rows) > 1:
-        previous = dict(zip(keys, rows[1]))
-
-    return current, previous
+def get_previous_sensor_data(cursor, device_id, before_time):
+    columns = list(dict.fromkeys(
+        col for sensor in SENSORS.values() for col in sensor["columns"]
+    ))
+    sql = f"""SELECT input_time, {', '.join('`' + c + '`' for c in columns)}
+              FROM `{SOURCE_TABLE}`
+              WHERE comcode=%s AND deviceId=%s AND input_time < %s
+              ORDER BY input_time DESC LIMIT 1"""
+    cursor.execute(sql, (COM_CODE, device_id, before_time))
+    row = cursor.fetchone()
+    return dict(zip(["input_time"] + columns, row)) if row else None
 
 
 
@@ -508,7 +508,7 @@ def get_standard(cursor, sensor):
 # 9-2. 기준전류 조회 (Stored Procedure)
 # ==========================================================
 
-def get_current_standard(cursor, current):
+def get_current_standard(cursor, current, device_id):
 
     frequency = to_float(current.get("io029"))
     pressure = to_float(current.get("io001"))
@@ -524,7 +524,7 @@ def get_current_standard(cursor, current):
         """,
         (
             COM_CODE,
-            DEVICE_ID,
+            device_id,
             frequency,
             pressure
         )
@@ -550,7 +550,7 @@ def get_current_standard(cursor, current):
 # 9-3. 기준오일온도 조회 (Stored Procedure)
 # ==========================================================
 
-def get_oiltemp_standard(cursor, current):
+def get_oiltemp_standard(cursor, current, device_id):
 
     frequency = to_float(current.get("io029"))
     pressure = to_float(current.get("io001"))
@@ -571,7 +571,7 @@ def get_oiltemp_standard(cursor, current):
         """,
         (
             COM_CODE,
-            DEVICE_ID,
+            device_id,
             frequency,
             pressure,
             outside_temp
@@ -597,7 +597,7 @@ def get_oiltemp_standard(cursor, current):
 # 10. 룰베이스 분석
 # ==========================================================
 
-def analyze(cursor, current, previous):
+def analyze(cursor, current, previous, device_id):
 
     results = {}
 
@@ -616,10 +616,10 @@ def analyze(cursor, current, previous):
         standard_type = sensor.get("standard_type")
 
         if standard_type == "current_sp":
-            standard = get_current_standard(cursor, current)
+            standard = get_current_standard(cursor, current, device_id)
 
         elif standard_type == "oiltemp_sp":
-            standard = get_oiltemp_standard(cursor, current)
+            standard = get_oiltemp_standard(cursor, current, device_id)
 
         else:
             standard = get_standard(cursor, sensor)
@@ -693,7 +693,7 @@ def analyze(cursor, current, previous):
 # 11. DB 중복 저장 확인
 # ==========================================================
 
-def already_exists(cursor, input_time):
+def already_exists(cursor, input_time, device_id):
 
     sql = f"""
         SELECT 1
@@ -706,7 +706,7 @@ def already_exists(cursor, input_time):
 
     cursor.execute(
         sql,
-        (COM_CODE, DEVICE_ID, input_time)
+        (COM_CODE, device_id, input_time)
     )
 
     return cursor.fetchone() is not None
@@ -716,12 +716,12 @@ def already_exists(cursor, input_time):
 # 12. ai_analysis INSERT
 # ==========================================================
 
-def save_analysis(cursor, conn, current, results):
+def save_analysis(cursor, conn, current, results, device_id):
 
     input_time = str(current["input_time"])[:19]
 
     # 중복 확인
-    if already_exists(cursor, input_time):
+    if already_exists(cursor, input_time, device_id):
 
         print(
             f"[{datetime.now()}] "
@@ -739,7 +739,7 @@ def save_analysis(cursor, conn, current, results):
 
     values = [
         COM_CODE,
-        DEVICE_ID,
+        device_id,
         input_time,
         to_float(current.get("io029"))
     ]
@@ -789,245 +789,207 @@ def save_analysis(cursor, conn, current, results):
 
     cursor.execute(sql, values)
 
-    conn.commit()
+    # ai_alarm과 같은 트랜잭션에서 함께 확정
 
     return True
 
 
 # ==========================================================
-# 13. 분석 실행
+# 12-1. ai_alarm 경고 저장
 # ==========================================================
 
-def run(cursor, conn, last_input_time=None):
+ALARM_TABLE = "ai_alarm"
 
-    current, previous = get_sensor_data(cursor)
+ALARM_ITEM_NAMES = {
+    "유량계온도": "외부온도",
+    "전압평균": "U-V전압",
+    "전류평균": "전류평균",
+    "토출압력": "토출압력",
+    "오일온도": "오일온도",
+    "소모품교체주기": "소모품교체",
+    "선간전압불균형": "전압불균형",
+    "전류불균형": "전류불균형"
+}
 
-    if current is None:
 
-        print(
-            f"[{datetime.now()}] "
-            "조회된 데이터가 없습니다."
-        )
+def save_alarm(cursor, current, results, device_id):
+    """경고(9) 신규 발생 또는 직전 경고 전송완료(Y) 이후 재발 시 저장.
 
-        return last_input_time
-
-    input_time = str(current["input_time"])[:19]
-
-    # 실행 중 중복 처리 방지
-    if input_time == last_input_time:
-
-        print(
-            f"[{datetime.now()}] "
-            "신규 데이터 없음"
-        )
-
-        return last_input_time
-
-    # 8개 항목 분석
-    results = analyze(cursor, current, previous)
-
-    print("\n" + "=" * 65)
-
-    print("측정시각:", input_time)
-
-    print("=" * 65)
+    comcode/deviceId/std_item별로 별도 상태 관리.
+    N인 미전송 경고가 존재하는 동안 5초마다 중복 저장하지 않음.
+    """
+    alarm_dt = str(current["input_time"])[:19]
+    alarm_count = 0
 
     for name, result in results.items():
+        if result["alarm"] != 9:
+            continue
 
-        print(
-            f"{name:12} "
-            f"기준값={result['standard']} "
-            f"현재값={result['value']} "
-            f"점수={result['score']} "
-            f"알람={result['alarm']}"
+        code = SENSORS[name]["code"]
+        std_item = ALARM_ITEM_NAMES.get(name, name)
+
+        # 직전 ai_analysis 판정 (현재 분석 행보다 과거)
+        cursor.execute(
+            f"""SELECT `alarm_{code}` FROM `ai_analysis`
+                WHERE comcode=%s AND deviceId=%s AND input_time < %s
+                ORDER BY input_time DESC LIMIT 1""",
+            (COM_CODE, device_id, alarm_dt),
         )
+        row = cursor.fetchone()
+        previous_alarm = int(row[0]) if row and row[0] is not None else None
 
-    # DB 저장
-    saved = save_analysis(
-        cursor,
-        conn,
-        current,
-        results
-    )
-
-    if saved:
-
-        print(
-            f"\n[{datetime.now()}] "
-            "ai_analysis INSERT 완료"
+        # 같은 장비/항목의 가장 최근 발송 상태
+        cursor.execute(
+            """SELECT alarm_send_yn FROM ai_alarm
+               WHERE comcode=%s AND deviceId=%s AND std_item=%s
+               ORDER BY alarm_dt DESC LIMIT 1""",
+            (COM_CODE, device_id, std_item),
         )
+        alarm_row = cursor.fetchone()
+        last_send = str(alarm_row[0]).strip().upper() if alarm_row and alarm_row[0] is not None else None
 
-    return input_time
+        # 직전 판정도 경고이며 미전송(N)이면 같은 경고로 간주
+        # 전송완료(Y)가 되면 다음 경고 판정에서 다시 1회 저장
+        if previous_alarm == 9 and last_send == "N":
+            continue
+        # 직전 판정이 경고인 상태에서 알람 기록이 없으면 기존 방식대로 중복 방지
+        if previous_alarm == 9 and last_send is None:
+            continue
+
+        value = result["value"]
+        standard = result["standard"]
+        grade = result["score"]
+        alarm_cont = f"{std_item} 경고: 현재값={value}, 기준값={standard}"
+
+        cursor.execute(
+            """INSERT INTO ai_alarm
+               (alarm_dt, comcode, deviceId, std_item, grade,
+                alarm_cont, remark, alarm_send_yn)
+               VALUES (%s,%s,%s,%s,%s,%s,%s,%s)""",
+            (alarm_dt, COM_CODE, device_id, std_item, grade,
+             alarm_cont[:100], "룰베이스 분석 경고", "N"),
+        )
+        alarm_count += 1
+        print(f"[경고 발생] deviceId={device_id} {std_item} "
+              f"이전판정={previous_alarm} 직전전송={last_send} 현재=9")
+
+    return alarm_count
 
 
 # ==========================================================
-# 14. MAIN
+# 13. 세 설비 분석 / 누락 복구
 # ==========================================================
+
+BACKFILL_FROM = "2026-11-22 00:00:00"  # CLI에서 변경 가능
+
+
+def connect_db():
+    """config.py의 DB_CONFIG 사용 (MYSQL_* 환경변수와 호환)."""
+    from config import DB_CONFIG
+    settings = dict(DB_CONFIG)
+    settings["autocommit"] = False
+    return mysql.connector.connect(**settings)
+
+
+def process_device(conn, device_id, watermark, batch_size, alarm_live_seconds):
+    """장비 하나의 미처리 데이터 최대 batch_size건 처리. 실패 시 다른 장비는 계속."""
+    cursor = conn.cursor()
+    count = 0
+    try:
+        rows = get_sensor_data(cursor, device_id, watermark, batch_size)
+        if not rows:
+            conn.rollback()  # 읽기 트랜잭션 종료
+            return watermark, 0
+        previous = get_previous_sensor_data(cursor, device_id, rows[0]["input_time"])
+        for current in rows:
+            stamp = current["input_time"]
+            try:
+                results = analyze(cursor, current, previous, device_id)
+                saved = save_analysis(cursor, conn, current, results, device_id)
+                alarm_count = 0
+                # 과거 복구 데이터는 ai_alarm으로 재발송하지 않는다.
+                age = (datetime.now() - parse_time(stamp)).total_seconds()
+                if saved and 0 <= age <= alarm_live_seconds:
+                    alarm_count = save_alarm(cursor, current, results, device_id)
+                conn.commit()
+                watermark = stamp
+                count += int(saved)
+                if saved:
+                    print(f"[{device_id}] 저장 {stamp} / 알람 {alarm_count}건 / "
+                          f"{'복구' if age > alarm_live_seconds else '실시간'}")
+                previous = current
+            except Exception as exc:
+                conn.rollback()
+                print(f"[ERROR] {device_id} {stamp}: {type(exc).__name__}: {exc}", flush=True)
+                # 해당 장비는 다음 주기에 같은 시각부터 재시도
+                break
+        return watermark, count
+    finally:
+        cursor.close()
+
 
 def main():
-
-    parser = argparse.ArgumentParser(
-        description="MEGACOM 설비 룰베이스 분석"
-    )
-
-    # 1회 실행 옵션
-    parser.add_argument(
-        "--once",
-        action="store_true",
-        help="한 번만 실행하고 종료"
-    )
-
-    # 반복 실행 간격
-    parser.add_argument(
-        "--interval",
-        type=float,
-        default=DEFAULT_INTERVAL,
-        help="반복 실행 간격(초), 기본값 5초"
-    )
-
+    global BACKFILL_FROM
+    parser = argparse.ArgumentParser(description="MEGACOM 3설비 룰베이스 분석 및 누락 복구")
+    parser.add_argument("--once", action="store_true", help="각 설비 한 배치 처리 후 종료")
+    parser.add_argument("--interval", type=float, default=DEFAULT_INTERVAL)
+    parser.add_argument("--device-id", choices=DEVICE_IDS, default=None,
+                        help="지정 설비만 처리 (생략 시 3개 모두)")
+    parser.add_argument("--backfill-from", default=BACKFILL_FROM,
+                        help="누락 복구 시작 시각 YYYY-MM-DD HH:MM:SS")
+    parser.add_argument("--batch-size", type=int, default=100,
+                        help="설비당 한 주기에 처리할 최대 건수")
+    parser.add_argument("--alarm-live-seconds", type=int, default=30,
+                        help="최근 데이터에만 ai_alarm 저장 (기본 30초)")
     args = parser.parse_args()
-
-    if args.interval <= 0:
-        parser.error("--interval은 0보다 커야 합니다.")
-
-    conn = None
-    cursor = None
-
-    last_input_time = None
-
+    if args.interval <= 0 or args.batch_size <= 0 or args.alarm_live_seconds < 0:
+        parser.error("interval, batch-size는 양수, alarm-live-seconds는 0 이상이어야 합니다")
     try:
-
-        # MySQL 연결
-        conn = mysql.connector.connect(
-
-            host=os.getenv(
-                "DB_HOST",
-                "121.181.35.7"
-            ),
-
-            port=int(
-                os.getenv(
-                    "DB_PORT",
-                    "3307"
-                )
-            ),
-
-            user=os.getenv(
-                "DB_USER",
-                "mega_admin"
-            ),
-            
-            password="megaComp!#%",
-
-
-            database=os.getenv(
-                "DB_NAME",
-                "airpredict"
-            ),
-
-            connection_timeout=10
-        )
-
-        cursor = conn.cursor()
-
-        print("\nMySQL 연결 성공")
-
-        print("업체코드:", COM_CODE)
-        print("설비번호:", DEVICE_ID)
-
-        # ----------------------------------------------
-        # 1회 실행
-        # ----------------------------------------------
-        if args.once:
-
-            print("\n실행모드: 1회 실행")
-
-            run(
-                cursor,
-                conn
-            )
-
-        # ----------------------------------------------
-        # 연속 실행
-        # ----------------------------------------------
-        else:
-
-            print("\n실행모드: 연속 실행")
-
-            print(
-                f"실행간격: {args.interval}초"
-            )
-
-            print(
-                "종료하려면 Ctrl + C"
-            )
-
-            while True:
-
+        datetime.strptime(args.backfill_from, "%Y-%m-%d %H:%M:%S")
+    except ValueError:
+        parser.error("--backfill-from 형식: YYYY-MM-DD HH:MM:SS")
+    BACKFILL_FROM = args.backfill_from
+    devices = (args.device_id,) if args.device_id else DEVICE_IDS
+    # 시작할 때는 지정한 시작 시각부터 기존 저장 여부를 대조한다.
+    watermarks = {device: None for device in devices}
+    print(f"설비: {devices} / 복구 시작: {BACKFILL_FROM} / batch={args.batch_size}")
+    conn = None
+    try:
+        while True:
+            for device in devices:
                 try:
-
-                    # DB 연결 확인
-                    conn.ping(
-                        reconnect=True,
-                        attempts=3,
-                        delay=2
-                    )
-
-                    last_input_time = run(
-                        cursor,
-                        conn,
-                        last_input_time
-                    )
-
-                except mysql.connector.Error as err:
-
-                    conn.rollback()
-
-                    print(
-                        f"[{datetime.now()}] "
-                        f"MySQL Error: {err}"
-                    )
-
-                except Exception as err:
-
-                    conn.rollback()
-
-                    print(
-                        f"[{datetime.now()}] "
-                        f"Error: {err}"
-                    )
-
-                time.sleep(
-                    args.interval
-                )
-
+                    if conn is None or not conn.is_connected():
+                        conn = connect_db()
+                        print("MySQL 연결 성공")
+                    else:
+                        conn.ping(reconnect=True, attempts=3, delay=2)
+                    watermarks[device], n = process_device(
+                        conn, device, watermarks[device], args.batch_size,
+                        args.alarm_live_seconds)
+                    if n:
+                        print(f"[{device}] 이번 주기 {n}건 저장")
+                except Exception as exc:
+                    print(f"[ERROR] {device}: {type(exc).__name__}: {exc}", flush=True)
+                    if conn is not None:
+                        try:
+                            conn.rollback()
+                            conn.close()
+                        except Exception:
+                            pass
+                    conn = None
+            if args.once:
+                break
+            time.sleep(args.interval)
     except KeyboardInterrupt:
-
-        print(
-            "\n사용자 요청으로 종료합니다."
-        )
-
-    except mysql.connector.Error as err:
-
-        print(
-            "MySQL 연결 오류:",
-            err
-        )
-
+        print("사용자 요청으로 종료")
     finally:
+        if conn is not None:
+            try:
+                conn.close()
+            except Exception:
+                pass
+        print("프로그램 종료")
 
-        if cursor is not None:
-            cursor.close()
-
-        if conn is not None and conn.is_connected():
-            conn.close()
-
-        print("\n프로그램 종료")
-
-
-# ==========================================================
-# 15. 프로그램 시작
-# ==========================================================
 
 if __name__ == "__main__":
     main()

@@ -3,17 +3,18 @@ from pathlib import Path
 from datetime import datetime
 from PyQt5 import QtWidgets, QtCore, uic
 
-# ROOT=Path(__file__).resolve().parent
+ROOT=Path(__file__).resolve().parent
 
-ROOT = Path(
-    r"C:\CHERLHEE\AI_waytogo\RESEARCH\MEGACOM"
-    r"\UI\MEGACOM_PyQt_Designer_GUI\megacom_gui"
-)
+# ROOT = Path(
+#     r"C:\CHERLHEE\AI_waytogo\RESEARCH\MEGACOM"
+#     r"\UI\MEGACOM_PyQt_Designer_GUI\megacom_gui"
+# )
 
 
 
 
 FILES={'rule':'rule.py','cf':'cf.py','lstm':'lstm_predict.py'}
+DEVICE_IDS=('R00012','R00047','R00048')
 
 class Dashboard(QtWidgets.QMainWindow):
     def __init__(self):
@@ -42,7 +43,7 @@ class Dashboard(QtWidgets.QMainWindow):
         self.folderButton.clicked.connect(self.choose_folder)
         self.refreshButton.clicked.connect(self.refresh)
         self.clearButton.clicked.connect(self.logEdit.clear)
-        self.log('준비 완료. 스크립트 및 의존 파일을 같은 프로젝트 폴더에 배치하세요.')
+        self.log('준비 완료. 대상 장비: ' + ', '.join(DEVICE_IDS))
         self.log('CF 모델 JSON, LSTM config.py / lstm_features.py / 모델 파일은 기존 경로가 필요합니다.')
         self.timer=QtCore.QTimer(self)
         self.timer.timeout.connect(self.refresh)
@@ -53,90 +54,99 @@ class Dashboard(QtWidgets.QMainWindow):
     def choose_folder(self):
         d=QtWidgets.QFileDialog.getExistingDirectory(self,'분석 스크립트 폴더',str(self.folder))
         if d:self.folder=Path(d);self.log('스크립트 경로: '+d)
-    def start(self,key):
-        if key in self.processes and self.processes[key].state()!=QtCore.QProcess.NotRunning:return
-        script=self.folder/FILES[key]
-        if not script.exists():
+    def start(self, key):
+        script = self.folder / FILES[key]
+        if not script.is_file():
             self.log(f'{key.upper()} 실행 실패: {script} 파일 없음')
             return
-        proc=QtCore.QProcess(self)
-        proc.setWorkingDirectory(str(self.folder))
-        proc.setProcessChannelMode(QtCore.QProcess.MergedChannels)
-
-
-
-        env = QtCore.QProcessEnvironment.systemEnvironment()
-        env.insert('PYTHONUNBUFFERED', '1')
-        env.insert('PYTHONIOENCODING', 'utf-8')
-        env.insert('PYTHONUTF8', '1')
-        proc.setProcessEnvironment(env)
-        
-        
-        
-        proc.readyReadStandardOutput.connect(lambda k=key,p=proc:self.read_output(k,p))
-        proc.errorOccurred.connect(lambda err,k=key,p=proc:self.log(f'{k.upper()} 프로세스 오류: {p.errorString()}'))
-        proc.finished.connect(lambda code,status,k=key:self.finished(k,code))
-        args=[str(script),'--interval',str(self.intervalSpin.value())]
-
-
-
-
-        # CF 모델 경로 지정
         if key == 'cf':
+            model_dir = self.folder / 'cf_11_output'
+            model_file = model_dir / 'cf_11_model.json'
+            temp_model_file = model_dir / 'cf_11_temperature_model.json'
+            for file in (model_file, temp_model_file):
+                if not file.is_file():
+                    self.log(f'CF 모델 파일 없음: {file}')
+                    return
+        # RULE은 단일 프로세스에서 세 설비를 모두 처리합니다.
+        # CF/LSTM은 기존대로 설비별 프로세스 3개를 실행합니다.
+        targets = ('ALL',) if key == 'rule' else DEVICE_IDS
+        for device_id in targets:
+            proc_key = (key, device_id)
+            existing = self.processes.get(proc_key)
+            if existing and existing.state() != QtCore.QProcess.NotRunning:
+                continue
+            proc = QtCore.QProcess(self)
+            proc.setWorkingDirectory(str(script.parent))
+            proc.setProcessChannelMode(QtCore.QProcess.MergedChannels)
+            env = QtCore.QProcessEnvironment.systemEnvironment()
+            env.insert('PYTHONUNBUFFERED', '1')
+            env.insert('PYTHONIOENCODING', 'utf-8')
+            env.insert('PYTHONUTF8', '1')
+            proc.setProcessEnvironment(env)
+            proc.readyReadStandardOutput.connect(
+                lambda k=proc_key, p=proc: self.read_output(k, p))
+            proc.errorOccurred.connect(
+                lambda err, k=proc_key, p=proc:
+                self.log(f'{k[0].upper()} {k[1]} 프로세스 오류: {p.errorString()}'))
+            proc.finished.connect(
+                lambda code, status, k=proc_key, p=proc:
+                self.finished(k, p, code, status))
+            args = [str(script), '--interval', str(self.intervalSpin.value())]
+            if key != 'rule':
+                args += ['--device-id', device_id]
+            if key == 'cf':
+                args += ['--model', str(model_file),
+                         '--temperature-model', str(temp_model_file)]
+            if key == 'lstm':
+                args += ['--comcode', self.companyEdit.text().strip()]
+            proc.start(sys.executable, args)
+            if not proc.waitForStarted(3000):
+                self.log(f'{key.upper()} {device_id} 시작 실패: {proc.errorString()}')
+                proc.deleteLater()
+                continue
+            self.processes[proc_key] = proc
+            self.log(f'{key.upper()} {device_id} 시작: {sys.executable} {" ".join(args)}')
+        self.update_engine_status(key)
 
-            model_dir = Path(
-                r"C:\CHERLHEE\AI_waytogo\RESEARCH\MEGACOM"
-                r"\UI\MEGACOM_PyQt_Designer_GUI"
-                r"\megacom_gui\cf_11_output"
-            )
+    def read_output(self, proc_key, proc):
+        data = bytes(proc.readAllStandardOutput())
+        for line in data.decode('utf-8', errors='replace').splitlines():
+            if line.strip():
+                self.log(f'[{proc_key[0].upper()} {proc_key[1]}] {line[:900]}')
 
-            model_file = model_dir / "cf_11_model.json"
-            temp_model_file = model_dir / "cf_11_temperature_model.json"
+    def stop(self, key):
+        targets = ('ALL',) if key == 'rule' else DEVICE_IDS
+        for device_id in targets:
+            proc = self.processes.get((key, device_id))
+            if proc and proc.state() != QtCore.QProcess.NotRunning:
+                proc.terminate()
+                QtCore.QTimer.singleShot(
+                    2500, lambda p=proc:
+                    p.kill() if p.state() != QtCore.QProcess.NotRunning else None)
+                self.log(f'{key.upper()} {device_id} 중지 요청')
 
-            if not model_file.is_file():
-                self.log(f"CF 모델 파일 없음: {model_file}")
-                return
+    def finished(self, proc_key, proc, code, status):
+        self.read_output(proc_key, proc)
+        if self.processes.get(proc_key) is proc:
+            self.processes.pop(proc_key, None)
+        self.log(f'{proc_key[0].upper()} {proc_key[1]} 종료 (코드 {code}, 상태 {status})')
+        proc.deleteLater()
+        self.update_engine_status(proc_key[0])
 
-            if not temp_model_file.is_file():
-                self.log(f"CF 온도 모델 파일 없음: {temp_model_file}")
-                return
+    def update_engine_status(self, key):
+        targets = ('ALL',) if key == 'rule' else DEVICE_IDS
+        count = sum(1 for device_id in targets
+                    if (p := self.processes.get((key, device_id))) is not None
+                    and p.state() != QtCore.QProcess.NotRunning)
+        status_text = ('● 실행 중 (3개 설비 통합)' if key == 'rule'
+                       else f'● 실행 중 ({count}/3)')
+        getattr(self, key+'Status').setText(status_text if count else '● 중지')
+        getattr(self, key+'Start').setEnabled(count < len(targets))
+        getattr(self, key+'Stop').setEnabled(count > 0)
+        any_running = any(p.state() != QtCore.QProcess.NotRunning
+                          for p in self.processes.values())
+        self.connectionLabel.setText('●  분석 실행 중' if any_running else '●  엔진 대기')
 
-            args.extend([
-                "--model", str(model_file),
-                "--temperature-model", str(temp_model_file)
-            ])
-
-
-
-        if key=='lstm':args+=['--comcode',self.companyEdit.text().strip(),'--device-id',self.deviceEdit.text().strip()]
-        # rule.py와 cf.py의 장비 설정은 각각 소스 상수/환경 설정에서 읽음.
-        proc.start(sys.executable,args)
-        if not proc.waitForStarted(3000):
-            self.log(f'{key.upper()} 시작 실패: {proc.errorString()}');return
-        self.processes[key]=proc
-        getattr(self,key+'Status').setText('● 실행 중')
-        getattr(self,key+'Start').setEnabled(False)
-        getattr(self,key+'Stop').setEnabled(True)
-        self.connectionLabel.setText('●  분석 실행 중')
-        self.log(f'{key.upper()} 시작: {sys.executable} {" ".join(args)}')
-
-    def read_output(self,key,proc):
-        data=bytes(proc.readAllStandardOutput())
-        for line in data.decode('utf-8',errors='replace').splitlines():
-            if line.strip():self.log(f'[{key.upper()}] {line[:900]}')
-    def stop(self,key):
-        proc=self.processes.get(key)
-        if proc and proc.state()!=QtCore.QProcess.NotRunning:
-            proc.terminate()
-            QtCore.QTimer.singleShot(2500,lambda p=proc:p.kill() if p.state()!=QtCore.QProcess.NotRunning else None)
-            self.log(f'{key.upper()} 중지 요청')
-    def finished(self,key,code):
-        getattr(self,key+'Status').setText('● 중지')
-        getattr(self,key+'Start').setEnabled(True)
-        getattr(self,key+'Stop').setEnabled(False)
-        self.log(f'{key.upper()} 종료 (코드 {code})')
-        if not any(p.state()!=QtCore.QProcess.NotRunning for p in self.processes.values()):
-            self.connectionLabel.setText('●  엔진 대기')
     def refresh(self):
         # GUI는 DB를 읽기만 합니다. 분석/저장은 원본 스크립트가 수행합니다.
         try:
