@@ -11,14 +11,21 @@
             "id": "f1d99038f5a545e2",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
+<<<<<<< HEAD
                 "file": "RESEARCH/MEGACOM/Database/AAS/AAS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "AAS"
+=======
+                "file": "RESEARCH/SLAM/slamKIT/CASE/로봇 섀시 내부 프레임 설계 인포그래픽.png"
+              },
+              "icon": "lucide-image",
+              "title": "로봇 섀시 내부 프레임 설계 인포그래픽"
+>>>>>>> 25dd9e7ffb35cf46d26140f21a88aba97bbaa3d4
             }
           }
         ]
@@ -83,7 +90,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 229.5
   },
   "right": {
     "id": "924c9b0ecef3ecda",
@@ -185,7 +192,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 841.5
+    "width": 670.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -200,8 +207,46 @@
       "obsidian-custom-frames:Open chatGPT": false
     }
   },
-  "active": "f1d99038f5a545e2",
+  "floating": {
+    "id": "62939e378956109c",
+    "type": "floating",
+    "children": [
+      {
+        "id": "d1832ce644554bcb",
+        "type": "window",
+        "children": [
+          {
+            "id": "64e279853e012388",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "289c83155fceb8a2",
+                "type": "leaf",
+                "state": {
+                  "type": "image",
+                  "state": {
+                    "file": "RESEARCH/SLAM/slamKIT/CASE/로봇 섀시 내부 프레임 설계 인포그래픽.png"
+                  },
+                  "icon": "lucide-image",
+                  "title": "로봇 섀시 내부 프레임 설계 인포그래픽"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 800,
+        "y": 163,
+        "width": 1024,
+        "height": 800,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "289c83155fceb8a2",
   "lastOpenFiles": [
+<<<<<<< HEAD
     "RESEARCH/MEGACOM/AAS/aas.py",
     "RESEARCH/MEGACOM/AAS/rule.py",
     "RESEARCH/MEGACOM/AAS",
@@ -232,5 +277,45 @@
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/Create.TABLE.md",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/Create.Table.COLUMN.md",
     "RESEARCH/MEGACOM/Algorithm/CODE/LSTM/LSTM-main.md"
+=======
+    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/cf_11_output/cf_11_test_metrics.csv",
+    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/cf_11_output/cf_11_temperature_model.json",
+    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/cf_11_output/cf_11_temperature_metrics.csv",
+    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/cf_11_output/cf_11_model.json",
+    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/rule.py",
+    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/requirements.txt",
+    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/README.md",
+    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/mysql_config.env",
+    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/main.py",
+    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/lstm_predict.py",
+    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/dashboard.ui",
+    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/cf.py",
+    "RESEARCH/MEGACOM/Rule/세가지 장비,,동시수행.md",
+    "RESEARCH/MEGACOM/Rule/mysql...sql.md",
+    "RESEARCH/SLAM/slamKIT/CASE/3d CASE design;.md",
+    "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/README.md",
+    "RESEARCH/MEGACOM/UI/megacom_gui/README.md",
+    "RESEARCH/MEGACOM/UI/UI...md",
+    "RESEARCH/MEGACOM/Rule/ref/dB.sql.md",
+    "RESEARCH/MEGACOM/Rule/기준 전류, 기준 오일온도 결정;.md",
+    "RESEARCH/MEGACOM/Rule/Tables;.md",
+    "RESEARCH/MEGACOM/Rule/rule테이블 수정.md",
+    "RESEARCH/MEGACOM/Rule/Rule.score.md",
+    "RESEARCH/MEGACOM/Rule/RULE.MAIN.md",
+    "RESEARCH/MEGACOM/Rule/Readme.md",
+    "RESEARCH/MEGACOM/Rule/mysql....md",
+    "RESEARCH/MEGACOM/Database/RULE.MAIN.md",
+    "RESEARCH/MEGACOM/AAS/aas 파일변환.md",
+    "RESEARCH/MEGACOM/AAS/AAS.md",
+    "RESEARCH/MEGACOM/Database/mysql....md",
+    "RESEARCH/MEGACOM/Database/rule테이블 수정.md",
+    "RESEARCH/MEGACOM/Database/ref/dB.sql.md",
+    "RESEARCH/MEGACOM/Database/dB.sql.md",
+    "RESEARCH/APFC/APFC.1st.md",
+    "RESEARCH/APFC/CODE/arduino.code.md",
+    "RESEARCH/APFC/LM393 기반 PT·CT 영점검출 회로도.png",
+    "RESEARCH/APFC/APFC,component.md",
+    "Pasted image 20261112170348.png"
+>>>>>>> 25dd9e7ffb35cf46d26140f21a88aba97bbaa3d4
   ]
 }

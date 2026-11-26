@@ -1,6 +1,209 @@
 
 
-  
+SELECT
+    deviceId,
+    COUNT(*) AS data_count
+FROM (
+    SELECT deviceId
+    FROM ai_analysis
+    ORDER BY input_time DESC
+    LIMIT 1000
+) AS recent_data
+WHERE deviceId IN ('R00012', 'R00047', 'R00048')
+GROUP BY deviceId
+ORDER BY deviceId;
+
+
+
+
+SELECT
+    deviceId,
+    COUNT(*) AS data_count
+FROM (
+    SELECT deviceId
+    FROM ai_lstm_r
+    ORDER BY input_time DESC
+    LIMIT 550000
+) AS recent_data
+WHERE deviceId IN ('R00012', 'R00047', 'R00048')
+GROUP BY deviceId
+ORDER BY deviceId;
+
+
+
+
+
+SELECT *
+FROM ai_analysis
+ORDER BY input_time DESC
+LIMIT 1000;
+
+
+
+SELECT
+    deviceId,
+    DATE_FORMAT(input_time, '%Y-%m-%d %H:00:00') AS hour_time,
+    COUNT(*) AS data_count
+FROM ai_analysis
+WHERE deviceId IN ('R00012', 'R00047', 'R00048')
+  AND input_time >= '2026-11-22 00:00:00'
+GROUP BY
+    deviceId,
+    DATE_FORMAT(input_time, '%Y-%m-%d %H:00:00')
+ORDER BY
+    hour_time,
+    deviceId;
+
+
+
+SELECT
+    'ai_analysis' AS table_name,
+    deviceId AS device_id,
+    COUNT(*) AS data_count,
+    MIN(input_time) AS first_time,
+    MAX(input_time) AS last_time
+FROM ai_analysis
+WHERE deviceId IN ('R00012', 'R00047', 'R00048')
+  AND input_time >= '2026-11-20 11:00:42'
+GROUP BY deviceId
+
+UNION ALL
+
+SELECT
+    'ai_oiltemp',
+    device_id,
+    COUNT(*),
+    MIN(input_time),
+    MAX(input_time)
+FROM ai_oiltemp
+WHERE device_id IN ('R00012', 'R00047', 'R00048')
+  AND input_time >= '2026-11-20 11:00:42'
+GROUP BY device_id
+
+UNION ALL
+
+SELECT
+    'ai_lstm_r',
+    device_id,
+    COUNT(*),
+    MIN(input_time),
+    MAX(input_time)
+FROM ai_lstm_r
+WHERE device_id IN ('R00012', 'R00047', 'R00048')
+  AND input_time >= '2026-11-20 11:00:42'
+GROUP BY device_id
+
+ORDER BY device_id, table_name;
+
+
+
+
+SELECT
+    deviceId,
+    COUNT(*) AS data_count,
+    MIN(input_time) AS first_time,
+    MAX(input_time) AS last_time,
+    TIMESTAMPDIFF(
+        HOUR,
+        MIN(input_time),
+        MAX(input_time)
+    ) AS duration_hours
+FROM ai_data
+WHERE deviceId IN ('R00012', 'R00047', 'R00048')
+GROUP BY deviceId
+ORDER BY deviceId;
+
+
+
+
+```
+SELECT
+    deviceId,
+    COUNT(*) AS data_count
+FROM ai_analysis
+WHERE deviceId IN ('R00012', 'R00047', 'R00048')
+GROUP BY deviceId
+ORDER BY deviceId;
+```
+
+
+
+
+  SELECT *
+FROM ai_data
+ORDER BY input_time DESC
+LIMIT 10;
+
+
+
+  SELECT *
+FROM ai_alarm
+ORDER BY id DESC
+LIMIT 10;
+
+
+```
+SELECT *
+FROM ai_alarm
+WHERE comcode = 'C00088'
+  AND deviceId IN ('R00012', 'R00047', 'R00048')
+ORDER BY alarm_dt DESC
+LIMIT 100;
+```
+
+
+```  SELECT *
+FROM ai_analysis
+WHERE comcode = 'C00088'
+ORDER BY input_time DESC
+LIMIT 100;
+
+
+
+SELECT *
+FROM ai_data
+WHERE deviceId = 'R00048'
+ORDER BY input_time DESC
+LIMIT 1000;
+```
+
+
+```
+SELECT DISTINCT deviceId
+FROM ai_data
+ORDER BY deviceId;
+```
+
+
+```
+SELECT *
+FROM ai_lstm_r
+WHERE comcode = 'C00088'
+ORDER BY input_time DESC
+LIMIT 100;
+```
+
+
+
+SELECT *
+FROM ai_oiltemp
+WHERE comcode = 'C00088'
+  AND device_id = 'R00012'
+ORDER BY input_time DESC, id DESC
+LIMIT 100;
+
+
+
+
+  SELECT *
+FROM ai_analysis
+WHERE comcode = 'C00088'
+  AND deviceId = 'R00012'
+ORDER BY input_time DESC
+LIMIT 100;
+
+
+
 ```python
 pip install mysql-connector-python
 ```
