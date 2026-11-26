@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RESEARCH/APFC/APFC.1st.md",
+                "file": "RESEARCH/MEGACOM/Database/AAS/AAS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "APFC.1st"
+              "title": "AAS"
             }
           }
         ]
@@ -46,7 +46,7 @@
                 "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
-              "title": "Files"
+              "title": "파일 탐색기"
             }
           },
           {
@@ -189,19 +189,26 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "bases:Create new base": false,
+      "switcher:빠른 전환기 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "bases:새 베이스 생성하기": false,
       "obsidian-git:Open Git source control": false,
       "obsidian-custom-frames:Open chatGPT": false
     }
   },
   "active": "f1d99038f5a545e2",
   "lastOpenFiles": [
+    "RESEARCH/MEGACOM/AAS/aas.py",
+    "RESEARCH/MEGACOM/AAS/rule.py",
+    "RESEARCH/MEGACOM/AAS",
+    "RESEARCH/MEGACOM/새 폴더",
+    "RESEARCH/MEGACOM/Database/AAS/aas 파일변환.md",
+    "RESEARCH/MEGACOM/Database/AAS/AAS.md",
+    "RESEARCH/APFC/APFC.1st.md",
     "RESEARCH/MEGACOM/Database/rule테이블 수정.md",
     "RESEARCH/MEGACOM/Database/ref/rule_score.py",
     "RESEARCH/MEGACOM/Database/ref/rule-ref.py",
@@ -210,19 +217,13 @@
     "RESEARCH/MEGACOM/Database/ref/rule-1st.py",
     "RESEARCH/MEGACOM/Database/ref/db.py",
     "RESEARCH/MEGACOM/Database/ref/db-readtable.py",
-    "RESEARCH/MEGACOM/Database/ref/db-1.py",
     "RESEARCH/MEGACOM/Database/ref/dB.sql.md",
-    "RESEARCH/MEGACOM/Database/readtable-std-table.py",
     "RESEARCH/MEGACOM/Database/RULE.MAIN.md",
-    "RESEARCH/MEGACOM/Database/CSV_results/st_sysoption-20261118.csv",
     "RESEARCH/APFC/CODE/arduino.code.md",
-    "RESEARCH/APFC/APFC.1st.md",
     "RESEARCH/APFC/LM393 기반 PT·CT 영점검출 회로도.png",
     "RESEARCH/APFC/APFC,component.md",
     "Lecture/AI-lecture.md",
     "RESEARCH/MEGACOM/Database/무제.md",
-    "RESEARCH/MEGACOM/Database/AAS/AAS.md",
-    "RESEARCH/MEGACOM/Database/AAS/aas 파일변환.md",
     "Pasted image 20261112170348.png",
     "Lecture/Electromagnetic/Electromagnetics-1st.md",
     "RESEARCH/SLAM/slamKIT/CASE/판금.md",
