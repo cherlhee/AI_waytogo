@@ -331,9 +331,23 @@ def repair_actuals(conn, col, company, device, lo, hi, index, tolerance, batch_s
     finally: cur.close()
 
 
+class BufferedWrites:
+    def __init__(self, cursor):
+        self.cursor = cursor
+        self.groups = {}
+    def execute(self, sql, params):
+        self.groups.setdefault(sql, []).append(params)
+    def flush(self):
+        for sql, params in self.groups.items():
+            self.cursor.executemany(sql, params)
+        self.groups.clear()
+
+
 def main():
     p=argparse.ArgumentParser(description='Historical LSTM backfill'); options(p)
     p.add_argument('--explain-every',type=int,default=12)
+    p.add_argument('--fill-io045',action='store_true',help='Legacy option; io044/io045/io046 missing values are now filled by default')
+    p.add_argument('--ig-batch-size',type=int,default=32)
     mode=p.add_mutually_exclusive_group()
     mode.add_argument('--overwrite',dest='overwrite',action='store_true')
     mode.add_argument('--skip-existing',dest='overwrite',action='store_false')
@@ -341,7 +355,7 @@ def main():
     p.add_argument('--actual-only',action='store_true',help='Repair actual temperatures without running LSTM')
     p.add_argument('--actual-tolerance-seconds',type=int,default=0)
     a=p.parse_args(); lo,hi=bounds(p,a)
-    if a.actual_tolerance_seconds<0 or a.explain_every<0: p.error('Invalid tolerance or explain interval')
+    if a.actual_tolerance_seconds<0 or a.explain_every<0 or a.ig_batch_size<1: p.error('Invalid tolerance or explain interval')
     print('LSTM mode:', 'overwrite' if a.overwrite else 'skip-existing',flush=True)
     if a.actual_only:
         conn=mysql.connector.connect(**DB_CONFIG)
@@ -370,9 +384,26 @@ def main():
     humidity_mean = float(means[humidity_idx])
     if not np.isfinite(humidity_mean):
         raise ValueError('Training humidity mean is not finite')
+    fill_cols = ('io044', 'io045', 'io046')
+    train_means = {c: float(means[FEATURES.index(c)]) for c in fill_cols}
+    if not all(np.isfinite(v) for v in train_means.values()):
+        raise ValueError('Non-finite training means for missing sensor imputation')
+    print(f'Missing sensor values filled with training means: {train_means}', flush=True)
     batch_sensor_cols = tuple(c for c in SENSOR_COLS if c != 'io048')
     print(f'Humidity io048 fixed to training mean={humidity_mean:.6f}; DB humidity read disabled', flush=True)
-    models={}; predictors={}
+    models={}; predictors={}; explainers={}
+    def make_explainer(model):
+        @tf.function(input_signature=[tf.TensorSpec((None, INPUT_MINUTES, len(FEATURES)), tf.float32)])
+        def explain(z):
+            total = tf.zeros_like(z)
+            for k in tf.range(1, 17):
+                v = z * (tf.cast(k, tf.float32) / 16.0)
+                with tf.GradientTape() as tape:
+                    tape.watch(v)
+                    y = model(v, training=False)
+                total += tape.gradient(y, v)
+            return tf.reduce_sum(z * total / 16.0, axis=1) * float(sy.scale_[0])
+        return explain
     def make_predictor(model):
         @tf.function(input_signature=[tf.TensorSpec((None, INPUT_MINUTES, len(FEATURES)), tf.float32)], reduce_retracing=True)
         def infer(x):
@@ -381,6 +412,7 @@ def main():
     for h in HORIZONS:
         models[h]=load_model(MODEL_DIR/f'lstm_{h}min.keras',compile=False)
         predictors[h]=make_predictor(models[h])
+        explainers[h]=make_explainer(models[h])
         print(f'{h}min model loaded',flush=True)
     importance={h:json.loads((MODEL_DIR/f'importance_{h}min.json').read_text(encoding='utf-8')) for h in HORIZONS}
     print('Connecting to database...',flush=True)
@@ -415,15 +447,33 @@ def main():
                 def flush():
                     nonlocal count, inserted, updated
                     if not pending:return
+                    tick=time.monotonic()
+                    writer=BufferedWrites(cur)
                     X=tf.convert_to_tensor(np.stack([v[1] for v in pending]),dtype=tf.float32)
                     predictions={h:sy.inverse_transform(predictors[h](X).numpy().reshape(-1,1))[:,0] for h in HORIZONS}
+                    infer_seconds=time.monotonic()-tick
+                    tick=time.monotonic()
+                    ig = {}
+                    if a.explain_every:
+                        for h in HORIZONS:
+                            selected = [j for j, (_, _, missing) in enumerate(pending)
+                                        if h in missing and (count+j)%a.explain_every==0]
+                            for start in range(0, len(selected), a.ig_batch_size):
+                                js = selected[start:start+a.ig_batch_size]
+                                vals = explainers[h](tf.gather(X, js)).numpy()
+                                for j, row in zip(js, vals):
+                                    ig[j,h] = {name: round(float(v),4) for name,v in zip(FEATURES,row)}
+                    ig_seconds=time.monotonic()-tick
+                    tick=time.monotonic()
                     for j,(latest,x,missing) in enumerate(pending):
                         outputs={h:float(predictions[h][j]) for h in missing}
-                        contributions={h:integrated_gradients(models[h],x[None,...],sy) if a.explain_every and count%a.explain_every==0 else None for h in missing}
+                        contributions={h:ig.get((j,h)) for h in missing}
                         actuals={h:future_actual(idx,latest['input_time'],h,a.actual_tolerance_seconds)[2] for h in missing}
-                        ni,nu=write_results(conn,latest,outputs,importance,contributions,meta['version'],col,actuals,done,a.overwrite,cur)
+                        ni,nu=write_results(conn,latest,outputs,importance,contributions,meta['version'],col,actuals,done,a.overwrite,writer)
                         inserted+=ni; updated+=nu; count+=1
+                    writer.flush()
                     conn.commit()
+                    print(f'[{device}] batch={len(pending)} inference={infer_seconds:.2f}s IG={ig_seconds:.2f}s DB/packing={time.monotonic()-tick:.2f}s',flush=True)
                     pending.clear()
                 try:
                     for i,r in enumerate(rows):
@@ -436,6 +486,8 @@ def main():
                             history=df.iloc[left:i+1].copy()
                             tail=minute_features(history,anchor=t,realtime=True).iloc[-INPUT_MINUTES:].copy()
                             tail['io048'] = humidity_mean
+                            for c, mean in train_means.items():
+                                tail[c] = tail[c].replace([np.inf, -np.inf], np.nan).fillna(mean)
                             current=df.iloc[i]['io003']
                             arr=tail[list(FEATURES)].to_numpy(dtype=float)
                             bad=~np.isfinite(arr)

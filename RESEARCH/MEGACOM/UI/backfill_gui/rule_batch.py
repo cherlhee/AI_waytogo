@@ -456,7 +456,7 @@ def get_previous_sensor_data(cursor, device_id, before_time):
 # 9-1. 공통 기준값 조회 (센서별 하나의 외부 테이블)
 # ==========================================================
 
-def get_standard(cursor, sensor):
+def get_standard(cursor, sensor, device_id):
     table = sensor.get("standard_table")
     column = sensor.get("standard_column")
     if not table and not column:
@@ -464,7 +464,9 @@ def get_standard(cursor, sensor):
     if not table or not column:
         raise ValueError(f"기준값 설정 오류: table={table!r}, column={column!r}")
 
-    extra_where = sensor.get("standard_where", {})
+    extra_where = dict(sensor.get("standard_where", {}))
+    if table == "st_comcode_set":
+        extra_where["deviceId"] = device_id
 
     # SQL 식별자는 바인딩할 수 없으므로 설정값의 형식을 검증하고 백틱 처리
     def quote_identifier(identifier):
@@ -622,7 +624,7 @@ def analyze(cursor, current, previous, device_id):
             standard = get_oiltemp_standard(cursor, current, device_id)
 
         else:
-            standard = get_standard(cursor, sensor)
+            standard = get_standard(cursor, sensor, device_id)
 
 
         # 불균형 항목은 측정값 중 최댓값을 저장 기준값으로 사용

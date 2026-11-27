@@ -22,6 +22,7 @@ SOURCE_TABLE = "ai_data"
 TARGET_TABLE = "ai_analysis"
 
 DEFAULT_INTERVAL = 5.0
+VSD_PRESSURE_COLUMN = os.getenv("VSD_PRESSURE_COLUMN", "io037").strip()
 
 
 # ==========================================================
@@ -205,10 +206,16 @@ def score_pressure(value, previous):
 # 오일온도
 def score_oil(value, standard):
 
-    if standard is None or standard <= 0:
+
+    if value is None or standard is None or standard <= 0:
         return None
 
-    diff = abs(value - standard) / standard * 100
+    # 기준 오일온도 이하이면 알람 제외
+    if value <= standard:
+        return None
+
+    # 기준 오일온도 초과율 계산
+    diff = (value - standard) / standard * 100
 
     if diff < 5:
         return 0
@@ -217,6 +224,9 @@ def score_oil(value, standard):
         return 40
 
     return 70
+
+
+
 
 
 # 소모품 교체주기
@@ -405,6 +415,9 @@ def get_sensor_data(cursor, device_id, after_time=None, limit=100):
         "io045"    # 외부온도 (유량계 온도)
     ]
 
+    if VSD_PRESSURE_COLUMN:
+        required_columns.append(VSD_PRESSURE_COLUMN)
+
     for col in required_columns:
         if col not in columns:
             columns.append(col)
@@ -486,7 +499,7 @@ def get_standard(cursor, sensor):
         params.append(expected)
 
     where_sql = f" WHERE {' AND '.join(conditions)}" if conditions else ""
-    sql = f"SELECT {column_sql} FROM {table_sql}{where_sql} LIMIT 2"
+    sql = f"SELECT DISTINCT {column_sql} FROM {table_sql}{where_sql} LIMIT 2"
     try:
         cursor.execute(sql, tuple(params))
     except mysql.connector.Error:
@@ -497,7 +510,7 @@ def get_standard(cursor, sensor):
         print(f"[기준값 없음] table={table}, 조건={extra_where}, comcode={COM_CODE}")
         return None
     if len(rows) > 1:
-        raise ValueError(f"기준값 조회 결과가 2건 이상입니다: {table}, {extra_where}")
+        raise ValueError(f"서로 다른 기준값이 존재합니다: {table}, {extra_where}, values={rows}")
     return to_float(rows[0][0])
 
 
@@ -556,6 +569,9 @@ def get_oiltemp_standard(cursor, current, device_id):
     pressure = to_float(current.get("io001"))
     outside_temp = to_float(current.get("io045"))
 
+    if outside_temp == 36.75 or (outside_temp is not None and outside_temp >= 100):
+        return None
+
     if any(v is None for v in (
         frequency,
         pressure,
@@ -597,9 +613,34 @@ def get_oiltemp_standard(cursor, current, device_id):
 # 10. 룰베이스 분석
 # ==========================================================
 
+def alarm_exclusions(current):
+    """항목별 알람 제외 사유. 제외는 정상 판정과 구분한다."""
+    excluded = {}
+    def exclude(names, reason):
+        for name in names:
+            excluded.setdefault(name, []).append(reason)
+
+    temp = to_float(current.get("io045"))
+    if temp == 36.75 or (temp is not None and temp >= 100):
+        exclude(("유량계온도", "오일온도"), "유량계 온도 오류")
+    frequency = to_float(current.get("io029"))
+    if frequency is not None and frequency < 25:
+        exclude(SENSORS, "주파수 25Hz 미만")
+    currents = [to_float(current.get(c)) for c in ("io007", "io008", "io009")]
+    if any(v == 0 for v in currents):
+        exclude(SENSORS, "3상 전류 중 하나 이상 0")
+    if VSD_PRESSURE_COLUMN:
+        command = to_float(current.get(VSD_PRESSURE_COLUMN))
+        pressure = to_float(current.get("io001"))
+        if command is not None and pressure is not None and command > pressure:
+            exclude(SENSORS, "VSD 압력지령 > 토출압력: 출력 상승 중")
+    return excluded
+
+
 def analyze(cursor, current, previous, device_id):
 
     results = {}
+    excluded = alarm_exclusions(current)
 
     for name, sensor in SENSORS.items():
 
@@ -683,7 +724,8 @@ def analyze(cursor, current, previous, device_id):
             "standard": standard,
             "standard_to_save": standard_to_save,
             "score": score,
-            "alarm": set_alarm(score)
+            "alarm": None if name in excluded else set_alarm(score),
+            "alarm_excluded": excluded.get(name, [])
         }
 
     return results
@@ -812,17 +854,45 @@ ALARM_ITEM_NAMES = {
 }
 
 
+def get_alarm_cooldown(cursor):
+    """DB 설정값(분)을 읽는다. 설정 오류 시 기본 60분 적용."""
+    for table in ("st-sysoptions", "st_sysoptions", "st_sysoption"):
+        try:
+            cursor.execute(
+                f"SELECT charval FROM `{table}` WHERE sysitem=%s LIMIT 2",
+                ("ALRM-COOLDOWN-MIN",),
+            )
+            rows = cursor.fetchall()
+        except mysql.connector.Error as exc:
+            if exc.errno == 1146:
+                continue
+            raise
+        if not rows:
+            continue
+        value = to_float(rows[0][0]) if len(rows) == 1 else None
+        if value is not None and value >= 0:
+            return value
+        break
+    print("[알람 설정 경고] ALRM-COOLDOWN-MIN 설정 없음/오류: 기본 60분 적용")
+    return 60.0
+
+
 def save_alarm(cursor, current, results, device_id):
     """경고(9) 신규 발생 또는 직전 경고 전송완료(Y) 이후 재발 시 저장.
 
     comcode/deviceId/std_item별로 별도 상태 관리.
-    N인 미전송 경고가 존재하는 동안 5초마다 중복 저장하지 않음.
+    N인 미전송 경고의 기존 중복 방지 조건을 유지한다.
+    마지막 알람 발생 후 설정된 제한 시간 동안 재발생을 차단한다.
     """
+    excluded = alarm_exclusions(current)
     alarm_dt = str(current["input_time"])[:19]
     alarm_count = 0
+    if not any(r["alarm"] == 9 and name not in excluded for name, r in results.items()):
+        return 0
+    cooldown_min = get_alarm_cooldown(cursor)
 
     for name, result in results.items():
-        if result["alarm"] != 9:
+        if name in excluded or result["alarm"] != 9:
             continue
 
         code = SENSORS[name]["code"]
@@ -840,13 +910,21 @@ def save_alarm(cursor, current, results, device_id):
 
         # 같은 장비/항목의 가장 최근 발송 상태
         cursor.execute(
-            """SELECT alarm_send_yn FROM ai_alarm
+            """SELECT alarm_send_yn, alarm_dt FROM ai_alarm
                WHERE comcode=%s AND deviceId=%s AND std_item=%s
                ORDER BY alarm_dt DESC LIMIT 1""",
             (COM_CODE, device_id, std_item),
         )
         alarm_row = cursor.fetchone()
         last_send = str(alarm_row[0]).strip().upper() if alarm_row and alarm_row[0] is not None else None
+
+        # 전송 여부와 무관하게 마지막 실제 알람 발생 시각부터 제한
+        if alarm_row:
+            elapsed = (parse_time(alarm_dt) - parse_time(alarm_row[1])).total_seconds() / 60
+            if elapsed < cooldown_min:
+                print(f"[알람 제한] {device_id} {std_item}: "
+                      f"경과={elapsed:.2f}분 / 제한={cooldown_min:g}분")
+                continue
 
         # 직전 판정도 경고이며 미전송(N)이면 같은 경고로 간주
         # 전송완료(Y)가 되면 다음 경고 판정에서 다시 1회 저장
@@ -905,6 +983,9 @@ def process_device(conn, device_id, watermark, batch_size, alarm_live_seconds):
             stamp = current["input_time"]
             try:
                 results = analyze(cursor, current, previous, device_id)
+                exclusions = alarm_exclusions(current)
+                if exclusions:
+                    print(f"[알람 제외] {device_id} {stamp}: {exclusions}", flush=True)
                 saved = save_analysis(cursor, conn, current, results, device_id)
                 alarm_count = 0
                 # 과거 복구 데이터는 ai_alarm으로 재발송하지 않는다.
@@ -929,7 +1010,7 @@ def process_device(conn, device_id, watermark, batch_size, alarm_live_seconds):
 
 
 def main():
-    global BACKFILL_FROM
+    global BACKFILL_FROM, VSD_PRESSURE_COLUMN
     parser = argparse.ArgumentParser(description="MEGACOM 3설비 룰베이스 분석 및 누락 복구")
     parser.add_argument("--once", action="store_true", help="각 설비 한 배치 처리 후 종료")
     parser.add_argument("--interval", type=float, default=DEFAULT_INTERVAL)
@@ -941,7 +1022,14 @@ def main():
                         help="설비당 한 주기에 처리할 최대 건수")
     parser.add_argument("--alarm-live-seconds", type=int, default=30,
                         help="최근 데이터에만 ai_alarm 저장 (기본 30초)")
+    parser.add_argument("--vsd-pressure-column", default=VSD_PRESSURE_COLUMN,
+                        help="ai_data VSD 압력지령 컬럼명")
     args = parser.parse_args()
+    VSD_PRESSURE_COLUMN = args.vsd_pressure_column.strip()
+    if VSD_PRESSURE_COLUMN and not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", VSD_PRESSURE_COLUMN):
+        parser.error("잘못된 VSD 압력지령 컬럼명")
+    if not VSD_PRESSURE_COLUMN:
+        print("[설정 경고] VSD 압력지령 컬럼 미설정: 조건 4 미적용", flush=True)
     if args.interval <= 0 or args.batch_size <= 0 or args.alarm_live_seconds < 0:
         parser.error("interval, batch-size는 양수, alarm-live-seconds는 0 이상이어야 합니다")
     try:
