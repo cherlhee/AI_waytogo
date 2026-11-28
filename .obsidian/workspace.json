@@ -183,7 +183,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 670.5
+    "width": 1241.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -226,10 +226,10 @@
           }
         ],
         "direction": "vertical",
-        "x": 800,
-        "y": 163,
-        "width": 1024,
-        "height": 800,
+        "x": 412,
+        "y": 0,
+        "width": 1928,
+        "height": 1039,
         "maximize": false,
         "zoom": 0
       }
