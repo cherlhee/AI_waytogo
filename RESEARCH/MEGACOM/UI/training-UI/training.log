@@ -1,0 +1,15 @@
+[10:57:10] PROGRESS 1
+[10:57:10] Encoding failed: utf-8-sig
+[10:57:12] CSV encoding: cp949
+[10:57:12] CSV rows: 348,638
+[10:57:12] CSV columns: 51
+[10:57:12] CSV column names: ['unnamed: 0', 'unnamed: 1', 'unnamed: 2', '장비번호', '토출압력 [bar]', '시스템압력 [bar]', '오일온도', 'u-v전압 [v]', 'v-w 전압 [v]', '안씀', 'u전류 [a]', 'v전류 [a]', 'w 전류 [a]', '유효전력 [kw]', '부하운전시간\n 상위 [hour]', '부하운전시간\n 하위 [hour]', '총 운전시간\n상위 [hour]', '총 운전시간\n하위 [hour]', '부하 적산전력량계\n상위 [kwh]', '부하 적산전력량계\n하위[kwh]', '총 적산전력량계 상위\n[kwh]', '총 적산전력량계\n[kwh]', 'led 점등상태', '상세\n고장항목1', '상세\n고장항목2', '운전구분', '부하 운전시간\n [min]', '총 운전시간\n [min]', '상세\n고장항목3', '운전모드', '현재\n시퀀스', '부하율\n[%]', '주파수\n[hz]', '오일 교체\n[hour]', '오일필터\n교체 [hour]', '에어필터교체\n[hour]', '유분리기\n교체 [hour]', '오버홀\n[hour]', '무부하 \n운전압력 [bar]', '부하\n운전압력 [bar]', 'vsd\n압력지령 [bar]', '팬 \n가동온도', '팬 \n정지온도', '서픽스\n일렬번호', '유량계\n압력', '유량계\n온도', '유량계\n유량', '유량계\n총유량', '유량계\n습도', '계측기\n총적산량', '계측기순시\n전산전력량']
+[10:57:12] [ERROR] ValueError: CSV requires input_time column
+[10:57:12] Traceback (most recent call last):
+[10:57:12] File "C:\CHERLHEE\AI_waytogo\RESEARCH\MEGACOM\UI\training-UI\train_cf.py", line 128, in <module>
+[10:57:12] try: main()
+[10:57:12] File "C:\CHERLHEE\AI_waytogo\RESEARCH\MEGACOM\UI\training-UI\train_cf.py", line 89, in main
+[10:57:12] log('PROGRESS 1'); m=prepare(load(a),features,a.humidity_mode)
+[10:57:12] File "C:\CHERLHEE\AI_waytogo\RESEARCH\MEGACOM\UI\training-UI\train_cf.py", line 50, in load
+[10:57:12] if 'input_time' not in df: raise ValueError('CSV requires input_time column')
+[10:57:12] ValueError: CSV requires input_time column

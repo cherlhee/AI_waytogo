@@ -1,22 +1,24 @@
 {
   "main": {
-    "id": "18069594cca20fc0",
+    "id": "ef9511f7f738b21e",
     "type": "split",
     "children": [
       {
-        "id": "91a9f0c053d10306",
+        "id": "a6b956e6b2beddc7",
         "type": "tabs",
         "children": [
           {
-            "id": "f1d99038f5a545e2",
+            "id": "5feaa1d35a2eac95",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "RESEARCH/SLAM/slamKIT/CASE/로봇 섀시 내부 프레임 설계 인포그래픽.png"
+                "file": "RESEARCH/MEGACOM/sql.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "로봇 섀시 내부 프레임 설계 인포그래픽"
+              "icon": "lucide-file",
+              "title": "sql"
             }
           }
         ]
@@ -25,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "78e9c43e1ddd8e8d",
+    "id": "1e38220fb9163201",
     "type": "split",
     "children": [
       {
-        "id": "52b3a8c5cb7a045a",
+        "id": "c66d2470bf2b766d",
         "type": "tabs",
         "children": [
           {
-            "id": "114ca2829abbfdf3",
+            "id": "c0615a0f344eee3f",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -48,7 +50,7 @@
             }
           },
           {
-            "id": "84fdaf2b3afaab07",
+            "id": "d3ff649febe27ef2",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -65,7 +67,7 @@
             }
           },
           {
-            "id": "70d459733b7f3d8b",
+            "id": "ac25ee8d9e0e3e80",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -81,23 +83,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 229.5
+    "width": 300
   },
   "right": {
-    "id": "924c9b0ecef3ecda",
+    "id": "8011fcf9e8f8211e",
     "type": "split",
     "children": [
       {
-        "id": "59b42e7447290048",
+        "id": "f1afb739fc79c0b6",
         "type": "tabs",
         "children": [
           {
-            "id": "6af2ade9700f6a54",
+            "id": "a99dfd3075631993",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "RESEARCH/APFC/CODE/arduino.code.md",
+                "file": "RESEARCH/MEGACOM/sql.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,12 +113,12 @@
             }
           },
           {
-            "id": "842d0332c2ed25fb",
+            "id": "7784dcd85f29d3a2",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "RESEARCH/APFC/CODE/arduino.code.md",
+                "file": "RESEARCH/MEGACOM/sql.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -125,7 +127,7 @@
             }
           },
           {
-            "id": "e9447dcbbd81525b",
+            "id": "32b5cea41d53c425",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -140,7 +142,7 @@
             }
           },
           {
-            "id": "e4f3b170d457b8ee",
+            "id": "8f01ec4c1e9c8c3a",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -154,12 +156,12 @@
             }
           },
           {
-            "id": "f1e0d2743dbc86b2",
+            "id": "1e8640240054990d",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "RESEARCH/APFC/CODE/arduino.code.md",
+                "file": "RESEARCH/MEGACOM/sql.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -169,7 +171,7 @@
             }
           },
           {
-            "id": "2c5d03345b581bf2",
+            "id": "17dadcdf96d7f3ba",
             "type": "leaf",
             "state": {
               "type": "custom-frames-chatgpt",
@@ -183,7 +185,11 @@
       }
     ],
     "direction": "horizontal",
+<<<<<<< HEAD
     "width": 1241.5
+=======
+    "width": 1088.5
+>>>>>>> 0cbd91a08aa70473168cc8eca577ccaa92ada9c3
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -198,6 +204,7 @@
       "obsidian-custom-frames:Open chatGPT": false
     }
   },
+<<<<<<< HEAD
   "floating": {
     "id": "62939e378956109c",
     "type": "floating",
@@ -236,44 +243,22 @@
     ]
   },
   "active": "289c83155fceb8a2",
+=======
+  "active": "5feaa1d35a2eac95",
+>>>>>>> 0cbd91a08aa70473168cc8eca577ccaa92ada9c3
   "lastOpenFiles": [
-    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/cf_11_output/cf_11_test_metrics.csv",
-    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/cf_11_output/cf_11_temperature_model.json",
-    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/cf_11_output/cf_11_temperature_metrics.csv",
-    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/cf_11_output/cf_11_model.json",
-    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/rule.py",
-    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/requirements.txt",
-    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/README.md",
-    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/mysql_config.env",
-    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/main.py",
-    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/lstm_predict.py",
-    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/dashboard.ui",
-    "RESEARCH/MEGACOM/UI/ref/MEGACOM_PyQt_Designer_GUI/megacom_gui/cf.py",
-    "RESEARCH/MEGACOM/Rule/세가지 장비,,동시수행.md",
-    "RESEARCH/MEGACOM/Rule/mysql...sql.md",
-    "RESEARCH/SLAM/slamKIT/CASE/3d CASE design;.md",
-    "RESEARCH/MEGACOM/UI/MEGACOM_PyQt_Designer_GUI/megacom_gui/README.md",
-    "RESEARCH/MEGACOM/UI/megacom_gui/README.md",
+    "RESEARCH/MEGACOM/UI/backfill_gui/lstm_batch (1).py",
+    "RESEARCH/MEGACOM/UI/backfill_gui/lstm_features (1).py",
+    "RESEARCH/MEGACOM/UI/backfill_gui/__pycache__/lstm_features.cpython-310.pyc",
+    "RESEARCH/MEGACOM/UI/backfill_gui/lstm_features.py",
+    "RESEARCH/MEGACOM/UI/backfill_gui/models/scaler_y.pkl",
+    "RESEARCH/MEGACOM/UI/backfill_gui/models/scaler_X.pkl",
+    "RESEARCH/MEGACOM/UI/backfill_gui/models/metadata.json",
+    "RESEARCH/MEGACOM/UI/backfill_gui/models/lstm_60min.keras",
+    "RESEARCH/MEGACOM/UI/backfill_gui/models/lstm_30min.keras",
+    "RESEARCH/MEGACOM/UI/backfill_gui/models/lstm_120min.keras",
+    "RESEARCH/MEGACOM/UI/backfill_gui/models/lstm_10min.keras",
     "RESEARCH/MEGACOM/UI/UI...md",
-    "RESEARCH/MEGACOM/Rule/ref/dB.sql.md",
-    "RESEARCH/MEGACOM/Rule/기준 전류, 기준 오일온도 결정;.md",
-    "RESEARCH/MEGACOM/Rule/Tables;.md",
-    "RESEARCH/MEGACOM/Rule/rule테이블 수정.md",
-    "RESEARCH/MEGACOM/Rule/Rule.score.md",
-    "RESEARCH/MEGACOM/Rule/RULE.MAIN.md",
-    "RESEARCH/MEGACOM/Rule/Readme.md",
-    "RESEARCH/MEGACOM/Rule/mysql....md",
-    "RESEARCH/MEGACOM/Database/RULE.MAIN.md",
-    "RESEARCH/MEGACOM/AAS/aas 파일변환.md",
-    "RESEARCH/MEGACOM/AAS/AAS.md",
-    "RESEARCH/MEGACOM/Database/mysql....md",
-    "RESEARCH/MEGACOM/Database/rule테이블 수정.md",
-    "RESEARCH/MEGACOM/Database/ref/dB.sql.md",
-    "RESEARCH/MEGACOM/Database/dB.sql.md",
-    "RESEARCH/APFC/APFC.1st.md",
-    "RESEARCH/APFC/CODE/arduino.code.md",
-    "RESEARCH/APFC/LM393 기반 PT·CT 영점검출 회로도.png",
-    "RESEARCH/APFC/APFC,component.md",
-    "Pasted image 20261112170348.png"
+    "RESEARCH/MEGACOM/sql.md"
   ]
 }

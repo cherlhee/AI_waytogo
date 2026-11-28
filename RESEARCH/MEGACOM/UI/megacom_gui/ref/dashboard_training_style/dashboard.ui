@@ -1,0 +1,883 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="font">
+   <font>
+    <family>Pretendard</family>
+    <pointsize>10</pointsize>
+    <weight>50</weight>
+    <bold>false</bold>
+   </font>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1240</width>
+    <height>960</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MEGACOM AI Monitoring Console</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="font">
+    <font>
+     <family>Pretendard</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <widget class="QLabel" name="title">
+    <property name="geometry">
+     <rect>
+      <x>32</x>
+      <y>20</y>
+      <width>850</width>
+      <height>45</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>메가콤 AI 예지보전 | Monitoring Console</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="subtitle">
+    <property name="geometry">
+     <rect>
+      <x>34</x>
+      <y>66</y>
+      <width>700</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>실시간 설비 분석 · CF 위험 예측 · LSTM 온도 예측</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="connectionLabel">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>32</y>
+      <width>300</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>●  엔진 대기</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="line">
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>32</x>
+      <y>106</y>
+      <width>1175</width>
+      <height>2</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="deviceTitle">
+    <property name="geometry">
+     <rect>
+      <x>34</x>
+      <y>122</y>
+      <width>300</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>01  설비 설정</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="companyLabel">
+    <property name="geometry">
+     <rect>
+      <x>36</x>
+      <y>162</y>
+      <width>110</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>업체 코드</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="companyEdit">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>159</y>
+      <width>170</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>C00088</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="deviceLabel">
+    <property name="geometry">
+     <rect>
+      <x>335</x>
+      <y>162</y>
+      <width>110</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>설비 ID</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="deviceEdit">
+    <property name="geometry">
+     <rect>
+      <x>415</x>
+      <y>159</y>
+      <width>170</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>R00012</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="intervalLabel">
+    <property name="geometry">
+     <rect>
+      <x>612</x>
+      <y>162</y>
+      <width>90</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>주기 (초)</string>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="intervalSpin">
+    <property name="geometry">
+     <rect>
+      <x>695</x>
+      <y>159</y>
+      <width>105</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="minimum">
+     <double>0.500000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>3600.000000000000000</double>
+    </property>
+    <property name="value">
+     <double>5.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="folderButton">
+    <property name="geometry">
+     <rect>
+      <x>835</x>
+      <y>159</y>
+      <width>170</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>스크립트 폴더 선택</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="refreshButton">
+    <property name="geometry">
+     <rect>
+      <x>1020</x>
+      <y>159</y>
+      <width>185</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>DB 데이터 새로고침</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="cardsTitle">
+    <property name="geometry">
+     <rect>
+      <x>34</x>
+      <y>217</y>
+      <width>500</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>02  분석 엔진</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="ruleCard">
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>34</x>
+      <y>258</y>
+      <width>374</width>
+      <height>176</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ruleName">
+    <property name="geometry">
+     <rect>
+      <x>54</x>
+      <y>275</y>
+      <width>330</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>ALARM ENGINE</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ruleDesc">
+    <property name="geometry">
+     <rect>
+      <x>54</x>
+      <y>309</y>
+      <width>330</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>알람 |·ai_analysis</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ruleStatus">
+    <property name="geometry">
+     <rect>
+      <x>54</x>
+      <y>343</y>
+      <width>145</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>● 중지</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ruleStart">
+    <property name="geometry">
+     <rect>
+      <x>54</x>
+      <y>382</y>
+      <width>158</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>▶ 시작</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ruleStop">
+    <property name="geometry">
+     <rect>
+      <x>226</x>
+      <y>382</y>
+      <width>158</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>■ 중지</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="cfCard">
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>432</x>
+      <y>258</y>
+      <width>374</width>
+      <height>176</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="cfName">
+    <property name="geometry">
+     <rect>
+      <x>452</x>
+      <y>275</y>
+      <width>330</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>CF PREDICTION</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="cfDesc">
+    <property name="geometry">
+     <rect>
+      <x>452</x>
+      <y>309</y>
+      <width>330</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>10 / 30 / 60 / 120분</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="cfStatus">
+    <property name="geometry">
+     <rect>
+      <x>452</x>
+      <y>343</y>
+      <width>145</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>● 중지</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="cfStart">
+    <property name="geometry">
+     <rect>
+      <x>452</x>
+      <y>382</y>
+      <width>158</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>▶ 시작</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="cfStop">
+    <property name="geometry">
+     <rect>
+      <x>624</x>
+      <y>382</y>
+      <width>158</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>■ 중지</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="lstmCard">
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>258</y>
+      <width>374</width>
+      <height>176</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lstmName">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>275</y>
+      <width>330</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>LSTM FORECAST</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lstmDesc">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>309</y>
+      <width>330</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>온도 예측 · ai_lstm_r</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lstmStatus">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>343</y>
+      <width>145</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>● 중지</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="lstmStart">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>382</y>
+      <width>158</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>▶ 시작</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="lstmStop">
+    <property name="geometry">
+     <rect>
+      <x>1022</x>
+      <y>382</y>
+      <width>158</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>■ 중지</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dataTitle">
+    <property name="geometry">
+     <rect>
+      <x>34</x>
+      <y>455</y>
+      <width>500</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>03  최근 데이터 · ai_data</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dataHint">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>458</y>
+      <width>415</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>DB 연결 설정은 기존 프로젝트 설정을 사용합니다</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="dataTable">
+    <property name="geometry">
+     <rect>
+      <x>34</x>
+      <y>495</y>
+      <width>1171</width>
+      <height>195</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+   </widget>
+   <widget class="QLabel" name="logsTitle">
+    <property name="geometry">
+     <rect>
+      <x>34</x>
+      <y>708</y>
+      <width>400</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>04  실행 로그</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clearButton">
+    <property name="geometry">
+     <rect>
+      <x>1072</x>
+      <y>707</y>
+      <width>133</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>로그 지우기</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="logEdit">
+    <property name="geometry">
+     <rect>
+      <x>34</x>
+      <y>747</y>
+      <width>1171</width>
+      <height>150</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="footer">
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>34</x>
+      <y>910</y>
+      <width>1100</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>MEGACOM • 기존 분석 스크립트를 별도 프로세스로 실행합니다.</string>
+    </property>
+   </widget>
+  </widget>
+  <property name="styleSheet">
+   <string>
+QWidget{font-family:"Pretendard";font-size:10pt;color:#DCE6F5;font-weight:normal}
+QLabel{color:#DCE6F5}
+QPushButton,QComboBox,QLineEdit,QDoubleSpinBox{font-size:11pt;font-weight:bold}
+QGroupBox{font-size:10pt;font-weight:bold}
+QMainWindow,QWidget#centralwidget{background:#0B1220;color:#DCE6F5;font-family:"Pretendard";font-size:10pt}
+QLabel#title{font-size:20pt;font-weight:bold;color:#8EC5FF}
+QLabel#subtitle,QLabel#footer,QLabel#dataHint{color:#8494AC;font-size:10pt}
+QLabel#connectionLabel{color:#42D6A4;font-size:10pt;font-weight:bold}
+QFrame#line{background:#25344A;border:none}
+QLabel#deviceTitle,QLabel#cardsTitle,QLabel#dataTitle,QLabel#logsTitle{font-size:10pt;font-weight:bold;color:#8EC5FF}
+QFrame#ruleCard,QFrame#cfCard,QFrame#lstmCard{background:#142137;border:1px solid #263A56;border-radius:15px}
+QLabel#ruleName,QLabel#cfName,QLabel#lstmName{font-size:10pt;font-weight:bold;color:#F5F8FF;background:transparent}
+QLabel#ruleDesc,QLabel#cfDesc,QLabel#lstmDesc{color:#9AAEC9;background:transparent}
+QLabel#ruleStatus,QLabel#cfStatus,QLabel#lstmStatus{color:#45D9AB;background:transparent;font-weight:bold}
+QLineEdit,QDoubleSpinBox{background:#17263D;border:1px solid #314563;border-radius:7px;padding:6px;color:white}
+QPushButton{background:#223754;color:#EAF2FF;border:1px solid #345075;border-radius:8px;font-weight:bold;padding:5px}
+QPushButton:hover{background:#31547D}
+QPushButton:disabled{color:#63738B;background:#172438;border-color:#23344B}
+QPushButton#ruleStart,QPushButton#cfStart,QPushButton#lstmStart{background:#007A43;color:#FFFFFF;border:2px solid #40D98B}
+QPushButton#ruleStart:hover,QPushButton#cfStart:hover,QPushButton#lstmStart:hover{background:#008A49}
+QTableWidget,QPlainTextEdit{background:#101D30;color:#D9E7F6;border:1px solid #2A405F;border-radius:9px;gridline-color:#263B56;selection-background-color:#255C87;alternate-background-color:#16263D}
+QHeaderView::section{background:#213652;color:#E6F0FF;padding:8px;border:none;border-right:1px solid #344A67;font-weight:bold}
+
+QPushButton#ruleStop,QPushButton#cfStop,QPushButton#lstmStop{background:#B91C1C;color:#FFFFFF;border:2px solid #F87171}
+QPushButton#ruleStop:hover,QPushButton#cfStop:hover,QPushButton#lstmStop:hover{background:#C62828}
+QPushButton#ruleStart:disabled,QPushButton#cfStart:disabled,QPushButton#lstmStart:disabled,QPushButton#ruleStop:disabled,QPushButton#cfStop:disabled,QPushButton#lstmStop:disabled{background:#374151;color:#B9C3D0;border:1px solid #64748B}
+QPushButton:pressed{background:#005C32}
+QHeaderView::section{font-size:10pt;font-weight:bold}
+QScrollBar:vertical{background:#101D30;width:12px;margin:0}
+QScrollBar::handle:vertical{background:#405775;min-height:24px;border-radius:5px}
+QScrollBar::add-line:vertical,QScrollBar::sub-line:vertical{height:0}
+QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical{background:none}
+</string>
+  </property>
+ </widget>
+ <resources />
+ <connections />
+</ui>

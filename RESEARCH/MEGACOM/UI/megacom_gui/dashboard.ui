@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="font">
+   <font>
+    <family>Pretendard</family>
+    <pointsize>10</pointsize>
+    <weight>50</weight>
+    <bold>false</bold>
+   </font>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,18 +22,29 @@
    <string>MEGACOM AI Monitoring Console</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="font">
+    <font>
+     <family>Pretendard</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
    <widget class="QLabel" name="title">
     <property name="geometry">
      <rect>
       <x>32</x>
       <y>20</y>
-      <width>600</width>
+      <width>850</width>
       <height>45</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -43,7 +62,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -61,7 +83,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -69,6 +94,14 @@
     </property>
    </widget>
    <widget class="QFrame" name="line">
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="geometry">
      <rect>
       <x>32</x>
@@ -89,11 +122,14 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
-     <string>설비 설정</string>
+     <string>01  설비 설정</string>
     </property>
    </widget>
    <widget class="QLabel" name="companyLabel">
@@ -107,7 +143,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -125,7 +164,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -143,7 +185,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -161,7 +206,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -179,7 +227,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -197,7 +248,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="minimum">
@@ -221,7 +275,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -239,7 +296,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -257,14 +317,25 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
-     <string>분석 엔진</string>
+     <string>02  분석 엔진</string>
     </property>
    </widget>
    <widget class="QFrame" name="ruleCard">
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="geometry">
      <rect>
       <x>34</x>
@@ -285,7 +356,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -303,7 +377,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -321,7 +398,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -339,7 +419,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -357,7 +440,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -365,6 +451,14 @@
     </property>
    </widget>
    <widget class="QFrame" name="cfCard">
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="geometry">
      <rect>
       <x>432</x>
@@ -385,7 +479,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -403,7 +500,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -421,7 +521,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -439,7 +542,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -457,7 +563,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -465,6 +574,14 @@
     </property>
    </widget>
    <widget class="QFrame" name="lstmCard">
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="geometry">
      <rect>
       <x>830</x>
@@ -485,7 +602,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -503,7 +623,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -521,7 +644,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -539,7 +665,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -557,7 +686,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -575,11 +707,14 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
-     <string>최근 데이터 · ai_data</string>
+     <string>03  최근 데이터 · ai_data</string>
     </property>
    </widget>
    <widget class="QLabel" name="dataHint">
@@ -593,7 +728,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -611,7 +749,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
    </widget>
@@ -626,11 +767,14 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
-     <string>실행 로그</string>
+     <string>04  실행 로그</string>
     </property>
    </widget>
    <widget class="QPushButton" name="clearButton">
@@ -644,7 +788,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -662,7 +809,10 @@
     </property>
     <property name="font">
      <font>
-      <family>함초롬돋움</family>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="readOnly">
@@ -670,6 +820,14 @@
     </property>
    </widget>
    <widget class="QLabel" name="footer">
+    <property name="font">
+     <font>
+      <family>Pretendard</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="geometry">
      <rect>
       <x>34</x>
@@ -683,7 +841,43 @@
     </property>
    </widget>
   </widget>
+  <property name="styleSheet">
+   <string>
+QWidget{font-family:"Pretendard";font-size:10pt;color:#DCE6F5;font-weight:normal}
+QLabel{color:#DCE6F5}
+QPushButton,QComboBox,QLineEdit,QDoubleSpinBox{font-size:11pt;font-weight:bold}
+QGroupBox{font-size:10pt;font-weight:bold}
+QMainWindow,QWidget#centralwidget{background:#0B1220;color:#DCE6F5;font-family:"Pretendard";font-size:10pt}
+QLabel#title{font-size:20pt;font-weight:bold;color:#8EC5FF}
+QLabel#subtitle,QLabel#footer,QLabel#dataHint{color:#8494AC;font-size:10pt}
+QLabel#connectionLabel{color:#42D6A4;font-size:10pt;font-weight:bold}
+QFrame#line{background:#25344A;border:none}
+QLabel#deviceTitle,QLabel#cardsTitle,QLabel#dataTitle,QLabel#logsTitle{font-size:10pt;font-weight:bold;color:#8EC5FF}
+QFrame#ruleCard,QFrame#cfCard,QFrame#lstmCard{background:#142137;border:1px solid #263A56;border-radius:15px}
+QLabel#ruleName,QLabel#cfName,QLabel#lstmName{font-size:10pt;font-weight:bold;color:#F5F8FF;background:transparent}
+QLabel#ruleDesc,QLabel#cfDesc,QLabel#lstmDesc{color:#9AAEC9;background:transparent}
+QLabel#ruleStatus,QLabel#cfStatus,QLabel#lstmStatus{color:#45D9AB;background:transparent;font-weight:bold}
+QLineEdit,QDoubleSpinBox{background:#17263D;border:1px solid #314563;border-radius:7px;padding:6px;color:white}
+QPushButton{background:#223754;color:#EAF2FF;border:1px solid #345075;border-radius:8px;font-weight:bold;padding:5px}
+QPushButton:hover{background:#31547D}
+QPushButton:disabled{color:#63738B;background:#172438;border-color:#23344B}
+QPushButton#ruleStart,QPushButton#cfStart,QPushButton#lstmStart{background:#007A43;color:#FFFFFF;border:2px solid #40D98B}
+QPushButton#ruleStart:hover,QPushButton#cfStart:hover,QPushButton#lstmStart:hover{background:#008A49}
+QTableWidget,QPlainTextEdit{background:#101D30;color:#D9E7F6;border:1px solid #2A405F;border-radius:9px;gridline-color:#263B56;selection-background-color:#255C87;alternate-background-color:#16263D}
+QHeaderView::section{background:#213652;color:#E6F0FF;padding:8px;border:none;border-right:1px solid #344A67;font-weight:bold}
+
+QPushButton#ruleStop,QPushButton#cfStop,QPushButton#lstmStop{background:#B91C1C;color:#FFFFFF;border:2px solid #F87171}
+QPushButton#ruleStop:hover,QPushButton#cfStop:hover,QPushButton#lstmStop:hover{background:#C62828}
+QPushButton#ruleStart:disabled,QPushButton#cfStart:disabled,QPushButton#lstmStart:disabled,QPushButton#ruleStop:disabled,QPushButton#cfStop:disabled,QPushButton#lstmStop:disabled{background:#374151;color:#B9C3D0;border:1px solid #64748B}
+QPushButton:pressed{background:#005C32}
+QHeaderView::section{font-size:10pt;font-weight:bold}
+QScrollBar:vertical{background:#101D30;width:12px;margin:0}
+QScrollBar::handle:vertical{background:#405775;min-height:24px;border-radius:5px}
+QScrollBar::add-line:vertical,QScrollBar::sub-line:vertical{height:0}
+QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical{background:none}
+</string>
+  </property>
  </widget>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

@@ -2,6 +2,7 @@ import os, sys, shutil
 from pathlib import Path
 from datetime import datetime
 from PyQt5 import QtWidgets, QtCore, uic
+from PyQt5.QtGui import QFont, QFontDatabase, QFontInfo
 
 ROOT=Path(__file__).resolve().parent
 
@@ -22,13 +23,15 @@ class Dashboard(QtWidgets.QMainWindow):
         uic.loadUi(str(ROOT/'dashboard.ui'),self)
         self.folder=ROOT
         self.processes={}
-        self.setStyleSheet(STYLE)
+        for widget in [self, *self.findChildren(QtWidgets.QWidget)]:
+            font = widget.font()
+            font.setFamily(FONT_FAMILY)
+            font.setStyleStrategy(QFont.PreferAntialias)
+            widget.setFont(font)
+        self.setStyleSheet(STYLE.replace("__FONT__", FONT_FAMILY))
 
 
-        from PyQt5.QtGui import QFont
-        # 실행 로그 글꼴 설정
-        font = QFont("함초롬돋움", 10)
-        self.logEdit.setFont(font)
+        self.logEdit.setFont(QFont(FONT_FAMILY, 10))
 
 
         self.dataTable.setColumnCount(7)
@@ -186,28 +189,55 @@ class Dashboard(QtWidgets.QMainWindow):
                 if not p.waitForFinished(1200):p.kill();p.waitForFinished(1200)
         event.accept()
 
+FONT_FAMILY = "Pretendard"
+
 STYLE='''
-QMainWindow,QWidget#centralwidget{background:#0B1220;color:#DCE6F5;font-family:"Malgun Gothic","Segoe UI";font-size:12px}
-QLabel#title{font-size:25px;font-weight:800;color:#F8FAFC}
-QLabel#subtitle,QLabel#footer,QLabel#dataHint{color:#8494AC;font-size:12px}
-QLabel#connectionLabel{color:#42D6A4;font-size:14px;font-weight:700}
+QWidget{font-family:"__FONT__";font-size:10pt;color:#DCE6F5;font-weight:normal}
+QLabel{color:#DCE6F5}
+QPushButton,QComboBox,QLineEdit,QDoubleSpinBox{font-size:11pt;font-weight:bold}
+QGroupBox{font-size:10pt;font-weight:bold}
+QMainWindow,QWidget#centralwidget{background:#0B1220;color:#DCE6F5;font-family:"__FONT__";font-size:10pt}
+QLabel#title{font-size:20pt;font-weight:bold;color:#8EC5FF}
+QLabel#subtitle,QLabel#footer,QLabel#dataHint{color:#8494AC;font-size:10pt}
+QLabel#connectionLabel{color:#42D6A4;font-size:10pt;font-weight:bold}
 QFrame#line{background:#25344A;border:none}
-QLabel#deviceTitle,QLabel#cardsTitle,QLabel#dataTitle,QLabel#logsTitle{font-size:17px;font-weight:700;color:#F1F5FB}
+QLabel#deviceTitle,QLabel#cardsTitle,QLabel#dataTitle,QLabel#logsTitle{font-size:10pt;font-weight:bold;color:#8EC5FF}
 QFrame#ruleCard,QFrame#cfCard,QFrame#lstmCard{background:#142137;border:1px solid #263A56;border-radius:15px}
-QLabel#ruleName,QLabel#cfName,QLabel#lstmName{font-size:17px;font-weight:800;color:#F5F8FF;background:transparent}
+QLabel#ruleName,QLabel#cfName,QLabel#lstmName{font-size:10pt;font-weight:bold;color:#F5F8FF;background:transparent}
 QLabel#ruleDesc,QLabel#cfDesc,QLabel#lstmDesc{color:#9AAEC9;background:transparent}
-QLabel#ruleStatus,QLabel#cfStatus,QLabel#lstmStatus{color:#45D9AB;background:transparent;font-weight:700}
+QLabel#ruleStatus,QLabel#cfStatus,QLabel#lstmStatus{color:#45D9AB;background:transparent;font-weight:bold}
 QLineEdit,QDoubleSpinBox{background:#17263D;border:1px solid #314563;border-radius:7px;padding:6px;color:white}
-QPushButton{background:#223754;color:#EAF2FF;border:1px solid #345075;border-radius:8px;font-weight:700;padding:5px}
+QPushButton{background:#223754;color:#EAF2FF;border:1px solid #345075;border-radius:8px;font-weight:bold;padding:5px}
 QPushButton:hover{background:#31547D}
 QPushButton:disabled{color:#63738B;background:#172438;border-color:#23344B}
-QPushButton#ruleStart,QPushButton#cfStart,QPushButton#lstmStart{background:#176A72;border-color:#228A8E}
-QPushButton#ruleStart:hover,QPushButton#cfStart:hover,QPushButton#lstmStart:hover{background:#208C91}
+QPushButton#ruleStart,QPushButton#cfStart,QPushButton#lstmStart{background:#007A43;color:#FFFFFF;border:2px solid #40D98B}
+QPushButton#ruleStart:hover,QPushButton#cfStart:hover,QPushButton#lstmStart:hover{background:#008A49}
 QTableWidget,QPlainTextEdit{background:#101D30;color:#D9E7F6;border:1px solid #2A405F;border-radius:9px;gridline-color:#263B56;selection-background-color:#255C87;alternate-background-color:#16263D}
-QHeaderView::section{background:#213652;color:#E6F0FF;padding:8px;border:none;border-right:1px solid #344A67;font-weight:700}
+QHeaderView::section{background:#213652;color:#E6F0FF;padding:8px;border:none;border-right:1px solid #344A67;font-weight:bold}
+
+QPushButton#ruleStop,QPushButton#cfStop,QPushButton#lstmStop{background:#B91C1C;color:#FFFFFF;border:2px solid #F87171}
+QPushButton#ruleStop:hover,QPushButton#cfStop:hover,QPushButton#lstmStop:hover{background:#C62828}
+QPushButton#ruleStart:disabled,QPushButton#cfStart:disabled,QPushButton#lstmStart:disabled,QPushButton#ruleStop:disabled,QPushButton#cfStop:disabled,QPushButton#lstmStop:disabled{background:#374151;color:#B9C3D0;border:1px solid #64748B}
+QPushButton:pressed{background:#005C32}
+QHeaderView::section{font-size:10pt;font-weight:bold}
+QScrollBar:vertical{background:#101D30;width:12px;margin:0}
+QScrollBar::handle:vertical{background:#405775;min-height:24px;border-radius:5px}
+QScrollBar::add-line:vertical,QScrollBar::sub-line:vertical{height:0}
+QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical{background:none}
 '''
 if __name__=='__main__':
     app=QtWidgets.QApplication(sys.argv)
     app.setStyle('Fusion')
+    for path in sorted((ROOT / 'fonts').glob('*')):
+        if path.suffix.lower() in ('.ttf', '.otf'):
+            QFontDatabase.addApplicationFont(str(path))
+    families = QFontDatabase().families()
+    if FONT_FAMILY not in families:
+        FONT_FAMILY = next((f for f in ('맑은 고딕', 'Malgun Gothic', 'Segoe UI') if f in families), app.font().family())
+        print('[WARNING] Pretendard not found. Install it or place static font files in fonts/.', flush=True)
+    font = QFont(FONT_FAMILY, 10)
+    font.setStyleStrategy(QFont.PreferAntialias)
+    app.setFont(font)
+    print('Requested font:', FONT_FAMILY, '| Actual font:', QFontInfo(font).family(), flush=True)
     win=Dashboard();win.show()
     sys.exit(app.exec_())
